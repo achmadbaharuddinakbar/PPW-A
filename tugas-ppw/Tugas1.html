@@ -430,6 +430,9 @@ document.write(`
     <span class="n">articles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;list-content__item&quot;</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">articles</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># Hentikan jika sudah 10 berita</span>
+            <span class="k">return</span>
+
         <span class="k">try</span><span class="p">:</span>
             <span class="n">link</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span>
             <span class="n">article_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
@@ -454,8 +457,8 @@ document.write(`
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 1 detik antara permintaan artikel</span>
 
 <span class="c1"># Membuat list url dan kategori yang akan di-crawl</span>
-<span class="n">base_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://finance.detik.com/indeks&quot;</span><span class="p">]</span>
-<span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ekonomi&quot;</span><span class="p">]</span>
+<span class="n">base_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://food.detik.com/indeks&quot;</span><span class="p">]</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Kuliner&quot;</span><span class="p">]</span>
 
 <span class="c1"># Inisialisasi list untuk menyimpan data</span>
 <span class="n">judul</span> <span class="o">=</span> <span class="p">[]</span>
@@ -465,6 +468,9 @@ document.write(`
 <span class="c1"># Melakukan iterasi untuk setiap url dan kategori</span>
 <span class="k">for</span> <span class="n">base_url</span><span class="p">,</span> <span class="n">category</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">base_urls</span><span class="p">,</span> <span class="n">categories</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>  <span class="c1"># Looping untuk beralih halaman</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># Hentikan jika sudah 10 berita</span>
+            <span class="k">break</span>
+
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 2 detik antara permintaan halaman</span>
@@ -478,64 +484,150 @@ document.write(`
 
 <span class="c1"># Menyimpan dataframe ke file CSV</span>
 <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;Crawl-berita.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan dataframe</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RI Tanam Modal Rp 32 T di Afrika, Ada Pertamina hingga Bio Farma
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Legit Kenyal! 20 Mochi Daifuku Ada di Sini
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bayar Tunggakan Gaji Karyawan Rp 95 M, Indofarma Mau Jual Aset
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arummi Foods Jadi Juara 1 di Food Startup Indonesia 2024
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kasus Fraud Indofarma Sedang Diusut Kejaksaan
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rasis! Pria Berkulit Hitam Disebut &#39;Monyet&#39; saat Beli Makan di Restoran
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Menaker Buka Suara Soal Kelas Menengah Turun Kasta, Siapkan Jurus Ini
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tak Sabar! Pria Ini Mancing Dapat Ikan Langsung Digoreng
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eskalator Stasiun Pasar Senen Resmi Beroperasi
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Itutuh: Pho dengan Iga Sapi dan Banh Mi Rasa Autentik Vietnam
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Buruh Sektor Pengolahan hingga Pertanian Gajinya di Bawah Rata-rata
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gading Marten Jualan Nasi Tempong Lauk Ayam Goreng dan Oseng Cumi Pete
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Makan Bergizi Gratis-Bangun Sekolah di IKN Masuk Prioritas Prabowo-Gibran
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resep Tumis Kangkung yang Gurih dan Lezat, Cocok untuk Makan Siang
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Menaker Akui Jumlah PHK Meningkat, Tembus 46.000!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 Air Rebusan Daun yang Bantu Mengobati Asam Urat, Diabetes, dan Hipertensi
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RI Deflasi 4 Bulan Beruntun, Tanda Pelemahan Daya Beli?
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anggarannya Berkurang Rp117 M, BPIW Ngadu ke DPR
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jokowi Naikkan Tukin Pegawai Komnas HAM, Paling Tinggi Rp 29 Juta!
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cara Daftar QR Code Pertamina untuk Beli Pertalite dan Solar
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resep Pesmol Ikan Mas Berbumbu Rempah yang Sedap
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-f20a7215aae1&gt;</span> in <span class="ni">&lt;cell line: 52&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>  <span class="c1"># Looping untuk beralih halaman</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">55</span>         <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 2 detik antara permintaan halaman</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> 
+<span class="nn">&lt;ipython-input-1-e3e183336494&gt;</span> in <span class="ni">&lt;cell line: 55&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span> 
+<span class="g g-Whitespace">     </span><span class="mi">60</span>         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">61</span>         <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 2 detik antara permintaan halaman</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> 
 
-<span class="nn">&lt;ipython-input-1-f20a7215aae1&gt;</span> in <span class="ni">get_data</span><span class="nt">(url, kategori)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> 
-<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">40</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 1 detik antara permintaan artikel</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> 
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="c1"># Membuat list url dan kategori yang akan di-crawl</span>
+<span class="nn">&lt;ipython-input-1-e3e183336494&gt;</span> in <span class="ni">get_data</span><span class="nt">(url, kategori)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>             <span class="n">link</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">24</span>             <span class="n">article_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>             <span class="n">article_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="k">except</span> <span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">73</span><span class="s2">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="s2">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">59</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="s2">         return resp</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         # Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">667</span><span class="s2">             resp = conn.urlopen(</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span><span class="s2">                 method=request.method,</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span><span class="s2">                 url=url,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span><span class="s2">             # Make the request on the HTTPConnection object</span>
+<span class="ne">--&gt; </span><span class="mi">791</span><span class="s2">             response = self._make_request(</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="s2">                 conn,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">                 method,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span><span class="s2">         # Receive the response from the server</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">537</span><span class="s2">             response = conn.getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span><span class="s2">         except (BaseSSLError, OSError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span><span class="s2">             self._raise_timeout(err=e, url=url, timeout_value=read_timeout)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span><span class="s2">         # Get the response from http.client.HTTPConnection</span>
+<span class="ne">--&gt; </span><span class="mi">461</span><span class="s2">         httplib_response = super().getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span><span class="s2">         try:</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1374</span><span class="s2">             try:</span>
+<span class="ne">-&gt; </span><span class="mi">1375</span><span class="s2">                 response.begin()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1376</span><span class="s2">             except ConnectionError:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1377</span><span class="s2">                 self.close()</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="s2">         # read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="s2">         while True:</span>
+<span class="ne">--&gt; </span><span class="mi">318</span><span class="s2">             version, status, reason = self._read_status()</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span><span class="s2">             if status != CONTINUE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="s2">                 break</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span><span class="s2">     def _read_status(self):</span>
+<span class="ne">--&gt; </span><span class="mi">279</span><span class="s2">         line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span><span class="s2">         if len(line) &gt; _MAXLINE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="s2">             raise LineTooLong(&quot;status line&quot;)</span>
+
+<span class="nn">/usr/lib/python3.10/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">         while True:</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">705</span><span class="s2">                 return self._sock.recv_into(b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">             except timeout:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span><span class="s2">                 self._timeout_occurred = True</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span><span class="s2">                   &quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot; %</span>
+<span class="g g-Whitespace">   </span><span class="mi">1302</span><span class="s2">                   self.__class__)</span>
+<span class="ne">-&gt; </span><span class="mi">1303</span><span class="s2">             return self.read(nbytes, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1305</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1157</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1158</span><span class="s2">             if buffer is not None:</span>
+<span class="ne">-&gt; </span><span class="mi">1159</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1160</span><span class="s2">             else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1161</span><span class="s2">                 return self._sslobj.read(len)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -544,215 +636,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
-
-<span class="c1"># Upload file dari komputer</span>
-<span class="n">uploaded</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Crawl-berita.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-     <input type="file" id="files-eb269063-535a-4176-b2ed-6a0d8f3bf916" name="files[]" multiple disabled
-        style="border:none" />
-     <output id="result-eb269063-535a-4176-b2ed-6a0d8f3bf916">
-      Upload widget is only available when the cell has been executed in the
-      current browser session. Please rerun this cell to enable.
-      </output>
-      <script>// Copyright 2017 Google LLC
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-/**
- * @fileoverview Helpers for google.colab Python module.
- */
-(function(scope) {
-function span(text, styleAttributes = {}) {
-  const element = document.createElement('span');
-  element.textContent = text;
-  for (const key of Object.keys(styleAttributes)) {
-    element.style[key] = styleAttributes[key];
-  }
-  return element;
-}
-
-// Max number of bytes which will be uploaded at a time.
-const MAX_PAYLOAD_SIZE = 100 * 1024;
-
-function _uploadFiles(inputId, outputId) {
-  const steps = uploadFilesStep(inputId, outputId);
-  const outputElement = document.getElementById(outputId);
-  // Cache steps on the outputElement to make it available for the next call
-  // to uploadFilesContinue from Python.
-  outputElement.steps = steps;
-
-  return _uploadFilesContinue(outputId);
-}
-
-// This is roughly an async generator (not supported in the browser yet),
-// where there are multiple asynchronous steps and the Python side is going
-// to poll for completion of each step.
-// This uses a Promise to block the python side on completion of each step,
-// then passes the result of the previous step as the input to the next step.
-function _uploadFilesContinue(outputId) {
-  const outputElement = document.getElementById(outputId);
-  const steps = outputElement.steps;
-
-  const next = steps.next(outputElement.lastPromiseValue);
-  return Promise.resolve(next.value.promise).then((value) => {
-    // Cache the last promise value to make it available to the next
-    // step of the generator.
-    outputElement.lastPromiseValue = value;
-    return next.value.response;
-  });
-}
-
-/**
- * Generator function which is called between each async step of the upload
- * process.
- * @param {string} inputId Element ID of the input file picker element.
- * @param {string} outputId Element ID of the output display.
- * @return {!Iterable<!Object>} Iterable of next steps.
- */
-function* uploadFilesStep(inputId, outputId) {
-  const inputElement = document.getElementById(inputId);
-  inputElement.disabled = false;
-
-  const outputElement = document.getElementById(outputId);
-  outputElement.innerHTML = '';
-
-  const pickedPromise = new Promise((resolve) => {
-    inputElement.addEventListener('change', (e) => {
-      resolve(e.target.files);
-    });
-  });
-
-  const cancel = document.createElement('button');
-  inputElement.parentElement.appendChild(cancel);
-  cancel.textContent = 'Cancel upload';
-  const cancelPromise = new Promise((resolve) => {
-    cancel.onclick = () => {
-      resolve(null);
-    };
-  });
-
-  // Wait for the user to pick the files.
-  const files = yield {
-    promise: Promise.race([pickedPromise, cancelPromise]),
-    response: {
-      action: 'starting',
-    }
-  };
-
-  cancel.remove();
-
-  // Disable the input element since further picks are not allowed.
-  inputElement.disabled = true;
-
-  if (!files) {
-    return {
-      response: {
-        action: 'complete',
-      }
-    };
-  }
-
-  for (const file of files) {
-    const li = document.createElement('li');
-    li.append(span(file.name, {fontWeight: 'bold'}));
-    li.append(span(
-        `(${file.type || 'n/a'}) - ${file.size} bytes, ` +
-        `last modified: ${
-            file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() :
-                                    'n/a'} - `));
-    const percent = span('0% done');
-    li.appendChild(percent);
-
-    outputElement.appendChild(li);
-
-    const fileDataPromise = new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        resolve(e.target.result);
-      };
-      reader.readAsArrayBuffer(file);
-    });
-    // Wait for the data to be ready.
-    let fileData = yield {
-      promise: fileDataPromise,
-      response: {
-        action: 'continue',
-      }
-    };
-
-    // Use a chunked sending to avoid message size limits. See b/62115660.
-    let position = 0;
-    do {
-      const length = Math.min(fileData.byteLength - position, MAX_PAYLOAD_SIZE);
-      const chunk = new Uint8Array(fileData, position, length);
-      position += length;
-
-      const base64 = btoa(String.fromCharCode.apply(null, chunk));
-      yield {
-        response: {
-          action: 'append',
-          file: file.name,
-          data: base64,
-        },
-      };
-
-      let percentDone = fileData.byteLength === 0 ?
-          100 :
-          Math.round((position / fileData.byteLength) * 100);
-      percent.textContent = `${percentDone}% done`;
-
-    } while (position < fileData.byteLength);
-  }
-
-  // All done.
-  yield {
-    response: {
-      action: 'complete',
-    }
-  };
-}
-
-scope.google = scope.google || {};
-scope.google.colab = scope.google.colab || {};
-scope.google.colab._files = {
-  _uploadFiles,
-  _uploadFilesContinue,
-};
-})(self);
-</script> </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving Crawl-berita.csv to Crawl-berita (1).csv
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">io</span>
-
-<span class="c1"># Membaca file CSV yang diunggah dan menyimpannya ke dalam DataFrame dengan variabel df</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">uploaded</span><span class="p">[</span><span class="s1">&#39;Crawl-berita (1).csv&#39;</span><span class="p">]))</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-44a16221-5a0e-4a57-aef1-188c93ab6478" class="colab-df-container">
+  <div id="df-18fca647-2495-4c21-b8dc-e9be615c48e4" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -779,63 +670,63 @@ scope.google.colab._files = {
   <tbody>
     <tr>
       <th>0</th>
-      <td>Makan Bergizi Gratis-Bangun Sekolah Unggulan M...</td>
-      <td>Senin, 02 Sep 2024 13:23 WIB</td>
-      <td>Jakarta - Kementerian Perencanaan Pembangunan ...</td>
+      <td>Legit Kenyal! 20 Mochi Daifuku Ada di Sini</td>
+      <td>Senin, 02 Sep 2024 14:00 WIB</td>
+      <td>Jakarta - Mochi daifuku asal Jepang kini sedan...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Menaker Akui Jumlah PHK Meningkat, Tembus 46.000!</td>
-      <td>Senin, 02 Sep 2024 13:07 WIB</td>
-      <td>Jakarta - Menteri Ketenagakerjaan (Menaker) Id...</td>
+      <td>Arummi Foods Jadi Juara 1 di Food Startup Indo...</td>
+      <td>Senin, 02 Sep 2024 13:15 WIB</td>
+      <td>Jakarta - Arummi Foods menjadi juara 1 dalam a...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>RI Deflasi 4 Bulan Beruntun, Tanda Pelemahan D...</td>
-      <td>Senin, 02 Sep 2024 13:04 WIB</td>
-      <td>Jakarta - Badan Pusat Statistik (BPS) mengumum...</td>
+      <td>Rasis! Pria Berkulit Hitam Disebut 'Monyet' sa...</td>
+      <td>Senin, 02 Sep 2024 13:00 WIB</td>
+      <td>Jakarta - Seorang pria berkulit hitam mengalam...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Anggarannya Berkurang Rp117 M, BPIW Ngadu ke DPR</td>
-      <td>Senin, 02 Sep 2024 12:58 WIB</td>
-      <td>Jakarta - Kementerian Pekerjaan Umum dan Perum...</td>
+      <td>Tak Sabar! Pria Ini Mancing Dapat Ikan Langsun...</td>
+      <td>Senin, 02 Sep 2024 12:30 WIB</td>
+      <td>Jakarta - Definisi 'fast food', pria ini meman...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jokowi Naikkan Tukin Pegawai Komnas HAM, Palin...</td>
-      <td>Senin, 02 Sep 2024 12:47 WIB</td>
-      <td>Jakarta - Presiden Joko Widodo (Jokowi) menaik...</td>
+      <td>Itutuh: Pho dengan Iga Sapi dan Banh Mi Rasa A...</td>
+      <td>Senin, 02 Sep 2024 12:00 WIB</td>
+      <td>Jakarta -\n        \n        Di Tebet ada rest...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Cara Daftar QR Code Pertamina untuk Beli Perta...</td>
-      <td>Senin, 02 Sep 2024 12:42 WIB</td>
-      <td>Jakarta - PT Pertamina Patra Niaga mengimbau m...</td>
+      <td>Gading Marten Jualan Nasi Tempong Lauk Ayam Go...</td>
+      <td>Senin, 02 Sep 2024 11:30 WIB</td>
+      <td>Jakarta - Gading Marten punya restoran sambal ...</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Cuma Dapat Anggaran Rp 277 M, Erick Thohir: Ti...</td>
-      <td>Senin, 02 Sep 2024 12:31 WIB</td>
-      <td>Jakarta - Menteri BUMN Erick Thohir mengusulka...</td>
+      <td>Resep Tumis Kangkung yang Gurih dan Lezat, Coc...</td>
+      <td>Senin, 02 Sep 2024 11:00 WIB</td>
+      <td>Tentang\nBahan\nLangkah\n\nJakarta - Tumis kan...</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>BI Prediksi Ekonomi RI Bisa Tembus 5,6% Tahun ...</td>
-      <td>Senin, 02 Sep 2024 12:26 WIB</td>
-      <td>Jakarta - Bank Indonesia (BI) memprediksi pert...</td>
+      <td>6 Air Rebusan Daun yang Bantu Mengobati Asam U...</td>
+      <td>Senin, 02 Sep 2024 10:30 WIB</td>
+      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\t6 Rebusan ...</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>Sri Mulyani Buka-bukaan Anggaran Pilkada 2024</td>
-      <td>Senin, 02 Sep 2024 12:16 WIB</td>
-      <td>Jakarta - Menteri Keuangan Sri Mulyani Indrawa...</td>
+      <td>Resep Pesmol Ikan Mas Berbumbu Rempah yang Sedap</td>
+      <td>Senin, 02 Sep 2024 10:00 WIB</td>
+      <td>Tentang\nBahan\nLangkah\n\nJakarta - Ikan mas ...</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Ini Biang Kerok yang Bikin Warga Jonggol Kesul...</td>
-      <td>Senin, 02 Sep 2024 12:13 WIB</td>
-      <td>Jakarta - Kekeringan melanda sejumlah wilayah ...</td>
+      <td>Jus Mangga Tanpa Buah hingga Rekomendasi Kulin...</td>
+      <td>Senin, 02 Sep 2024 09:30 WIB</td>
+      <td>Jakarta -\n        \n        Pembuatan jus man...</td>
     </tr>
   </tbody>
 </table>
@@ -843,7 +734,7 @@ scope.google.colab._files = {
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-44a16221-5a0e-4a57-aef1-188c93ab6478')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-18fca647-2495-4c21-b8dc-e9be615c48e4')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -895,12 +786,12 @@ scope.google.colab._files = {
 
     <script>
       const buttonEl =
-        document.querySelector('#df-44a16221-5a0e-4a57-aef1-188c93ab6478 button.colab-df-convert');
+        document.querySelector('#df-18fca647-2495-4c21-b8dc-e9be615c48e4 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-44a16221-5a0e-4a57-aef1-188c93ab6478');
+        const element = document.querySelector('#df-18fca647-2495-4c21-b8dc-e9be615c48e4');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -920,8 +811,8 @@ scope.google.colab._files = {
   </div>
 
 
-<div id="df-59c491aa-0ef9-4bff-a900-963f15cf080b">
-  <button class="colab-df-quickchart" onclick="quickchart('df-59c491aa-0ef9-4bff-a900-963f15cf080b')"
+<div id="df-8e598964-7dc8-416e-86d6-977f603ad335">
+  <button class="colab-df-quickchart" onclick="quickchart('df-8e598964-7dc8-416e-86d6-977f603ad335')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1040,12 +931,67 @@ scope.google.colab._files = {
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-59c491aa-0ef9-4bff-a900-963f15cf080b button');
+        document.querySelector('#df-8e598964-7dc8-416e-86d6-977f603ad335 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
+
+  <div id="id_0940e2bc-8f50-4d37-b2c1-ba87dd344ed1">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_0940e2bc-8f50-4d37-b2c1-ba87dd344ed1 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('df');
+      }
+      })();
+    </script>
+  </div>
 
     </div>
   </div>
