@@ -410,6 +410,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tugas-1-crawling-data-detik-com">
 <h1>Tugas 1 - Crawling Data (<a class="reference external" href="http://detik.com">detik.com</a>)<a class="headerlink" href="#tugas-1-crawling-data-detik-com" title="Link to this heading">#</a></h1>
+<p>Crawling data adalah proses pengambilan data yang digunakan untuk mengumpulkan informasi dari situs web. proses ini dilakukan oleh program komputer yang disebut <strong>“crawler” atau “spider,”</strong> yang menavigasi situs web dan mengekstrak data yang diperlukan.</p>
+<p>Pada tugas ini menggunakan <strong>“BeautifulSoup”</strong> sebagai library Crawler dan proses pengambilan data diambil dari website <strong><a class="reference external" href="http://detik.com">detik.com</a></strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -488,6 +490,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jangan Dibuang! Kantong Teh Hijau Bisa Dimanfaatkan untuk 5 Hal Ini
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ramen hingga Yakitori, Ini 5 Menu Populer di Warung Jepang Kaki Lima
 </pre></div>
 </div>
@@ -515,9 +520,6 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sedep Poll! Sego Sambel Ikan Asap Racikan Mbak Dias di Lamongan
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nyamm! 5 Ayam Telur Asin Gurih Creamy yang Nikmat Buat Makan Siang
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-1-e3e183336494&gt;</span> in <span class="ni">&lt;cell line: 55&gt;</span><span class="nt">()</span>
@@ -532,6 +534,13 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Data yang diambil terdiri dari :</p>
+<ul class="simple">
+<li><p>Judul</p></li>
+<li><p>Tanggal</p></li>
+<li><p>Isi berita</p></li>
+</ul>
+<p>Pada tahap ini menampilkan data tersebut dan diambil berdasarkan kategori <em><strong>Kuliner</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Crawl-berita.csv&quot;</span><span class="p">)</span>
