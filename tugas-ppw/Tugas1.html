@@ -414,13 +414,25 @@ document.write(`
 <p>Pada tugas ini menggunakan <strong>“BeautifulSoup”</strong> sebagai library Crawler dan proses pengambilan data diambil dari website <strong><a class="reference external" href="http://detik.com">detik.com</a></strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judul</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">tanggal</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">isi</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">url_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">kategori_list</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Langkah Pertama Membuat list kosong untuk menyimpan data dan menampilkan proses crawling</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
 <span class="c1"># Fungsi untuk mengambil data dari halaman web Detik.com</span>
-<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">kategori</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">kategori</span><span class="p">,</span> <span class="n">max_articles</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -432,7 +444,7 @@ document.write(`
     <span class="n">articles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;list-content__item&quot;</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">articles</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># Hentikan jika sudah 10 berita</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
             <span class="k">return</span>
 
         <span class="k">try</span><span class="p">:</span>
@@ -454,6 +466,8 @@ document.write(`
         <span class="n">judul</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
         <span class="n">tanggal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
         <span class="n">isi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">url_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+        <span class="n">kategori_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kategori</span><span class="p">)</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 1 detik antara permintaan artikel</span>
@@ -462,62 +476,59 @@ document.write(`
 <span class="n">base_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://food.detik.com/indeks&quot;</span><span class="p">]</span>
 <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Kuliner&quot;</span><span class="p">]</span>
 
-<span class="c1"># Inisialisasi list untuk menyimpan data</span>
-<span class="n">judul</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">tanggal</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">isi</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_articles</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="c1"># Melakukan iterasi untuk setiap url dan kategori</span>
 <span class="k">for</span> <span class="n">base_url</span><span class="p">,</span> <span class="n">category</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">base_urls</span><span class="p">,</span> <span class="n">categories</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>  <span class="c1"># Looping untuk beralih halaman</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># Hentikan jika sudah 10 berita</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
+        <span class="k">break</span>
+
+    <span class="c1"># Looping untuk beralih halaman</span>
+    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
             <span class="k">break</span>
 
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+        <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">max_articles</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 2 detik antara permintaan halaman</span>
 
 <span class="c1"># Membuat dataframe dari list data</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;judul&quot;</span><span class="p">:</span> <span class="n">judul</span><span class="p">,</span>
-    <span class="s2">&quot;tanggal&quot;</span><span class="p">:</span> <span class="n">tanggal</span><span class="p">,</span>
-    <span class="s2">&quot;isi&quot;</span><span class="p">:</span> <span class="n">isi</span>
-<span class="p">})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;judul&quot;</span><span class="p">:</span> <span class="n">judul</span><span class="p">,</span> <span class="s2">&quot;isi&quot;</span><span class="p">:</span> <span class="n">isi</span><span class="p">,</span> <span class="s2">&quot;tanggal&quot;</span><span class="p">:</span> <span class="n">tanggal</span><span class="p">,</span> <span class="s2">&quot;kategori&quot;</span><span class="p">:</span> <span class="n">kategori_list</span><span class="p">})</span>
 
-<span class="c1"># Menyimpan dataframe ke file CSV</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;Crawl-berita.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Menyimpan dataframe ke file csv</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data_berita_detik.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jangan Dibuang! Kantong Teh Hijau Bisa Dimanfaatkan untuk 5 Hal Ini
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Salt Bae Masak BBQ hingga Ciri Tempat Makan Enak dari Netizen
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ramen hingga Yakitori, Ini 5 Menu Populer di Warung Jepang Kaki Lima
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 Resep Udang Goreng ala Restoran yang Terkenal Lezatnya
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>So Sweet! Pengantar Makanan Ini Dapat Kejutan Ultah dari Pelanggan
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sari Delicatessen yang Legendaris Kembali Hadir dengan Konsep Baru
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Viral! Wanita Ini Buka Toko Kelontong di Bagasi Mobil Mewah
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minum Air Garam Hangat Tiap Hari Punya 9 Manfaat Sehat Ini
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pencinta Kopi! Ini 5 Racikan Kopi Unik yang Populer di Napoli
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 Racikan Kopi Terburuk di Dunia Diracik Pakai Bahan Ini
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ramen dan Yakitori Murah Enak Ditawarkan di Tenda dan Gerobak
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 Manfaat Daun Pepaya yang Rasanya Pahit Nikmat
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyak Warung Tahu Gimbal Pakai Nama Pak Edy/Edi, Mana yang Asli?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 Makanan Penguat Imunitas, Cocok untuk Cegah Monkeypox
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ini Ciri Tempat Makan Enak Menurut Netizen, Bukan dari Anak Jaksel!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lagi Diet, Bagusnya Makan Putih atau Kuning Telur?
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Salt Bae Dikritik Usai Jadi Chef di Pesta BBQ Penyanyi Legendaris
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Manis! Ultah Al Ghazali ke-27 Dirayakan dengan Makan Malam Keluarga
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sedep Poll! Sego Sambel Ikan Asap Racikan Mbak Dias di Lamongan
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dinar Candy Traktir Penghuni Rumah Singgah dan Kulineran ke Kamboja
 </pre></div>
 </div>
 </div>
@@ -525,20 +536,21 @@ document.write(`
 <p>Data yang diambil terdiri dari :</p>
 <ul class="simple">
 <li><p>Judul</p></li>
-<li><p>Tanggal</p></li>
 <li><p>Isi berita</p></li>
+<li><p>Tanggal</p></li>
+<li><p>Kategori</p></li>
 </ul>
 <p>Pada tahap ini menampilkan data tersebut dan diambil berdasarkan kategori <em><strong>Kuliner</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Crawl-berita.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data_berita_detik.csv&quot;</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-54b61b11-4648-47ff-b26d-4992487259bd" class="colab-df-container">
+  <div id="df-76ee10e8-65ee-4ae8-8435-c713f82e9eae" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -558,70 +570,81 @@ document.write(`
     <tr style="text-align: right;">
       <th></th>
       <th>judul</th>
-      <th>tanggal</th>
       <th>isi</th>
+      <th>tanggal</th>
+      <th>kategori</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Dibuang! Kantong Teh Hijau Bisa Dimanfa...</td>
-      <td>Selasa, 03 Sep 2024 17:30 WIB</td>
-      <td>Jakarta -\n        \n        Kantong teh hijau...</td>
+      <td>Salt Bae Masak BBQ hingga Ciri Tempat Makan En...</td>
+      <td>Jakarta -\n        \n        Aksi Salt Bae mas...</td>
+      <td>Rabu, 04 Sep 2024 09:30 WIB</td>
+      <td>Kuliner</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Ramen hingga Yakitori, Ini 5 Menu Populer di W...</td>
-      <td>Selasa, 03 Sep 2024 17:00 WIB</td>
-      <td>Jakarta -\n        \n        Banyak warung mak...</td>
+      <td>3 Resep Udang Goreng ala Restoran yang Terkena...</td>
+      <td>Tentang\nBahan\nLangkah\n\nJakarta - Udang gor...</td>
+      <td>Rabu, 04 Sep 2024 09:00 WIB</td>
+      <td>Kuliner</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>So Sweet! Pengantar Makanan Ini Dapat Kejutan ...</td>
-      <td>Selasa, 03 Sep 2024 16:30 WIB</td>
-      <td>Jakarta - Pengalaman yang membahagiakan kerap ...</td>
+      <td>Sari Delicatessen yang Legendaris Kembali Hadi...</td>
+      <td>Jakarta - Sari Delicatessen and Cafe salah sat...</td>
+      <td>Rabu, 04 Sep 2024 08:30 WIB</td>
+      <td>Kuliner</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Viral! Wanita Ini Buka Toko Kelontong di Bagas...</td>
-      <td>Selasa, 03 Sep 2024 16:00 WIB</td>
-      <td>Jakarta - Dalam unggahan foto, terlihat seoran...</td>
+      <td>Minum Air Garam Hangat Tiap Hari Punya 9 Manfa...</td>
+      <td>Jakarta -\n        \n        Memulai hari bisa...</td>
+      <td>Rabu, 04 Sep 2024 08:00 WIB</td>
+      <td>Kuliner</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Pencinta Kopi! Ini 5 Racikan Kopi Unik yang Po...</td>
-      <td>Selasa, 03 Sep 2024 15:30 WIB</td>
-      <td>Jakarta -\n        \n        Selain pizzanya, ...</td>
+      <td>7 Racikan Kopi Terburuk di Dunia Diracik Pakai...</td>
+      <td>Jakarta -\n        \n        Racikan kopi begi...</td>
+      <td>Rabu, 04 Sep 2024 07:30 WIB</td>
+      <td>Kuliner</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Ramen dan Yakitori Murah Enak Ditawarkan di Te...</td>
-      <td>Selasa, 03 Sep 2024 15:00 WIB</td>
-      <td>Jakarta - Kuliner Jepang punya popularitas tin...</td>
+      <td>5 Manfaat Daun Pepaya yang Rasanya Pahit Nikmat</td>
+      <td>Jakarta - Daun pepaya disukai orang Indonesia ...</td>
+      <td>Rabu, 04 Sep 2024 07:00 WIB</td>
+      <td>Kuliner</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Banyak Warung Tahu Gimbal Pakai Nama Pak Edy/E...</td>
-      <td>Selasa, 03 Sep 2024 14:30 WIB</td>
-      <td>Jakarta -\n        \n        Netizen kaget mel...</td>
+      <td>5 Makanan Penguat Imunitas, Cocok untuk Cegah ...</td>
+      <td>Jakarta -\n        \n        Maraknya isu peny...</td>
+      <td>Rabu, 04 Sep 2024 06:00 WIB</td>
+      <td>Kuliner</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Ini Ciri Tempat Makan Enak Menurut Netizen, Bu...</td>
-      <td>Selasa, 03 Sep 2024 13:30 WIB</td>
-      <td>Jakarta - Di X heboh tudingan rekomendasi temp...</td>
+      <td>Lagi Diet, Bagusnya Makan Putih atau Kuning Te...</td>
+      <td>Jakarta - Telur banyak dijadikan pilihan sumbe...</td>
+      <td>Rabu, 04 Sep 2024 05:00 WIB</td>
+      <td>Kuliner</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>Salt Bae Dikritik Usai Jadi Chef di Pesta BBQ ...</td>
-      <td>Selasa, 03 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Keahlian Salt Bae menyajikan steak y...</td>
+      <td>Manis! Ultah Al Ghazali ke-27 Dirayakan dengan...</td>
+      <td>Jakarta - Ulang tahun Al Ghazali yang ke-27 di...</td>
+      <td>Selasa, 03 Sep 2024 22:00 WIB</td>
+      <td>Kuliner</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Sedep Poll! Sego Sambel Ikan Asap Racikan Mbak...</td>
-      <td>Selasa, 03 Sep 2024 12:30 WIB</td>
-      <td>Lamongan - Penikmat kuliner pedas bisa memanja...</td>
+      <td>Dinar Candy Traktir Penghuni Rumah Singgah dan...</td>
+      <td>Jakarta - Resmi menyandang gelar sarjana, Dina...</td>
+      <td>Selasa, 03 Sep 2024 21:00 WIB</td>
+      <td>Kuliner</td>
     </tr>
   </tbody>
 </table>
@@ -629,7 +652,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-54b61b11-4648-47ff-b26d-4992487259bd')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-76ee10e8-65ee-4ae8-8435-c713f82e9eae')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -681,12 +704,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-54b61b11-4648-47ff-b26d-4992487259bd button.colab-df-convert');
+        document.querySelector('#df-76ee10e8-65ee-4ae8-8435-c713f82e9eae button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-54b61b11-4648-47ff-b26d-4992487259bd');
+        const element = document.querySelector('#df-76ee10e8-65ee-4ae8-8435-c713f82e9eae');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
