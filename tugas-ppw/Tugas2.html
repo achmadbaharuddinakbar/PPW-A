@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/Tugas2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tugas 3 - Logistic Regression" href="Tugas3.html" />
     <link rel="prev" title="Tugas 1 - Crawling Data (detik.com)" href="Tugas1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -181,6 +182,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Tugas1.html"><strong>Tugas 1 - Crawling Data (detik.com)</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Tugas 2 - Pre-Processing Data dengan TF-IDF</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas3.html">Tugas 3 - Logistic Regression</a></li>
 </ul>
 
     </div>
@@ -437,7 +439,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-508b913c-312f-4f01-82db-29c8e5e64e43" class="colab-df-container">
+  <div id="df-8af86e50-def0-49fe-b2a5-96425b942521" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -465,44 +467,44 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>Tubuh Tak Bisa Bergerak saat Bangun Tengah Mal...</td>
+      <td>Minggu, 22 Sep 2024 20:31 WIB</td>
+      <td>Jakarta - Sleep paralysis, orang awam mengenal...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Orang Kaya atau Miskin Ternyata Bisa Dilihat d...</td>
+      <td>Minggu, 22 Sep 2024 20:01 WIB</td>
+      <td>Jakarta - Sebuah penelitian dari Universitas T...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Sering Kena Angin Bisa Picu 'Angin Duduk', Mit...</td>
+      <td>Minggu, 22 Sep 2024 19:00 WIB</td>
+      <td>Jakarta - Pernah mendengar penyakit 'angin dud...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>8 Kepribadian yang Bisa Jadi Tanda Psikopat, S...</td>
+      <td>Minggu, 22 Sep 2024 18:00 WIB</td>
+      <td>Jakarta - Berbicara tentang psikopat, mungkin ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>4 Kebiasaan Sehari-hari yang Bisa Memicu Penya...</td>
+      <td>Minggu, 22 Sep 2024 17:00 WIB</td>
+      <td>Jakarta - Penyakit asam urat atau gout merupak...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Waduh! Peneliti di China Temukan Virus Baru Ak...</td>
-      <td>Sabtu, 07 Sep 2024 12:00 WIB</td>
-      <td>Jakarta - Ilmuwan menemukan virus baru di Chin...</td>
+      <td>5 Sayuran yang Perlu Dihindari Pengidap Asam U...</td>
+      <td>Minggu, 22 Sep 2024 15:00 WIB</td>
+      <td>Jakarta - Sayuran dikenal sebagai sumber nutri...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -511,7 +513,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-508b913c-312f-4f01-82db-29c8e5e64e43')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8af86e50-def0-49fe-b2a5-96425b942521')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -563,12 +565,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-508b913c-312f-4f01-82db-29c8e5e64e43 button.colab-df-convert');
+        document.querySelector('#df-8af86e50-def0-49fe-b2a5-96425b942521 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-508b913c-312f-4f01-82db-29c8e5e64e43');
+        const element = document.querySelector('#df-8af86e50-def0-49fe-b2a5-96425b942521');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -646,7 +648,7 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ed7654a6-f896-48db-80d6-ecc4004a6fcf" class="colab-df-container">
+  <div id="df-429ca479-3416-49d8-b8eb-5b62ea38a5e6" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -675,51 +677,51 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>Tubuh Tak Bisa Bergerak saat Bangun Tengah Mal...</td>
+      <td>Minggu, 22 Sep 2024 20:31 WIB</td>
+      <td>Jakarta - Sleep paralysis, orang awam mengenal...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Olahraga lari dalam beberapa waktu te...</td>
+      <td>Jakarta  Sleep paralysis orang awam mengenalny...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Orang Kaya atau Miskin Ternyata Bisa Dilihat d...</td>
+      <td>Minggu, 22 Sep 2024 20:01 WIB</td>
+      <td>Jakarta - Sebuah penelitian dari Universitas T...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Adanya teknologi earphone nirkabel at...</td>
+      <td>Jakarta  Sebuah penelitian dari Universitas To...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Sering Kena Angin Bisa Picu 'Angin Duduk', Mit...</td>
+      <td>Minggu, 22 Sep 2024 19:00 WIB</td>
+      <td>Jakarta - Pernah mendengar penyakit 'angin dud...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tren penggunaan earphone nirkabel ata...</td>
+      <td>Jakarta  Pernah mendengar penyakit angin duduk...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>8 Kepribadian yang Bisa Jadi Tanda Psikopat, S...</td>
+      <td>Minggu, 22 Sep 2024 18:00 WIB</td>
+      <td>Jakarta - Berbicara tentang psikopat, mungkin ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Hidup sehat dengan umur yang panjang ...</td>
+      <td>Jakarta  Berbicara tentang psikopat mungkin ya...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>4 Kebiasaan Sehari-hari yang Bisa Memicu Penya...</td>
+      <td>Minggu, 22 Sep 2024 17:00 WIB</td>
+      <td>Jakarta - Penyakit asam urat atau gout merupak...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Spesialis kedokteran olahraga dr Andh...</td>
+      <td>Jakarta  Penyakit asam urat atau gout merupaka...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Waduh! Peneliti di China Temukan Virus Baru Ak...</td>
-      <td>Sabtu, 07 Sep 2024 12:00 WIB</td>
-      <td>Jakarta - Ilmuwan menemukan virus baru di Chin...</td>
+      <td>5 Sayuran yang Perlu Dihindari Pengidap Asam U...</td>
+      <td>Minggu, 22 Sep 2024 15:00 WIB</td>
+      <td>Jakarta - Sayuran dikenal sebagai sumber nutri...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Ilmuwan menemukan virus baru di China...</td>
+      <td>Jakarta  Sayuran dikenal sebagai sumber nutris...</td>
     </tr>
   </tbody>
 </table>
@@ -727,7 +729,7 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ed7654a6-f896-48db-80d6-ecc4004a6fcf')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-429ca479-3416-49d8-b8eb-5b62ea38a5e6')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -779,12 +781,12 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ed7654a6-f896-48db-80d6-ecc4004a6fcf button.colab-df-convert');
+        document.querySelector('#df-429ca479-3416-49d8-b8eb-5b62ea38a5e6 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ed7654a6-f896-48db-80d6-ecc4004a6fcf');
+        const element = document.querySelector('#df-429ca479-3416-49d8-b8eb-5b62ea38a5e6');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -832,7 +834,7 @@ dalam representasi kata dapat dipertahankan.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-cb2c7ba7-e6bb-470c-851b-bddf3ab9ec3d" class="colab-df-container">
+  <div id="df-bd3b8516-32a2-4581-9bf6-9f575248c761" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -862,57 +864,57 @@ dalam representasi kata dapat dipertahankan.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>Tubuh Tak Bisa Bergerak saat Bangun Tengah Mal...</td>
+      <td>Minggu, 22 Sep 2024 20:31 WIB</td>
+      <td>Jakarta - Sleep paralysis, orang awam mengenal...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Olahraga lari dalam beberapa waktu te...</td>
-      <td>jakarta  olahraga lari dalam beberapa waktu te...</td>
+      <td>Jakarta  Sleep paralysis orang awam mengenalny...</td>
+      <td>jakarta  sleep paralysis orang awam mengenalny...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Orang Kaya atau Miskin Ternyata Bisa Dilihat d...</td>
+      <td>Minggu, 22 Sep 2024 20:01 WIB</td>
+      <td>Jakarta - Sebuah penelitian dari Universitas T...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Adanya teknologi earphone nirkabel at...</td>
-      <td>jakarta  adanya teknologi earphone nirkabel at...</td>
+      <td>Jakarta  Sebuah penelitian dari Universitas To...</td>
+      <td>jakarta  sebuah penelitian dari universitas to...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Sering Kena Angin Bisa Picu 'Angin Duduk', Mit...</td>
+      <td>Minggu, 22 Sep 2024 19:00 WIB</td>
+      <td>Jakarta - Pernah mendengar penyakit 'angin dud...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tren penggunaan earphone nirkabel ata...</td>
-      <td>jakarta  tren penggunaan earphone nirkabel ata...</td>
+      <td>Jakarta  Pernah mendengar penyakit angin duduk...</td>
+      <td>jakarta  pernah mendengar penyakit angin duduk...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>8 Kepribadian yang Bisa Jadi Tanda Psikopat, S...</td>
+      <td>Minggu, 22 Sep 2024 18:00 WIB</td>
+      <td>Jakarta - Berbicara tentang psikopat, mungkin ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Hidup sehat dengan umur yang panjang ...</td>
-      <td>jakarta  hidup sehat dengan umur yang panjang ...</td>
+      <td>Jakarta  Berbicara tentang psikopat mungkin ya...</td>
+      <td>jakarta  berbicara tentang psikopat mungkin ya...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>4 Kebiasaan Sehari-hari yang Bisa Memicu Penya...</td>
+      <td>Minggu, 22 Sep 2024 17:00 WIB</td>
+      <td>Jakarta - Penyakit asam urat atau gout merupak...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Spesialis kedokteran olahraga dr Andh...</td>
-      <td>jakarta  spesialis kedokteran olahraga dr andh...</td>
+      <td>Jakarta  Penyakit asam urat atau gout merupaka...</td>
+      <td>jakarta  penyakit asam urat atau gout merupaka...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Waduh! Peneliti di China Temukan Virus Baru Ak...</td>
-      <td>Sabtu, 07 Sep 2024 12:00 WIB</td>
-      <td>Jakarta - Ilmuwan menemukan virus baru di Chin...</td>
+      <td>5 Sayuran yang Perlu Dihindari Pengidap Asam U...</td>
+      <td>Minggu, 22 Sep 2024 15:00 WIB</td>
+      <td>Jakarta - Sayuran dikenal sebagai sumber nutri...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Ilmuwan menemukan virus baru di China...</td>
-      <td>jakarta  ilmuwan menemukan virus baru di china...</td>
+      <td>Jakarta  Sayuran dikenal sebagai sumber nutris...</td>
+      <td>jakarta  sayuran dikenal sebagai sumber nutris...</td>
     </tr>
   </tbody>
 </table>
@@ -920,7 +922,7 @@ dalam representasi kata dapat dipertahankan.</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-cb2c7ba7-e6bb-470c-851b-bddf3ab9ec3d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-bd3b8516-32a2-4581-9bf6-9f575248c761')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -972,12 +974,12 @@ dalam representasi kata dapat dipertahankan.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-cb2c7ba7-e6bb-470c-851b-bddf3ab9ec3d button.colab-df-convert');
+        document.querySelector('#df-bd3b8516-32a2-4581-9bf6-9f575248c761 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-cb2c7ba7-e6bb-470c-851b-bddf3ab9ec3d');
+        const element = document.querySelector('#df-bd3b8516-32a2-4581-9bf6-9f575248c761');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1021,7 +1023,7 @@ berupa kata,frasa atau karakter terpisah.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-7fecd6de-3228-4b86-836c-c94e86ee2534" class="colab-df-container">
+  <div id="df-3b03efb4-e2ee-4cbc-ad7d-fc25c8579de7" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1052,63 +1054,63 @@ berupa kata,frasa atau karakter terpisah.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>Tubuh Tak Bisa Bergerak saat Bangun Tengah Mal...</td>
+      <td>Minggu, 22 Sep 2024 20:31 WIB</td>
+      <td>Jakarta - Sleep paralysis, orang awam mengenal...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Olahraga lari dalam beberapa waktu te...</td>
-      <td>jakarta  olahraga lari dalam beberapa waktu te...</td>
-      <td>[jakarta, olahraga, lari, dalam, beberapa, wak...</td>
+      <td>Jakarta  Sleep paralysis orang awam mengenalny...</td>
+      <td>jakarta  sleep paralysis orang awam mengenalny...</td>
+      <td>[jakarta, sleep, paralysis, orang, awam, menge...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Orang Kaya atau Miskin Ternyata Bisa Dilihat d...</td>
+      <td>Minggu, 22 Sep 2024 20:01 WIB</td>
+      <td>Jakarta - Sebuah penelitian dari Universitas T...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Adanya teknologi earphone nirkabel at...</td>
-      <td>jakarta  adanya teknologi earphone nirkabel at...</td>
-      <td>[jakarta, adanya, teknologi, earphone, nirkabe...</td>
+      <td>Jakarta  Sebuah penelitian dari Universitas To...</td>
+      <td>jakarta  sebuah penelitian dari universitas to...</td>
+      <td>[jakarta, sebuah, penelitian, dari, universita...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Sering Kena Angin Bisa Picu 'Angin Duduk', Mit...</td>
+      <td>Minggu, 22 Sep 2024 19:00 WIB</td>
+      <td>Jakarta - Pernah mendengar penyakit 'angin dud...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tren penggunaan earphone nirkabel ata...</td>
-      <td>jakarta  tren penggunaan earphone nirkabel ata...</td>
-      <td>[jakarta, tren, penggunaan, earphone, nirkabel...</td>
+      <td>Jakarta  Pernah mendengar penyakit angin duduk...</td>
+      <td>jakarta  pernah mendengar penyakit angin duduk...</td>
+      <td>[jakarta, pernah, mendengar, penyakit, angin, ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>8 Kepribadian yang Bisa Jadi Tanda Psikopat, S...</td>
+      <td>Minggu, 22 Sep 2024 18:00 WIB</td>
+      <td>Jakarta - Berbicara tentang psikopat, mungkin ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Hidup sehat dengan umur yang panjang ...</td>
-      <td>jakarta  hidup sehat dengan umur yang panjang ...</td>
-      <td>[jakarta, hidup, sehat, dengan, umur, yang, pa...</td>
+      <td>Jakarta  Berbicara tentang psikopat mungkin ya...</td>
+      <td>jakarta  berbicara tentang psikopat mungkin ya...</td>
+      <td>[jakarta, berbicara, tentang, psikopat, mungki...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>4 Kebiasaan Sehari-hari yang Bisa Memicu Penya...</td>
+      <td>Minggu, 22 Sep 2024 17:00 WIB</td>
+      <td>Jakarta - Penyakit asam urat atau gout merupak...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Spesialis kedokteran olahraga dr Andh...</td>
-      <td>jakarta  spesialis kedokteran olahraga dr andh...</td>
-      <td>[jakarta, spesialis, kedokteran, olahraga, dr,...</td>
+      <td>Jakarta  Penyakit asam urat atau gout merupaka...</td>
+      <td>jakarta  penyakit asam urat atau gout merupaka...</td>
+      <td>[jakarta, penyakit, asam, urat, atau, gout, me...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Waduh! Peneliti di China Temukan Virus Baru Ak...</td>
-      <td>Sabtu, 07 Sep 2024 12:00 WIB</td>
-      <td>Jakarta - Ilmuwan menemukan virus baru di Chin...</td>
+      <td>5 Sayuran yang Perlu Dihindari Pengidap Asam U...</td>
+      <td>Minggu, 22 Sep 2024 15:00 WIB</td>
+      <td>Jakarta - Sayuran dikenal sebagai sumber nutri...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Ilmuwan menemukan virus baru di China...</td>
-      <td>jakarta  ilmuwan menemukan virus baru di china...</td>
-      <td>[jakarta, ilmuwan, menemukan, virus, baru, di,...</td>
+      <td>Jakarta  Sayuran dikenal sebagai sumber nutris...</td>
+      <td>jakarta  sayuran dikenal sebagai sumber nutris...</td>
+      <td>[jakarta, sayuran, dikenal, sebagai, sumber, n...</td>
     </tr>
   </tbody>
 </table>
@@ -1116,7 +1118,7 @@ berupa kata,frasa atau karakter terpisah.</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7fecd6de-3228-4b86-836c-c94e86ee2534')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3b03efb4-e2ee-4cbc-ad7d-fc25c8579de7')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1168,12 +1170,12 @@ berupa kata,frasa atau karakter terpisah.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7fecd6de-3228-4b86-836c-c94e86ee2534 button.colab-df-convert');
+        document.querySelector('#df-3b03efb4-e2ee-4cbc-ad7d-fc25c8579de7 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7fecd6de-3228-4b86-836c-c94e86ee2534');
+        const element = document.querySelector('#df-3b03efb4-e2ee-4cbc-ad7d-fc25c8579de7');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1230,7 +1232,7 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-78d09c12-2eca-42ff-b2cc-ddca0b5b55b4" class="colab-df-container">
+  <div id="df-95e7e383-e2f2-4312-80c3-f58e05103f94" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1262,69 +1264,69 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>Tubuh Tak Bisa Bergerak saat Bangun Tengah Mal...</td>
+      <td>Minggu, 22 Sep 2024 20:31 WIB</td>
+      <td>Jakarta - Sleep paralysis, orang awam mengenal...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Olahraga lari dalam beberapa waktu te...</td>
-      <td>jakarta  olahraga lari dalam beberapa waktu te...</td>
-      <td>[jakarta, olahraga, lari, dalam, beberapa, wak...</td>
-      <td>jakarta olahraga lari tren mudah berlari salah...</td>
+      <td>Jakarta  Sleep paralysis orang awam mengenalny...</td>
+      <td>jakarta  sleep paralysis orang awam mengenalny...</td>
+      <td>[jakarta, sleep, paralysis, orang, awam, menge...</td>
+      <td>jakarta sleep paralysis orang awam mengenalnya...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Orang Kaya atau Miskin Ternyata Bisa Dilihat d...</td>
+      <td>Minggu, 22 Sep 2024 20:01 WIB</td>
+      <td>Jakarta - Sebuah penelitian dari Universitas T...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Adanya teknologi earphone nirkabel at...</td>
-      <td>jakarta  adanya teknologi earphone nirkabel at...</td>
-      <td>[jakarta, adanya, teknologi, earphone, nirkabe...</td>
-      <td>jakarta teknologi earphone nirkabel true wirel...</td>
+      <td>Jakarta  Sebuah penelitian dari Universitas To...</td>
+      <td>jakarta  sebuah penelitian dari universitas to...</td>
+      <td>[jakarta, sebuah, penelitian, dari, universita...</td>
+      <td>jakarta penelitian universitas toronto status ...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Sering Kena Angin Bisa Picu 'Angin Duduk', Mit...</td>
+      <td>Minggu, 22 Sep 2024 19:00 WIB</td>
+      <td>Jakarta - Pernah mendengar penyakit 'angin dud...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tren penggunaan earphone nirkabel ata...</td>
-      <td>jakarta  tren penggunaan earphone nirkabel ata...</td>
-      <td>[jakarta, tren, penggunaan, earphone, nirkabel...</td>
-      <td>jakarta tren penggunaan earphone nirkabel true...</td>
+      <td>Jakarta  Pernah mendengar penyakit angin duduk...</td>
+      <td>jakarta  pernah mendengar penyakit angin duduk...</td>
+      <td>[jakarta, pernah, mendengar, penyakit, angin, ...</td>
+      <td>jakarta mendengar penyakit angin duduk anggapa...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>8 Kepribadian yang Bisa Jadi Tanda Psikopat, S...</td>
+      <td>Minggu, 22 Sep 2024 18:00 WIB</td>
+      <td>Jakarta - Berbicara tentang psikopat, mungkin ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Hidup sehat dengan umur yang panjang ...</td>
-      <td>jakarta  hidup sehat dengan umur yang panjang ...</td>
-      <td>[jakarta, hidup, sehat, dengan, umur, yang, pa...</td>
-      <td>jakarta hidup sehat umur impian orang dibutuhk...</td>
+      <td>Jakarta  Berbicara tentang psikopat mungkin ya...</td>
+      <td>jakarta  berbicara tentang psikopat mungkin ya...</td>
+      <td>[jakarta, berbicara, tentang, psikopat, mungki...</td>
+      <td>jakarta berbicara psikopat langsung terlintas ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>4 Kebiasaan Sehari-hari yang Bisa Memicu Penya...</td>
+      <td>Minggu, 22 Sep 2024 17:00 WIB</td>
+      <td>Jakarta - Penyakit asam urat atau gout merupak...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Spesialis kedokteran olahraga dr Andh...</td>
-      <td>jakarta  spesialis kedokteran olahraga dr andh...</td>
-      <td>[jakarta, spesialis, kedokteran, olahraga, dr,...</td>
-      <td>jakarta spesialis kedokteran olahraga dr andhi...</td>
+      <td>Jakarta  Penyakit asam urat atau gout merupaka...</td>
+      <td>jakarta  penyakit asam urat atau gout merupaka...</td>
+      <td>[jakarta, penyakit, asam, urat, atau, gout, me...</td>
+      <td>jakarta penyakit asam urat gout salah jenis ra...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Waduh! Peneliti di China Temukan Virus Baru Ak...</td>
-      <td>Sabtu, 07 Sep 2024 12:00 WIB</td>
-      <td>Jakarta - Ilmuwan menemukan virus baru di Chin...</td>
+      <td>5 Sayuran yang Perlu Dihindari Pengidap Asam U...</td>
+      <td>Minggu, 22 Sep 2024 15:00 WIB</td>
+      <td>Jakarta - Sayuran dikenal sebagai sumber nutri...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Ilmuwan menemukan virus baru di China...</td>
-      <td>jakarta  ilmuwan menemukan virus baru di china...</td>
-      <td>[jakarta, ilmuwan, menemukan, virus, baru, di,...</td>
-      <td>jakarta ilmuwan menemukan virus china ditulark...</td>
+      <td>Jakarta  Sayuran dikenal sebagai sumber nutris...</td>
+      <td>jakarta  sayuran dikenal sebagai sumber nutris...</td>
+      <td>[jakarta, sayuran, dikenal, sebagai, sumber, n...</td>
+      <td>jakarta sayuran dikenal sumber nutrisi serat t...</td>
     </tr>
   </tbody>
 </table>
@@ -1332,7 +1334,7 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-78d09c12-2eca-42ff-b2cc-ddca0b5b55b4')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-95e7e383-e2f2-4312-80c3-f58e05103f94')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1384,12 +1386,12 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-78d09c12-2eca-42ff-b2cc-ddca0b5b55b4 button.colab-df-convert');
+        document.querySelector('#df-95e7e383-e2f2-4312-80c3-f58e05103f94 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-78d09c12-2eca-42ff-b2cc-ddca0b5b55b4');
+        const element = document.querySelector('#df-95e7e383-e2f2-4312-80c3-f58e05103f94');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1470,7 +1472,7 @@ kecil.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d12774f1-48aa-465d-8210-c1e487ab8356" class="colab-df-container">
+  <div id="df-133c79dd-47aa-4cce-8aff-702450a0ba48" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1489,27 +1491,27 @@ kecil.</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>aa</th>
-      <th>abad</th>
-      <th>abah</th>
-      <th>abang</th>
-      <th>abc</th>
-      <th>abdul</th>
-      <th>abidin</th>
-      <th>absen</th>
-      <th>ac</th>
-      <th>academic</th>
+      <th>abis</th>
+      <th>absent</th>
+      <th>abusive</th>
+      <th>academy</th>
+      <th>acara</th>
+      <th>acid</th>
+      <th>adalina</th>
+      <th>adiktif</th>
+      <th>adil</th>
+      <th>admin</th>
       <th>...</th>
-      <th>yu</th>
+      <th>youtuber</th>
+      <th>youtubers</th>
       <th>yuk</th>
-      <th>yuwono</th>
-      <th>zainoel</th>
       <th>zaitun</th>
+      <th>zaman</th>
       <th>zat</th>
-      <th>zi</th>
-      <th>zika</th>
-      <th>zokor</th>
-      <th>zurich</th>
+      <th>zero</th>
+      <th>zheng</th>
+      <th>zoonosis</th>
+      <th>zul</th>
     </tr>
   </thead>
   <tbody>
@@ -1523,7 +1525,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1534,7 +1536,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1547,7 +1549,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1558,7 +1560,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1571,7 +1573,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1582,7 +1584,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1595,7 +1597,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1606,7 +1608,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1616,10 +1618,10 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.031225</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1630,7 +1632,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1640,10 +1642,10 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.023935</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1651,10 +1653,10 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.022846</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.054233</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1667,7 +1669,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.063819</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1678,7 +1680,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1688,10 +1690,10 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.129041</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1702,7 +1704,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1715,7 +1717,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1726,7 +1728,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1739,7 +1741,7 @@ kecil.</p>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1747,20 +1749,20 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.134307</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>10 rows × 4693 columns</p>
+<p>10 rows × 4561 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d12774f1-48aa-465d-8210-c1e487ab8356')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-133c79dd-47aa-4cce-8aff-702450a0ba48')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1812,12 +1814,12 @@ kecil.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d12774f1-48aa-465d-8210-c1e487ab8356 button.colab-df-convert');
+        document.querySelector('#df-133c79dd-47aa-4cce-8aff-702450a0ba48 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d12774f1-48aa-465d-8210-c1e487ab8356');
+        const element = document.querySelector('#df-133c79dd-47aa-4cce-8aff-702450a0ba48');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1880,6 +1882,15 @@ kecil.</p>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title"><strong>Tugas 1 - Crawling Data (detik.com)</strong></p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Tugas3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tugas 3 - Logistic Regression</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
