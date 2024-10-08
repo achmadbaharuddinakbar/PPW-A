@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/Tugas3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="210411100001 - Achmad Baharuddin Akbar | Penambangan Web" href="Skip-Gram.html" />
+    <link rel="next" title="Skip Gram" href="Skip-Gram.html" />
     <link rel="prev" title="Tugas 2 - Pre-Processing Data dengan TF-IDF" href="Tugas2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,8 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas1.html"><strong>Tugas 1 - Crawling Data (detik.com)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas2.html"><strong>Tugas 2 - Pre-Processing Data dengan TF-IDF</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Tugas 3 - Logistic Regression</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Skip-Gram.html">210411100001 - Achmad Baharuddin Akbar | Penambangan Web</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="Skip-Gram.html">Skip Gram</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Tugas4.html">Tugas 4 - Graph</a></li>
 
@@ -461,7 +460,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-aff1c532-3568-4054-9524-e34fdcd4b174" class="colab-df-container">
+  <div id="df-5de85e07-1b12-4069-9888-843d5199b2f8" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -552,7 +551,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-aff1c532-3568-4054-9524-e34fdcd4b174')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5de85e07-1b12-4069-9888-843d5199b2f8')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -604,12 +603,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-aff1c532-3568-4054-9524-e34fdcd4b174 button.colab-df-convert');
+        document.querySelector('#df-5de85e07-1b12-4069-9888-843d5199b2f8 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-aff1c532-3568-4054-9524-e34fdcd4b174');
+        const element = document.querySelector('#df-5de85e07-1b12-4069-9888-843d5199b2f8');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -684,7 +683,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4ddec151-70b4-4fa8-9ded-d0c13df80a59" class="colab-df-container">
+  <div id="df-78be77b8-67f5-4eed-b056-615897ad5da9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -741,7 +740,7 @@ document.write(`
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.018828</td>
+      <td>0.018829</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -758,7 +757,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.049737</td>
+      <td>0.049738</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
@@ -785,7 +784,7 @@ document.write(`
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.040313</td>
+      <td>0.040315</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -806,7 +805,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.075650</td>
+      <td>0.075675</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
@@ -963,18 +962,18 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.053552</td>
+      <td>0.053565</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>10 rows × 4379 columns</p>
+<p>10 rows × 4436 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4ddec151-70b4-4fa8-9ded-d0c13df80a59')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-78be77b8-67f5-4eed-b056-615897ad5da9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1026,12 +1025,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4ddec151-70b4-4fa8-9ded-d0c13df80a59 button.colab-df-convert');
+        document.querySelector('#df-78be77b8-67f5-4eed-b056-615897ad5da9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4ddec151-70b4-4fa8-9ded-d0c13df80a59');
+        const element = document.querySelector('#df-78be77b8-67f5-4eed-b056-615897ad5da9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1073,8 +1072,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of X_train: (80, 4379)
-Shape of X_test: (20, 4379)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of X_train: (80, 4436)
+Shape of X_test: (20, 4436)
 </pre></div>
 </div>
 </div>
@@ -1137,8 +1136,9 @@ Classification Report:
     accuracy                           0.90        20
    macro avg       0.90      0.92      0.90        20
 weighted avg       0.92      0.90      0.90        20
-
-Cross-validation accuracy: 91.25%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cross-validation accuracy: 91.25%
 </pre></div>
 </div>
 </div>
@@ -1260,7 +1260,7 @@ Prediksi untuk teks 2: Kuliner
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">210411100001 - Achmad Baharuddin Akbar | Penambangan Web</p>
+        <p class="prev-next-title">Skip Gram</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

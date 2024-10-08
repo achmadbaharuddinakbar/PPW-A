@@ -3,9 +3,11 @@ title: 210411100001_Achmad Baharuddin Akbar_Skip Gram
 
 ---
 
-# 210411100001 - Achmad Baharuddin Akbar | Penambangan Web
+# Skip Gram
 
-# Word Embedding
+## 210411100001 - Achmad Baharuddin Akbar | Penambangan Web
+
+## Word Embedding
 Word embedding adalah representasi kata dalam bentuk vektor yang dapat menangkap konteks kata dalam dokumen.Teknik ini adalah bagian fundamental dari pemrosesan bahasa alami (NLP).
 
 Dalam representasi word embedding, setiap kata diwakili oleh sebuah vektor dalam ruang vektor berdimensi tinggi (misalnya, 100, 200, 300 dimensi, dll.).
