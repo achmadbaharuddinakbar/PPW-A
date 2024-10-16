@@ -185,8 +185,9 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Tugas 3 - Logistic Regression</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Skip-Gram.html">Skip Gram</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="Tugas4.html">Tugas 4 - Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas4-2.html"><strong>Tugas 4 - Graph</strong></a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
 </ul>
 
     </div>
@@ -390,7 +391,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -406,6 +409,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-streamlit-https-klasifikasi-berita-ppw-a-streamlit-app">Link Streamlit : https://klasifikasi-berita-ppw-a.streamlit.app/</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -460,7 +471,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5de85e07-1b12-4069-9888-843d5199b2f8" class="colab-df-container">
+  <div id="df-0a0feb1c-7149-419c-8d59-636446f8ffe8" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -492,58 +503,58 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Menyoal Transplantasi Hati, Prosedur yang Baka...</td>
-      <td>Selasa, 08 Okt 2024 18:00 WIB</td>
-      <td>Jakarta - Politikus Demokrat Andi Arief bakal ...</td>
+      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
+      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
+      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Politikus Demokrat Andi Arief bakal m...</td>
-      <td>jakarta  politikus demokrat andi arief bakal m...</td>
-      <td>['jakarta', 'politikus', 'demokrat', 'andi', '...</td>
-      <td>jakarta politikus demokrat andi arief menjalan...</td>
+      <td>Jakarta  Sifilis atau penyakit raja singa term...</td>
+      <td>jakarta  sifilis atau penyakit raja singa term...</td>
+      <td>['jakarta', 'sifilis', 'atau', 'penyakit', 'ra...</td>
+      <td>jakarta sifilis penyakit raja singa infeksi me...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>PPDS FK Unsrat-RS Kandou Disetop terkait Bully...</td>
-      <td>Selasa, 08 Okt 2024 17:01 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI (Kemenkes) ...</td>
+      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
+      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
+      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kementerian Kesehatan RI Kemenkes men...</td>
-      <td>jakarta  kementerian kesehatan ri kemenkes men...</td>
-      <td>['jakarta', 'kementerian', 'kesehatan', 'ri', ...</td>
-      <td>jakarta kementerian kesehatan ri kemenkes meng...</td>
+      <td>Jakarta  Sebagian orang pasti sudah mengenal i...</td>
+      <td>jakarta  sebagian orang pasti sudah mengenal i...</td>
+      <td>['jakarta', 'sebagian', 'orang', 'pasti', 'sud...</td>
+      <td>jakarta orang mengenal istilah puncak seksual ...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>7 Bumbu Dapur yang Bisa Bantu BB Cepat Turun, ...</td>
-      <td>Selasa, 08 Okt 2024 16:12 WIB</td>
-      <td>Jakarta - Demi bisa menurunkan berat badan, me...</td>
+      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
+      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
+      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Demi bisa menurunkan berat badan memb...</td>
-      <td>jakarta  demi bisa menurunkan berat badan memb...</td>
-      <td>['jakarta', 'demi', 'bisa', 'menurunkan', 'ber...</td>
-      <td>jakarta menurunkan berat badan membatasi asupa...</td>
+      <td>Jakarta  Setiap orang mungkin pernah mengalami...</td>
+      <td>jakarta  setiap orang mungkin pernah mengalami...</td>
+      <td>['jakarta', 'setiap', 'orang', 'mungkin', 'per...</td>
+      <td>jakarta orang mengalami sariawan luka mulut me...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Pungli di PPDS FK Unsrat Disebut Puluhan Juta,...</td>
-      <td>Selasa, 08 Okt 2024 15:14 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI memberhenti...</td>
+      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
+      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
+      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kementerian Kesehatan RI memberhentik...</td>
-      <td>jakarta  kementerian kesehatan ri memberhentik...</td>
-      <td>['jakarta', 'kementerian', 'kesehatan', 'ri', ...</td>
-      <td>jakarta kementerian kesehatan ri memberhentika...</td>
+      <td>Jakarta  Air rebusan serai dikenal sebagai sal...</td>
+      <td>jakarta  air rebusan serai dikenal sebagai sal...</td>
+      <td>['jakarta', 'air', 'rebusan', 'serai', 'dikena...</td>
+      <td>jakarta air rebusan serai dikenal salah ramuan...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Lagi! Kemenkes Bekukan PPDS FK Unsrat-RS Kando...</td>
-      <td>Selasa, 08 Okt 2024 14:35 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI menyetop se...</td>
+      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
+      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
+      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kementerian Kesehatan RI menyetop sem...</td>
-      <td>jakarta  kementerian kesehatan ri menyetop sem...</td>
-      <td>['jakarta', 'kementerian', 'kesehatan', 'ri', ...</td>
-      <td>jakarta kementerian kesehatan ri menyetop kegi...</td>
+      <td>Jakarta  Viral momen member NewJeans Hanni ber...</td>
+      <td>jakarta  viral momen member newjeans hanni ber...</td>
+      <td>['jakarta', 'viral', 'momen', 'member', 'newje...</td>
+      <td>jakarta viral momen member newjeans hanni berb...</td>
     </tr>
   </tbody>
 </table>
@@ -551,7 +562,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5de85e07-1b12-4069-9888-843d5199b2f8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0a0feb1c-7149-419c-8d59-636446f8ffe8')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -603,12 +614,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5de85e07-1b12-4069-9888-843d5199b2f8 button.colab-df-convert');
+        document.querySelector('#df-0a0feb1c-7149-419c-8d59-636446f8ffe8 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5de85e07-1b12-4069-9888-843d5199b2f8');
+        const element = document.querySelector('#df-0a0feb1c-7149-419c-8d59-636446f8ffe8');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -683,7 +694,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-78be77b8-67f5-4eed-b056-615897ad5da9" class="colab-df-container">
+  <div id="df-3f3b6b87-033c-4ea7-8dc1-6552758238a3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -702,27 +713,27 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>aakash</th>
-      <th>abad</th>
+      <th>abai</th>
       <th>abang</th>
-      <th>abdulaziz</th>
+      <th>abc</th>
+      <th>abdalla</th>
+      <th>abdullah</th>
+      <th>abis</th>
       <th>abnormal</th>
-      <th>ac</th>
       <th>acar</th>
       <th>acara</th>
       <th>aceh</th>
-      <th>acid</th>
       <th>...</th>
+      <th>you</th>
+      <th>youtuber</th>
+      <th>yu</th>
+      <th>yudhistira</th>
+      <th>yun</th>
+      <th>yuni</th>
+      <th>zaitun</th>
       <th>zaman</th>
       <th>zat</th>
-      <th>zeaxanthin</th>
-      <th>zhang</th>
-      <th>zi</th>
-      <th>zina</th>
-      <th>zita</th>
-      <th>zizan</th>
-      <th>zoe</th>
-      <th>zoonosis</th>
+      <th>zonk</th>
     </tr>
   </thead>
   <tbody>
@@ -733,21 +744,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.018829</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -757,21 +768,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.049738</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -781,21 +792,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.040315</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -805,21 +816,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.075675</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -829,21 +840,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -853,21 +864,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.044711</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -877,21 +888,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -901,21 +912,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -925,21 +936,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -949,31 +960,31 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.053565</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>10 rows × 4436 columns</p>
+<p>10 rows × 4917 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-78be77b8-67f5-4eed-b056-615897ad5da9')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3f3b6b87-033c-4ea7-8dc1-6552758238a3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1025,12 +1036,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-78be77b8-67f5-4eed-b056-615897ad5da9 button.colab-df-convert');
+        document.querySelector('#df-3f3b6b87-033c-4ea7-8dc1-6552758238a3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-78be77b8-67f5-4eed-b056-615897ad5da9');
+        const element = document.querySelector('#df-3f3b6b87-033c-4ea7-8dc1-6552758238a3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1072,8 +1083,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of X_train: (80, 4436)
-Shape of X_test: (20, 4436)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of X_train: (80, 4917)
+Shape of X_test: (20, 4917)
 </pre></div>
 </div>
 </div>
@@ -1122,23 +1133,22 @@ Shape of X_test: (20, 4436)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 90.00%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 80.00%
 Confusion Matrix:
-[[10  2]
- [ 0  8]]
+[[9 3]
+ [1 7]]
 
 Classification Report:
               precision    recall  f1-score   support
 
-   Kesehatan       1.00      0.83      0.91        12
-     Kuliner       0.80      1.00      0.89         8
+   Kesehatan       0.90      0.75      0.82        12
+     Kuliner       0.70      0.88      0.78         8
 
-    accuracy                           0.90        20
-   macro avg       0.90      0.92      0.90        20
-weighted avg       0.92      0.90      0.90        20
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cross-validation accuracy: 91.25%
+    accuracy                           0.80        20
+   macro avg       0.80      0.81      0.80        20
+weighted avg       0.82      0.80      0.80        20
+
+Cross-validation accuracy: 86.25%
 </pre></div>
 </div>
 </div>
@@ -1214,6 +1224,9 @@ Prediksi untuk teks 2: Kuliner
 </div>
 </div>
 </div>
+<section id="link-streamlit-https-klasifikasi-berita-ppw-a-streamlit-app">
+<h2>Link Streamlit : <a class="reference external" href="https://klasifikasi-berita-ppw-a.streamlit.app/">https://klasifikasi-berita-ppw-a.streamlit.app/</a><a class="headerlink" href="#link-streamlit-https-klasifikasi-berita-ppw-a-streamlit-app" title="Link to this heading">#</a></h2>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1270,6 +1283,21 @@ Prediksi untuk teks 2: Kuliner
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-streamlit-https-klasifikasi-berita-ppw-a-streamlit-app">Link Streamlit : https://klasifikasi-berita-ppw-a.streamlit.app/</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
