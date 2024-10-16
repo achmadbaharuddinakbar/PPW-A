@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/Tugas3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Skip Gram" href="Skip-Gram.html" />
+    <link rel="next" title="Tugas 4 - Graph" href="Tugas4-2.html" />
     <link rel="prev" title="Tugas 2 - Pre-Processing Data dengan TF-IDF" href="Tugas2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,8 +183,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas1.html"><strong>Tugas 1 - Crawling Data (detik.com)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas2.html"><strong>Tugas 2 - Pre-Processing Data dengan TF-IDF</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Tugas 3 - Logistic Regression</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Skip-Gram.html">Skip Gram</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="Tugas4-2.html"><strong>Tugas 4 - Graph</strong></a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
@@ -452,7 +450,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt_tab to /root/nltk_data...
-[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data]   Unzipping tokenizers/punkt_tab.zip.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -471,7 +469,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0a0feb1c-7149-419c-8d59-636446f8ffe8" class="colab-df-container">
+  <div id="df-1d01f488-4d17-4447-a768-3e4130188532" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -562,7 +560,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0a0feb1c-7149-419c-8d59-636446f8ffe8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1d01f488-4d17-4447-a768-3e4130188532')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -614,12 +612,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0a0feb1c-7149-419c-8d59-636446f8ffe8 button.colab-df-convert');
+        document.querySelector('#df-1d01f488-4d17-4447-a768-3e4130188532 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0a0feb1c-7149-419c-8d59-636446f8ffe8');
+        const element = document.querySelector('#df-1d01f488-4d17-4447-a768-3e4130188532');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -694,7 +692,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3f3b6b87-033c-4ea7-8dc1-6552758238a3" class="colab-df-container">
+  <div id="df-7cabfc14-11c3-42e1-969d-3dc8661c8179" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -984,7 +982,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-3f3b6b87-033c-4ea7-8dc1-6552758238a3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7cabfc14-11c3-42e1-969d-3dc8661c8179')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1036,12 +1034,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-3f3b6b87-033c-4ea7-8dc1-6552758238a3 button.colab-df-convert');
+        document.querySelector('#df-7cabfc14-11c3-42e1-969d-3dc8661c8179 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-3f3b6b87-033c-4ea7-8dc1-6552758238a3');
+        const element = document.querySelector('#df-7cabfc14-11c3-42e1-969d-3dc8661c8179');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1147,8 +1145,9 @@ Classification Report:
     accuracy                           0.80        20
    macro avg       0.80      0.81      0.80        20
 weighted avg       0.82      0.80      0.80        20
-
-Cross-validation accuracy: 86.25%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cross-validation accuracy: 86.25%
 </pre></div>
 </div>
 </div>
@@ -1269,11 +1268,11 @@ Prediksi untuk teks 2: Kuliner
       </div>
     </a>
     <a class="right-next"
-       href="Skip-Gram.html"
+       href="Tugas4-2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Skip Gram</p>
+        <p class="prev-next-title"><strong>Tugas 4 - Graph</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
