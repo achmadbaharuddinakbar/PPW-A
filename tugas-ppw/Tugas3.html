@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="Tugas 2 - Pre-Processing Data dengan TF-IDF" href="Tugas2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../_static/foto.png" class="logo__image only-light" alt="Penambangan Web - A - Home"/>
-    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="Penambangan Web - A - Home"/>`);</script>
+    <img src="../_static/foto.png" class="logo__image only-dark pst-js-only" alt="Penambangan Web - A - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -185,6 +174,8 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Tugas 3 - Logistic Regression</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas4-2.html"><strong>Tugas 4 - Graph</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas6.html">Tugas 6 - Sistem pencarian dokumen menggunakan Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</a></li>
 </ul>
 
     </div>
@@ -370,24 +361,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -411,6 +394,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#label-encoder"><strong>Label Encoder</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data"><strong>Split Data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-term-frequency-inverse-document-frequency"><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model"><strong>Evaluasi Model</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengujian"><strong>Pengujian</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-streamlit-https-klasifikasi-berita-ppw-a-streamlit-app">Link Streamlit : https://klasifikasi-berita-ppw-a.streamlit.app/</a></li>
 </ul>
             </nav>
@@ -468,7 +456,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-30bdf33d-7f92-4f62-ba51-9ef6314e20f6" class="colab-df-container">
+  <div id="df-361970d3-0dfb-434e-9416-c2c084a6516f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -500,58 +488,58 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
-      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
-      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
+      <td>Soroti Kekurangan Nakes, Prabowo Minta India K...</td>
+      <td>Kamis, 21 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Presiden Republik Indonesia Prabowo ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sifilis atau penyakit raja singa term...</td>
-      <td>jakarta  sifilis atau penyakit raja singa term...</td>
-      <td>['jakarta', 'sifilis', 'atau', 'penyakit', 'ra...</td>
-      <td>jakarta sifilis penyakit raja singa infeksi me...</td>
+      <td>Jakarta  Presiden Republik Indonesia Prabowo S...</td>
+      <td>jakarta  presiden republik indonesia prabowo s...</td>
+      <td>['jakarta', 'presiden', 'republik', 'indonesia...</td>
+      <td>jakarta presiden republik indonesia prabowo su...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
-      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
-      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
+      <td>Mayapada Hospital Bisa Tangani Bengkak Pasca T...</td>
+      <td>Kamis, 21 Nov 2024 09:06 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan solusi ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebagian orang pasti sudah mengenal i...</td>
-      <td>jakarta  sebagian orang pasti sudah mengenal i...</td>
-      <td>['jakarta', 'sebagian', 'orang', 'pasti', 'sud...</td>
-      <td>jakarta orang mengenal istilah puncak seksual ...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan solusi p...</td>
+      <td>jakarta  mayapada hospital menawarkan solusi p...</td>
+      <td>['jakarta', 'mayapada', 'hospital', 'menawarka...</td>
+      <td>jakarta mayapada hospital menawarkan solusi pe...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
-      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
-      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
+      <td>Jangan Sampai Keliru, Ini Beda Nyeri Punggung ...</td>
+      <td>Kamis, 21 Nov 2024 09:01 WIB</td>
+      <td>Jakarta - Saraf kejepit menjadi suatu masalah ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Setiap orang mungkin pernah mengalami...</td>
-      <td>jakarta  setiap orang mungkin pernah mengalami...</td>
-      <td>['jakarta', 'setiap', 'orang', 'mungkin', 'per...</td>
-      <td>jakarta orang mengalami sariawan luka mulut me...</td>
+      <td>Jakarta  Saraf kejepit menjadi suatu masalah y...</td>
+      <td>jakarta  saraf kejepit menjadi suatu masalah y...</td>
+      <td>['jakarta', 'saraf', 'kejepit', 'menjadi', 'su...</td>
+      <td>jakarta saraf kejepit diabaikan berdampak seri...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
-      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
-      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
+      <td>Heboh Pejabat di Swedia Punya Fobia Aneh, Taku...</td>
+      <td>Kamis, 21 Nov 2024 08:31 WIB</td>
+      <td>Jakarta - Seorang menteri Swedia yang punya ke...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Air rebusan serai dikenal sebagai sal...</td>
-      <td>jakarta  air rebusan serai dikenal sebagai sal...</td>
-      <td>['jakarta', 'air', 'rebusan', 'serai', 'dikena...</td>
-      <td>jakarta air rebusan serai dikenal salah ramuan...</td>
+      <td>Jakarta  Seorang menteri Swedia yang punya ket...</td>
+      <td>jakarta  seorang menteri swedia yang punya ket...</td>
+      <td>['jakarta', 'seorang', 'menteri', 'swedia', 'y...</td>
+      <td>jakarta menteri swedia ketakutan pisang bahan ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
-      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
-      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
+      <td>Mayapada Hospital Punya Teknologi VABB untuk B...</td>
+      <td>Kamis, 21 Nov 2024 08:14 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan teknolo...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral momen member NewJeans Hanni ber...</td>
-      <td>jakarta  viral momen member newjeans hanni ber...</td>
-      <td>['jakarta', 'viral', 'momen', 'member', 'newje...</td>
-      <td>jakarta viral momen member newjeans hanni berb...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan teknolog...</td>
+      <td>jakarta  mayapada hospital menawarkan teknolog...</td>
+      <td>['jakarta', 'mayapada', 'hospital', 'menawarka...</td>
+      <td>jakarta mayapada hospital menawarkan teknologi...</td>
     </tr>
   </tbody>
 </table>
@@ -559,7 +547,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-30bdf33d-7f92-4f62-ba51-9ef6314e20f6')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-361970d3-0dfb-434e-9416-c2c084a6516f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -611,12 +599,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-30bdf33d-7f92-4f62-ba51-9ef6314e20f6 button.colab-df-convert');
+        document.querySelector('#df-361970d3-0dfb-434e-9416-c2c084a6516f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-30bdf33d-7f92-4f62-ba51-9ef6314e20f6');
+        const element = document.querySelector('#df-361970d3-0dfb-434e-9416-c2c084a6516f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -639,27 +627,346 @@ document.write(`
   </div>
   </div></div>
 </div>
-<p><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong></p>
-<hr class="docutils" />
+<section id="label-encoder">
+<h2><strong>Label Encoder</strong><a class="headerlink" href="#label-encoder" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="c1"># Transformasi data kategorik</span>
+<span class="n">label_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;kategori_encoded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;kategori&#39;</span><span class="p">])</span>
+
+<span class="c1"># Menampilkan nilai sebelum dan sesudah konversi</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Nilai sebelum dan sesudah konversi:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">label_encoder</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">label_encoder</span><span class="o">.</span><span class="n">classes_</span><span class="p">))))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DataFrame setelah Label Encoding:&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nilai sebelum dan sesudah konversi:
+{&#39;Kesehatan&#39;: 0, &#39;Kuliner&#39;: 1}
+
+DataFrame setelah Label Encoding:
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-20264e7e-3752-428a-b968-7fc12ea8df99" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>judul</th>
+      <th>tanggal</th>
+      <th>isi</th>
+      <th>kategori</th>
+      <th>cleansing</th>
+      <th>case_folding</th>
+      <th>tokenize</th>
+      <th>Filtering/stopword removal</th>
+      <th>kategori_encoded</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Soroti Kekurangan Nakes, Prabowo Minta India K...</td>
+      <td>Kamis, 21 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Presiden Republik Indonesia Prabowo ...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Presiden Republik Indonesia Prabowo S...</td>
+      <td>jakarta  presiden republik indonesia prabowo s...</td>
+      <td>['jakarta', 'presiden', 'republik', 'indonesia...</td>
+      <td>jakarta presiden republik indonesia prabowo su...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mayapada Hospital Bisa Tangani Bengkak Pasca T...</td>
+      <td>Kamis, 21 Nov 2024 09:06 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan solusi ...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Mayapada Hospital menawarkan solusi p...</td>
+      <td>jakarta  mayapada hospital menawarkan solusi p...</td>
+      <td>['jakarta', 'mayapada', 'hospital', 'menawarka...</td>
+      <td>jakarta mayapada hospital menawarkan solusi pe...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jangan Sampai Keliru, Ini Beda Nyeri Punggung ...</td>
+      <td>Kamis, 21 Nov 2024 09:01 WIB</td>
+      <td>Jakarta - Saraf kejepit menjadi suatu masalah ...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Saraf kejepit menjadi suatu masalah y...</td>
+      <td>jakarta  saraf kejepit menjadi suatu masalah y...</td>
+      <td>['jakarta', 'saraf', 'kejepit', 'menjadi', 'su...</td>
+      <td>jakarta saraf kejepit diabaikan berdampak seri...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Heboh Pejabat di Swedia Punya Fobia Aneh, Taku...</td>
+      <td>Kamis, 21 Nov 2024 08:31 WIB</td>
+      <td>Jakarta - Seorang menteri Swedia yang punya ke...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Seorang menteri Swedia yang punya ket...</td>
+      <td>jakarta  seorang menteri swedia yang punya ket...</td>
+      <td>['jakarta', 'seorang', 'menteri', 'swedia', 'y...</td>
+      <td>jakarta menteri swedia ketakutan pisang bahan ...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Mayapada Hospital Punya Teknologi VABB untuk B...</td>
+      <td>Kamis, 21 Nov 2024 08:14 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan teknolo...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Mayapada Hospital menawarkan teknolog...</td>
+      <td>jakarta  mayapada hospital menawarkan teknolog...</td>
+      <td>['jakarta', 'mayapada', 'hospital', 'menawarka...</td>
+      <td>jakarta mayapada hospital menawarkan teknologi...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Jijik! Supermarket Ini Penuh Bangkai Tikus dan...</td>
+      <td>Selasa, 19 Nov 2024 17:00 WIB</td>
+      <td>Jakarta - Supermarket seharusnya bersih. Tetap...</td>
+      <td>Kuliner</td>
+      <td>Jakarta  Supermarket seharusnya bersih Tetapi ...</td>
+      <td>jakarta  supermarket seharusnya bersih tetapi ...</td>
+      <td>['jakarta', 'supermarket', 'seharusnya', 'bers...</td>
+      <td>jakarta supermarket bersih supermarket dipenuh...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Mike Tyson Tetap Bugar di Usia 58 Tahun, Ini M...</td>
+      <td>Selasa, 19 Nov 2024 16:30 WIB</td>
+      <td>Jakarta - Mike Tyson kembali menyorot perhatia...</td>
+      <td>Kuliner</td>
+      <td>Jakarta  Mike Tyson kembali menyorot perhatian...</td>
+      <td>jakarta  mike tyson kembali menyorot perhatian...</td>
+      <td>['jakarta', 'mike', 'tyson', 'kembali', 'menyo...</td>
+      <td>jakarta mike tyson menyorot perhatian bertarun...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>5 Pengunjung Resto Ini Kena Denda Puluhan Juta...</td>
+      <td>Selasa, 19 Nov 2024 16:00 WIB</td>
+      <td>Jakarta - Karena dipicu berbagai alasan dan se...</td>
+      <td>Kuliner</td>
+      <td>Jakarta  Karena dipicu berbagai alasan dan seb...</td>
+      <td>jakarta  karena dipicu berbagai alasan dan seb...</td>
+      <td>['jakarta', 'karena', 'dipicu', 'berbagai', 'a...</td>
+      <td>jakarta dipicu alasan pengunjung resto dikenak...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Canggih! Kini Susu Basi Bisa Dideteksi via Pon...</td>
+      <td>Selasa, 19 Nov 2024 15:00 WIB</td>
+      <td>Jakarta - Kecanggihan teknologi kini membuat d...</td>
+      <td>Kuliner</td>
+      <td>Jakarta  Kecanggihan teknologi kini membuat de...</td>
+      <td>jakarta  kecanggihan teknologi kini membuat de...</td>
+      <td>['jakarta', 'kecanggihan', 'teknologi', 'kini'...</td>
+      <td>jakarta kecanggihan teknologi deteksi susu bas...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>Kocak! Bule Ini Sebut Pecel Lele Sebagai Kadal...</td>
+      <td>Selasa, 19 Nov 2024 14:30 WIB</td>
+      <td>Jakarta - Pesan steak ayam via aplikasi ojek o...</td>
+      <td>Kuliner</td>
+      <td>Jakarta  Pesan steak ayam via aplikasi ojek on...</td>
+      <td>jakarta  pesan steak ayam via aplikasi ojek on...</td>
+      <td>['jakarta', 'pesan', 'steak', 'ayam', 'via', '...</td>
+      <td>jakarta pesan steak ayam via aplikasi ojek onl...</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 9 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-20264e7e-3752-428a-b968-7fc12ea8df99')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-20264e7e-3752-428a-b968-7fc12ea8df99 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-20264e7e-3752-428a-b968-7fc12ea8df99');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+</section>
+<section id="split-data">
+<h2><strong>Split Data</strong><a class="headerlink" href="#split-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Split data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">df</span> <span class="p">[</span><span class="s1">&#39;Filtering/stopword removal&#39;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span> <span class="p">[</span><span class="s1">&#39;kategori_encoded&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah data latih:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah data uji:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     jakarta presiden republik indonesia prabowo su...
+1     jakarta mayapada hospital menawarkan solusi pe...
+2     jakarta saraf kejepit diabaikan berdampak seri...
+3     jakarta menteri swedia ketakutan pisang bahan ...
+4     jakarta mayapada hospital menawarkan teknologi...
+                            ...                        
+95    jakarta supermarket bersih supermarket dipenuh...
+96    jakarta mike tyson menyorot perhatian bertarun...
+97    jakarta dipicu alasan pengunjung resto dikenak...
+98    jakarta kecanggihan teknologi deteksi susu bas...
+99    jakarta pesan steak ayam via aplikasi ojek onl...
+Name: Filtering/stopword removal, Length: 100, dtype: object
+0     0
+1     0
+2     0
+3     0
+4     0
+     ..
+95    1
+96    1
+97    1
+98    1
+99    1
+Name: kategori_encoded, Length: 100, dtype: int64
+==================================================
+Jumlah data latih: 80
+Jumlah data uji: 20
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tf-idf-term-frequency-inverse-document-frequency">
+<h2><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong><a class="headerlink" href="#tf-idf-term-frequency-inverse-document-frequency" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">accuracy_score</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
-
-<span class="c1"># Menginisialisasi TfidfVectorizer</span>
-<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
-
-<span class="c1"># Menghitung TF-IDF</span>
-<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Filtering/stopword removal&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -683,544 +990,692 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengubah hasilnya menjadi DataFrame</span>
-<span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
-<span class="n">tfidf_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="c1"># Inisialisasi TF-IDF Vectorizer</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+
+<span class="c1"># Fit dan transform pada data training</span>
+<span class="n">x_train_tfidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+
+<span class="c1"># Transform pada data testing</span>
+<span class="n">x_test_tfidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+<span class="c1"># Mendapatkan nama fitur dari TF-IDF</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+
+<span class="c1"># Konversi TF-IDF hasil training ke DataFrame</span>
+<span class="n">df_train_tfidf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x_train_tfidf</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="c1"># Konversi TF-IDF hasil testing ke DataFrame</span>
+<span class="n">df_test_tfidf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x_test_tfidf</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan hasil TF-IDF dalam DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TF-IDF untuk data training:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_train_tfidf</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TF-IDF untuk data testing:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_test_tfidf</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-5263ff4c-7f04-4dfa-934c-13b8c9c90093" class="colab-df-container">
-    <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TF-IDF untuk data training:
+        abad  abai  abis  ablasi  abnormal  abu  academy  acara  ade  \
+0   0.000000   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
+1   0.000000   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
+2   0.000000   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
+3   0.000000   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
+4   0.065445   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
+..       ...   ...   ...     ...       ...  ...      ...    ...  ...   
+75  0.000000   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
+76  0.000000   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
+77  0.000000   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
+78  0.000000   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
+79  0.000000   0.0   0.0     0.0       0.0  0.0      0.0    0.0  0.0   
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+    adenomyosis  ...  youtuber  yuan  yudi  yutaka  yuwono  zaitun  zaizai  \
+0           0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
+1           0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
+2           0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
+3           0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
+4           0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
+..          ...  ...       ...   ...   ...     ...     ...     ...     ...   
+75          0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
+76          0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
+77          0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
+78          0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
+79          0.0  ...       0.0   0.0   0.0     0.0     0.0     0.0     0.0   
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>abai</th>
-      <th>abang</th>
-      <th>abc</th>
-      <th>abdalla</th>
-      <th>abdullah</th>
-      <th>abis</th>
-      <th>abnormal</th>
-      <th>acar</th>
-      <th>acara</th>
-      <th>aceh</th>
-      <th>...</th>
-      <th>you</th>
-      <th>youtuber</th>
-      <th>yu</th>
-      <th>yudhistira</th>
-      <th>yun</th>
-      <th>yuni</th>
-      <th>zaitun</th>
-      <th>zaman</th>
-      <th>zat</th>
-      <th>zonk</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.044711</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>10 rows × 4917 columns</p>
-</div>
-    <div class="colab-df-buttons">
-      
-  <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5263ff4c-7f04-4dfa-934c-13b8c9c90093')"
-            title="Convert this dataframe to an interactive table."
-            style="display:none;">
-      
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
-    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
-  </svg>
-    </button>
-    
-  <style>
-    .colab-df-container {
-      display:flex;
-      gap: 12px;
-    }
+         zat  zatzat  zoonosis  
+0   0.000000     0.0       0.0  
+1   0.034375     0.0       0.0  
+2   0.000000     0.0       0.0  
+3   0.044213     0.0       0.0  
+4   0.000000     0.0       0.0  
+..       ...     ...       ...  
+75  0.000000     0.0       0.0  
+76  0.000000     0.0       0.0  
+77  0.000000     0.0       0.0  
+78  0.000000     0.0       0.0  
+79  0.000000     0.0       0.0  
 
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
+[80 rows x 4463 columns]
 
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
+TF-IDF untuk data testing:
+        abad  abai      abis  ablasi  abnormal  abu  academy  acara  ade  \
+0   0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+1   0.000000   0.0  0.050646     0.0  0.000000  0.0      0.0    0.0  0.0   
+2   0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+3   0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+4   0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+5   0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+6   0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+7   0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+8   0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+9   0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+10  0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+11  0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+12  0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+13  0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+14  0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+15  0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+16  0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+17  0.000000   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+18  0.064576   0.0  0.000000     0.0  0.000000  0.0      0.0    0.0  0.0   
+19  0.000000   0.0  0.000000     0.0  0.060661  0.0      0.0    0.0  0.0   
 
-    .colab-df-buttons div {
-      margin-bottom: 4px;
-    }
+    adenomyosis  ...  youtuber  yuan  yudi  yutaka  yuwono    zaitun  zaizai  \
+0           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+1           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+2           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+3           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+4           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+5           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.036962     0.0   
+6           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+7           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+8           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+9           0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+10          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+11          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+12          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+13          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+14          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+15          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+16          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+17          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+18          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
+19          0.0  ...       0.0   0.0   0.0     0.0     0.0  0.000000     0.0   
 
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
+         zat  zatzat  zoonosis  
+0   0.000000     0.0       0.0  
+1   0.000000     0.0       0.0  
+2   0.000000     0.0       0.0  
+3   0.000000     0.0       0.0  
+4   0.000000     0.0       0.0  
+5   0.000000     0.0       0.0  
+6   0.000000     0.0       0.0  
+7   0.000000     0.0       0.0  
+8   0.000000     0.0       0.0  
+9   0.000000     0.0       0.0  
+10  0.000000     0.0       0.0  
+11  0.000000     0.0       0.0  
+12  0.000000     0.0       0.0  
+13  0.044538     0.0       0.0  
+14  0.000000     0.0       0.0  
+15  0.000000     0.0       0.0  
+16  0.000000     0.0       0.0  
+17  0.000000     0.0       0.0  
+18  0.000000     0.0       0.0  
+19  0.000000     0.0       0.0  
 
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-    <script>
-      const buttonEl =
-        document.querySelector('#df-5263ff4c-7f04-4dfa-934c-13b8c9c90093 button.colab-df-convert');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5263ff4c-7f04-4dfa-934c-13b8c9c90093');
-        const dataTable =
-          await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                    [key], {});
-        if (!dataTable) return;
-
-        const docLinkHtml = 'Like what you see? Visit the ' +
-          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-          + ' to learn more about interactive tables.';
-        element.innerHTML = '';
-        dataTable['output_type'] = 'display_data';
-        await google.colab.output.renderOutput(dataTable, element);
-        const docLink = document.createElement('div');
-        docLink.innerHTML = docLinkHtml;
-        element.appendChild(docLink);
-      }
-    </script>
-  </div>
-  
-    </div>
-  </div>
-  </div></div>
-</div>
-<p><strong>Spliting Data</strong></p>
-<hr class="docutils" />
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="c1"># Melakukan transformasi TF-IDF</span>
-<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>  <span class="c1"># Menggunakan 5000 fitur teratas</span>
-<span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
-
-<span class="c1"># Memisahkan dataset menjadi training dan testing</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="c1"># Melihat bentuk dari hasil TF-IDF</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of X_train:&quot;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of X_test:&quot;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of X_train: (80, 4917)
-Shape of X_test: (20, 4917)
+[20 rows x 4463 columns]
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Modeling</strong></p>
-<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 
-<span class="c1"># Membuat model Logistic Regression dengan regularisasi</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Mengurangi nilai C untuk menambah regularisasi</span>
-
-<span class="c1"># Melatih model dengan data yang sudah diresample (jika diperlukan)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># Memprediksi hasil pada data testing</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Evaluasi Model</strong></p>
-<hr class="docutils" />
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluasi hasil prediksi</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
-
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan confusion matrix dan laporan klasifikasi</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
-
-<span class="c1"># Alternatif: Menggunakan cross-validation untuk mengecek overfitting</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
-
-<span class="c1"># Menggunakan cross-validation</span>
-<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cross-validation accuracy: </span><span class="si">{</span><span class="n">cv_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+<span class="c1"># Latih model</span>
+<span class="n">logistic_model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">logistic_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_tfidf</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 80.00%
-Confusion Matrix:
-[[9 3]
- [1 7]]
+<div class="output text_html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
 
-Classification Report:
-              precision    recall  f1-score   support
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
 
-   Kesehatan       0.90      0.75      0.82        12
-     Kuliner       0.70      0.88      0.78         8
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
 
-    accuracy                           0.80        20
-   macro avg       0.80      0.81      0.80        20
-weighted avg       0.82      0.80      0.80        20
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
 
-Cross-validation accuracy: 86.25%
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=1000)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(max_iter=1000)</pre></div> </div></div></div></div></div></div>
+</div>
+</section>
+<section id="evaluasi-model">
+<h2><strong>Evaluasi Model</strong><a class="headerlink" href="#evaluasi-model" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+
+<span class="c1"># Prediksi</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logistic_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test_tfidf</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan classification report</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># Buat confusion matrix</span>
+<span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="c1"># Definisikan label untuk confusion matrix</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Kesehatan&#39;</span><span class="p">,</span> <span class="s1">&#39;Olahraga&#39;</span><span class="p">]</span>
+
+<span class="c1"># Buat heatmap confusion matrix menggunakan seaborn dengan label yang diinginkan</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted Label&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Label&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      0.92      0.96        13
+           1       0.88      1.00      0.93         7
+
+    accuracy                           0.95        20
+   macro avg       0.94      0.96      0.95        20
+weighted avg       0.96      0.95      0.95        20
+</pre></div>
+</div>
+<img alt="../_images/dc97c0fe7ea65e09f7eb6de13a0016cae7090387630fd903586efd2a914f2b30.png" src="../_images/dc97c0fe7ea65e09f7eb6de13a0016cae7090387630fd903586efd2a914f2b30.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan TF-IDF vectorizer dan model</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tfidf_vectorizer.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tfidf_file</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">vectorizer</span><span class="p">,</span> <span class="n">tfidf_file</span><span class="p">)</span>
+<span class="c1"># Save the TfidfVectorizer instead of x_train_tfidf</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tfidf_vectorizer.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">tfidf</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;logistic_regression_model.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_file</span><span class="p">)</span>
+<span class="c1"># Save the trained Logistic Regression model</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;logistic_model.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">logistic_model</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TfidfVectorizer and Logistic Regression model have been successfully saved.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Menyimpan model TF-IDF Vectorizer</span>
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">tfidf</span><span class="p">,</span> <span class="s1">&#39;tfidf_model.joblib&#39;</span><span class="p">)</span>
+
+<span class="c1"># Menyimpan model Logistic Regression</span>
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">logistic_model</span><span class="p">,</span> <span class="s1">&#39;logistic_regression_model.joblib&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model Logistic Regression dan TF-IDF telah disimpan dengan joblib.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TfidfVectorizer and Logistic Regression model have been successfully saved.
+Model Logistic Regression dan TF-IDF telah disimpan dengan joblib.
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Pengujian</strong></p>
-<hr class="docutils" />
+</section>
+<section id="pengujian">
+<h2><strong>Pengujian</strong><a class="headerlink" href="#pengujian" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">joblib</span>
 
-<span class="c1"># Memuat vectorizer dan model</span>
-<span class="n">tfidf</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;tfidf_vectorizer.pkl&#39;</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;logistic_regression_model.pkl&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Teks baru yang ingin diprediksi</span>
-<span class="n">new_text_1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;&#39;Jakarta - Sleep paralysis, orang awam mengenalnya dengan istilah ketindihan atau rep-repan, memang menyeramkan. Namun secara medis, tidak ada yang perlu dikhawatirkan ketika seseorang terbangun dari tidur dan tidak bisa menggerakkan tubuhnya untuk sesaat.&quot;Sebaiknya rileks saja, karena ketindihan biasanya hanya berlangsung sebentar,&quot; ujar praktisi kesehatan tidur, dr Daniel Thomas Suryadisastra, SpN, RPSGT, dalam wawancara dengan detikcom di Tangerang, Kamis (19/9/2024).Menurut dr Daniel, sleep paralysis terjadi karena seseorang terbangun ketika tidurnya tengah berada di fase REM (Rapid Eye Movement). Fase ini merupakan fase tidur yang dalam, ketika mimpi dimungkinkan untuk terjadi dan otot dalam kondisi yang sedang rileks-rileksnya.</span>
-<span class="s1">&quot;Jangan panik, ketika fase REM hilang, maka kondisi ini akan hilang juga. Rileks saja,&quot; jelas dr Daniel.Tidak bisa bergerak karena sleep paralysis, menurut dr Daniel juga bisa dibedakan dari kelumpuhan akibat stroke. Jika bukan karena stroke, maka biasanya ketindihan ini hanya akan berlangsung sesaat.</span>
-<span class="s1">&quot;Kalau stroke itu bangunnya sudah lemas, lemas sebelah. Bukan yang singkat begitu (ketindihan). Kalau stroke lebih permanen, ada progres, semakin lemas,&quot; jelasnya.</span>
-<span class="s1">Mengingat sleep paralysis juga kerap dikaitkan dengan hal-hal mistis, pendekatan yang bersifat spiritual juga bisa diterapkan saat mengalaminya. Seperti dialami Regita, seorang karyawati di Jakarta yang mengaku sampai tidak bisa menggerakkan mulut jika mengalami ketindihan.</span>
-<span class="s1">&quot;Yang aku lakukan pas itu pastinya berdoa sebisaku,&quot; katanya.&#39;&#39;&#39;</span><span class="p">]</span>
-
-<span class="n">new_text_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;&#39;Jakarta - Seorang kakek menjadi sorotan usai banyak pelanggan mengaku sering melihat dirinya berkeliaran di pusat jajanan. Rupanya, kakek itu keliling untuk memakan makanan sisa.Pusat jajanan semacam food court atau hawker stall memang menjadi pilihan terbaik ketika pelanggan ingin mencari berbagai macam makanan dengan harga lebih terjangkau.Seperti halnya yang dilakukan oleh kakek satu ini. Aksi yang dilakukan oleh pria tua di salah satu pusat jajanan Singapura telah menjadi sorotan.</span>
-<span class="s1">Namun, tidak semua orang datang ke sini untuk membeli makanan baru yang utuh. Karena ternyata, ada juga yang datang ke pusat jajanan tersebut hanya untuk mencari makanan sisa.Hal ini diketahui setelah seorang pedagang kaki lima bernama Tn. Du melaporkannya kepada Shin Min Daily News. Pedagang itu mengaku bahwa sebenarnya bukan lelaki tua itu saja yang mencari sisa makanan untuk dimakan.Menurut pengakuannya, kakek tua ataupun kawanannya yang lain datang sekitar pukul 8-9 malam untuk mencari makanan. Terkadang pelanggan baik hati yang melihat mereka akan membelikan makanan baru dari para pedagang kaki lima itu, lapor tnp.straitstimes.com (18/09/2024).</span>
-<span class="s1">Secara spesifik, salah satu penjual mengungkap kebanyakan orang yang mencari makanan sisa adalah yang sudah lanjut usia.Asisten yang bekerja di kios makanan Ma mengatakan bahwa pria tua itu akan segera menempati kursi kosong untuk mengambil sisa makanan pelanggan lain.</span>
-<span class="s1">Surat Kabar China mengidentifikasikan bahwa salah satu warga senior yang terlibat adalah pria bernama Tn. Wang berusia 84 tahun. Wang tinggal di Pasir RIS. Namun, dirinya sengaja pergi ke daerah Chinatown karena menurutnya di area ini sangat ramai.</span>
-<span class="s1">Menurut pengakuannya, ia datang setiap pagi dan pulang di malam hari. Wang juga mengaku memang memakan makanan sisa milik orang lain. Tujuannya bukan karena dia tidak mampu membeli makanan sendiri, melainkan untuk mencegah pemborosan.</span>
-<span class="s1">&quot;Ada orang yang memesan banyak makanan tetapi tidak bisa menghabiskannya. Saya pernah melihat lebih dari setengah ikan utuh tersisa. Saya pikir itu sia-sia, jadi saya memakannya,&quot; ujar Wang.Meskipun tujuan pria tua itu baik untuk mencegah pemborosan makanan, tetapi salah satu pendiri gerakan anti pemborosan Freegan, Zheng Chunlin menyarankan untuk tidak memakan makanan sisa.</span>
-<span class="s1">Ia menegaskan jika makanan sisa berbahaya karena tidak tahu sudah berapa lama dibiarkan. Khawatirnya sudah terkontaminasi. Pengunjung juga terkadang melempar tisu bekas ke piring atau menaruh kembali peralatan yang jatuh dari lantai ke piring tersebut.</span>
-<span class="s1">Oleh karena itu, ia mengimbau agar masyarakat Singapura tidak memakan makanan sisa seperti itu.</span>
+<span class="c1"># Teks baru yang ingin diprediksi</span>
+<span class="n">new_text_1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Jakarta - Badan Pengawas Obat dan Makanan (BPOM) belum lama ini menyita 10 jenis obat herbal ilegal yang dijual bebas di daerah Jawa Barat. Obat herbal ini diketahui mengandung bahan kimia obat (BKO) yang dapat memicu penyakit gagal ginjal dan jantung. Berikut adalah daftar produk yang disita BPOM dan berpotensi bisa merusak jantung serta ginjal: Cobra X, Spider, Africa Black Ant, Cobra India, Tawon Liar, Wan Tong, Kapsul Asam Urat TCU, Antanan, Tongkat Arab, Xian Liang. Obat ini terbilang berbahaya karena dapat merusak ginjal hingga jantung karena mengandung BKO seperti sildenafil, fenilbutazon, metampiron, piroksikam, parasetamol, hingga deksametason. Ketua Perkumpulan Dokter Pengembang Obat Tradisional Jamu Indonesia (PDPOTJI) dr Inggrid Tania mengatakan masalah kesehatan seperti gagal ginjal hingga penyakit jantung memang bisa saja terjadi pada seseorang yang mengonsumsi obat herbal ilegal tersebut. &quot;Obat herbal yang mengandung BKO ini memang bisa mencetuskan penyakit gagal ginjal hingga gagal liver. Ini karena produsennya itu menambahkan BKO tapi tidak ditulis dalam kemasan, dengan kadar yang kita tidak ketahui. Bisa saja kadarnya banyak, melebihi batas aman,&quot; ujar dr Inggrid saat dihubungi detikcom, Kamis (10/10/2024). Tujuan para produsen, lanjut dr Inggrid memberikan BKO melebihi batas adalah untuk mendukung produk mereka yang memiliki klaim &#39;bombastis&#39; seperti dapat meredakan nyeri dengan cepat atau efektif mengatasi kesulitan ereksi pada pria. Sebetulnya, obat-obat herbal berbahaya ini memiliki ciri khas tersendiri, sehingga bisa dijadikan perhatian oleh masyarakat. Menurut dr Anggi, biasanya obat herbal ilegal ini memiliki klaim bombastis pada produknya serta tidak memiliki nomor izin edar Badan POM. &quot;Kalau dari kajian kami, literasi masyarakat kita soal obat herbal masih rendah ya. Kebanyakan mereka tidak tahu izin edar obat herbal itu tidak ada atau bodong,&quot; katanya. &quot;Apalagi ketika mereka mencoba obatnya untuk pertama kali dan merasakan efek &#39;cespleng&#39; karena kan obatnya dicampur dengan bahan kimia dengan takaran yang besar sebetulnya. Mereka merasa obatnya manjur, jadinya beli lagi dan konsumsi lagi,&quot; tutupnya. (dpy/naf)</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">]</span>
 
-<span class="c1"># Gabungkan kedua teks menjadi satu list</span>
+<span class="n">new_text_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Jakarta - Aktif di YouTuber dan TikTok, food vlogger ini memberi pandangannya soal etika saat mengulas makanan. Jangan sampai, ulasannya bisa menjatuhkan usaha orang lain. Di zaman digitalnya ini muncul insan-insan kreatif, seperti food vlogger dan semacamnya. Kehadiran food vlogger agaknya memberikan dampak tersendiri bagi pelaku usaha kuliner, ada negatif dan juga positif. Positifnya bisa membantu mempromosikan usaha milik orang lain. Namun, sebaliknya, food vlogger terkadang bisa mematikan usaha karena hasil ulasannya yang terkesan menjatuhkan. Seperti yang belum lama ini terjadi, seorang food vlogger sampai di-blacklist oleh pengusaha kuliner di Yogyakarta setelah memberi komentar menjatuhkan pada warung makan rawon. Food Vlogger Perlu Tahu! Begini Etika Mengulas Makanan Foto: iStock Dari kejadian tersebut, banyak pelaku usaha kuliner terutama Usaha Mikro, Kecil, dan Menengah (UMKM) yang khawatir dengan kehadiran para food vlogger. Food vlogger yang eksis bernama Almas pun memberikan pandangannya. Melalui TikTok @almasqol (03/10/24) ia mengatakan bahwa seharusnya ada etiket tersendiri saat mengulas makanan. Apalagi ketika food vlogger datang tanpa undangan atau seperti pelanggan biasa. &quot;Kita sebagai konten kreator makanan itu seharusnya lebih mendukung UMKM supaya makanan atau produknya itu lebih dikenal, gimana caranya agar UMKM tetap naik,&quot; ujarnya dalam video yang dikonfirmasi detikFood (16/10/24). Food vlogger dengan 1,7 juta followers itu mengakui bahwa dirinya sebagai konten kreator makanan tidak begitu memahami detail rasa dan istilah dalam kuliner. Food Vlogger ilustrasi. Foto: iStock Namun, meski begitu, ia dapat menyampaikan informasi penting mengenai makanan yang dicicipinya. &quot;Mengulas makanan ya udah sewajarnya, kasih info-info penting dan keseluruhan rasa,&quot; tuturnya. Menurutnya, jika rasanya kurang memuaskan bisa menyampaikan keluhan langsung ke pemilik usaha. Namun, jika rasanya enak bisa langsung sampaikan ke khalayak ramai lewat video kreatif. &quot;Karena kalau menjatuhkan itu gak cuma ownernya aja, di situ ada karyawan yang dihidupkan dan dari makan di tempat itu,&quot; tutur food vlogger yang terkenal dengan jargon &#39;wenak cik!&#39;. Dengan kasus tersebut, menjadi pembelajaran bagi ia dan konten kreator lain. Ia juga berharap agar semua konten kreator dapat lebih bijak dalam bersosial media. Videonya pun ramai ditanggapi netizen. Banyak netizen yang sependapat dengan pandangan Almas mengenai fenomena food vlogger. &quot;Setuju, seharusnya kritik bisa disampaikan dengan etika yang baik dan harus membangun. Jangan cuma komentar jelek gak berguna,&quot; tulis netizen. &quot;Orang tua gue jualan makanan kaki lima, jujur gue khawatir banget kalau ada food vlogger yang gak beretika kayak gitu, gak kebayang gimana sedihnya orang tua,&quot; tuturnya. @almasqol Ber Oponi !! #wenakcik #almasqol ♬ Monkeys Spinning Monkeys - dg cria (raf/odi)</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">]</span>
+
+<span class="c1"># Load the saved vectorizer and model</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;tfidf_model.joblib&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;logistic_regression_model.joblib&#39;</span><span class="p">)</span>
+
+<span class="c1"># New texts to predict</span>
 <span class="n">new_text</span> <span class="o">=</span> <span class="n">new_text_1</span> <span class="o">+</span> <span class="n">new_text_2</span>
 
-<span class="c1"># Preprocessing dan transformasi menggunakan TF-IDF yang sudah disimpan</span>
+<span class="c1"># Preprocess and transform using the loaded TF-IDF vectorizer</span>
 <span class="n">new_text_tfidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">new_text</span><span class="p">)</span>
 
-<span class="c1"># Melakukan prediksi menggunakan model Logistic Regression</span>
+<span class="c1"># Predict using the Logistic Regression model</span>
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_text_tfidf</span><span class="p">)</span>
 
-<span class="c1"># Hasil prediksi</span>
-<span class="n">predicted_categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Kesehatan&quot;</span> <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="s1">&#39;Kesehatan&#39;</span> <span class="k">else</span> <span class="s2">&quot;Kuliner&quot;</span> <span class="k">for</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="n">predictions</span><span class="p">]</span>
+<span class="c1"># Map predictions to categories</span>
+<span class="n">predicted_categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Kesehatan&quot;</span> <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;Kuliner&quot;</span> <span class="k">for</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="n">predictions</span><span class="p">]</span>
 
-<span class="c1"># Output hasil prediksi untuk masing-masing teks</span>
+<span class="c1"># Output the predictions</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">category</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">predicted_categories</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prediksi untuk teks </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prediction for text </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediksi untuk teks 1: Kesehatan
-Prediksi untuk teks 2: Kuliner
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediction for text 1: Kesehatan
+Prediction for text 2: Kuliner
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 <section id="link-streamlit-https-klasifikasi-berita-ppw-a-streamlit-app">
 <h2>Link Streamlit : <a class="reference external" href="https://klasifikasi-berita-ppw-a.streamlit.app/">https://klasifikasi-berita-ppw-a.streamlit.app/</a><a class="headerlink" href="#link-streamlit-https-klasifikasi-berita-ppw-a-streamlit-app" title="Link to this heading">#</a></h2>
 </section>
@@ -1281,7 +1736,8 @@ Prediksi untuk teks 2: Kuliner
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1290,6 +1746,11 @@ Prediksi untuk teks 2: Kuliner
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#label-encoder"><strong>Label Encoder</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data"><strong>Split Data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-term-frequency-inverse-document-frequency"><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model"><strong>Evaluasi Model</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengujian"><strong>Pengujian</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-streamlit-https-klasifikasi-berita-ppw-a-streamlit-app">Link Streamlit : https://klasifikasi-berita-ppw-a.streamlit.app/</a></li>
 </ul>
   </nav></div>
@@ -1339,8 +1800,8 @@ By 21-001 Achmad Baharuddin Akbar
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

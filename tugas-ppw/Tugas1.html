@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="Selamat Datang di Jupyter Book Saya" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../_static/foto.png" class="logo__image only-light" alt="Penambangan Web - A - Home"/>
-    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="Penambangan Web - A - Home"/>`);</script>
+    <img src="../_static/foto.png" class="logo__image only-dark pst-js-only" alt="Penambangan Web - A - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -185,6 +174,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas3.html"><strong>Tugas 3 - Logistic Regression</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas4-2.html"><strong>Tugas 4 - Graph</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas6.html">Tugas 6 - Sistem pencarian dokumen menggunakan Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</a></li>
 </ul>
 
     </div>
@@ -370,24 +361,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -560,34 +543,34 @@ Setelah elemen yang tidak diinginkan dihapus, kode akan mengembalikan teks yang 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gejala Sifilis pada Wanita Berdasarkan Tahapannya, Waspadai Ciri Awalnya!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Soroti Kekurangan Nakes, Prabowo Minta India Kirim Dokter Spesialis Ngajar di RI
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bilang Begini
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mayapada Hospital Bisa Tangani Bengkak Pasca Terapi Kanker Payudara
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gejala Kanker Mulut yang Kerap Tak Disadari, Termasuk Sariawan
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jangan Sampai Keliru, Ini Beda Nyeri Punggung Biasa Vs Saraf Kejepit
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kapan Waktu yang Tepat untuk Minum Air Rebusan Serai? Ini Penjelasannya
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Heboh Pejabat di Swedia Punya Fobia Aneh, Takut Ketemu Pisang
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Viral Hanni NewJeans Bicara soal Bullying di Tempat Kerja, Ini yang Dialaminya
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mayapada Hospital Punya Teknologi VABB untuk Biopsi Payudara Minim Sayatan
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 Manfaat Daun Kelor untuk Kesehatan, Turunkan Kolesterol hingga Gula Darah
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Viral Template &#39;Earpods Berdarah&#39;, Benarkah Telinga Bisa Perdarahan gara-gara Musik?
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kasus Kanker gegara Bedak Tabur
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pakar Ungkap Pola Makan Seperti Ini Bisa Bikin Panjang Umur, Tertarik Mencoba?
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>XLIFE Hadirkan Jasa Terapis Pijat Profesional ke Tempat Anda
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Benarkah Keseringan Makan Seblak Picu Tumor Payudara? Dokter Bilang Gini
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sakit Apa?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ciri-ciri Diabetes pada Wanita yang Harus Diwaspadai, Termasuk Sering Haus dan Lapar
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma Darahnya Biar Awet Muda
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nggak Cuma Enak, 5 Makanan ini Juga Bisa Mencegah Kanker Usus di Usia Muda
 </pre></div>
 </div>
 </div>
@@ -611,7 +594,7 @@ Setelah elemen yang tidak diinginkan dihapus, kode akan mengembalikan teks yang 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-eb973452-cf64-41ef-a669-559ef5b81fe0" class="colab-df-container">
+  <div id="df-40d748ff-fb86-4786-a15f-7ee758a35f5f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -639,37 +622,37 @@ Setelah elemen yang tidak diinginkan dihapus, kode akan mengembalikan teks yang 
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
-      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
-      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
+      <td>Soroti Kekurangan Nakes, Prabowo Minta India K...</td>
+      <td>Kamis, 21 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Presiden Republik Indonesia Prabowo ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
-      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
-      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
+      <td>Mayapada Hospital Bisa Tangani Bengkak Pasca T...</td>
+      <td>Kamis, 21 Nov 2024 09:06 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan solusi ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
-      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
-      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
+      <td>Jangan Sampai Keliru, Ini Beda Nyeri Punggung ...</td>
+      <td>Kamis, 21 Nov 2024 09:01 WIB</td>
+      <td>Jakarta - Saraf kejepit menjadi suatu masalah ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
-      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
-      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
+      <td>Heboh Pejabat di Swedia Punya Fobia Aneh, Taku...</td>
+      <td>Kamis, 21 Nov 2024 08:31 WIB</td>
+      <td>Jakarta - Seorang menteri Swedia yang punya ke...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
-      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
-      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
+      <td>Mayapada Hospital Punya Teknologi VABB untuk B...</td>
+      <td>Kamis, 21 Nov 2024 08:14 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan teknolo...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -678,7 +661,7 @@ Setelah elemen yang tidak diinginkan dihapus, kode akan mengembalikan teks yang 
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-eb973452-cf64-41ef-a669-559ef5b81fe0')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-40d748ff-fb86-4786-a15f-7ee758a35f5f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -730,12 +713,12 @@ Setelah elemen yang tidak diinginkan dihapus, kode akan mengembalikan teks yang 
 
     <script>
       const buttonEl =
-        document.querySelector('#df-eb973452-cf64-41ef-a669-559ef5b81fe0 button.colab-df-convert');
+        document.querySelector('#df-40d748ff-fb86-4786-a15f-7ee758a35f5f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-eb973452-cf64-41ef-a669-559ef5b81fe0');
+        const element = document.querySelector('#df-40d748ff-fb86-4786-a15f-7ee758a35f5f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -767,7 +750,7 @@ Setelah elemen yang tidak diinginkan dihapus, kode akan mengembalikan teks yang 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f560acc2-0d01-4e8c-9958-dbe5648006a6" class="colab-df-container">
+  <div id="df-f38b5575-06a5-4d43-bc28-6b6088b4e6ae" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -795,37 +778,37 @@ Setelah elemen yang tidak diinginkan dihapus, kode akan mengembalikan teks yang 
   <tbody>
     <tr>
       <th>95</th>
-      <td>Lamaknyo! Soto Padang Isian Daging Goreng Ada ...</td>
-      <td>Selasa, 15 Okt 2024 12:00 WIB</td>
-      <td>Jakarta - Tak kalah populer dengan jenis soto ...</td>
+      <td>Jijik! Supermarket Ini Penuh Bangkai Tikus dan...</td>
+      <td>Selasa, 19 Nov 2024 17:00 WIB</td>
+      <td>Jakarta - Supermarket seharusnya bersih. Tetap...</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>Duh! Kedai Lumpia Ini Ditutup 14 Hari Usai Tem...</td>
-      <td>Selasa, 15 Okt 2024 11:30 WIB</td>
-      <td>Jakarta - Kedai yang terkenal dengan hidangan ...</td>
+      <td>Mike Tyson Tetap Bugar di Usia 58 Tahun, Ini M...</td>
+      <td>Selasa, 19 Nov 2024 16:30 WIB</td>
+      <td>Jakarta - Mike Tyson kembali menyorot perhatia...</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>Resep Cempedak Goreng Krispi, Manis Renyah Unt...</td>
-      <td>Selasa, 15 Okt 2024 11:00 WIB</td>
-      <td>Tentang Bahan Langkah Jakarta - Cempedak yang ...</td>
+      <td>5 Pengunjung Resto Ini Kena Denda Puluhan Juta...</td>
+      <td>Selasa, 19 Nov 2024 16:00 WIB</td>
+      <td>Jakarta - Karena dipicu berbagai alasan dan se...</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>10 Tampilan Makanan yang Disebut Buruk Rupa Ta...</td>
-      <td>Selasa, 15 Okt 2024 10:30 WIB</td>
-      <td>Jakarta - Meski tampilan beberapa makanan ini ...</td>
+      <td>Canggih! Kini Susu Basi Bisa Dideteksi via Pon...</td>
+      <td>Selasa, 19 Nov 2024 15:00 WIB</td>
+      <td>Jakarta - Kecanggihan teknologi kini membuat d...</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>Resep Ayam Tumis Kacang Mete ala Restoran yang...</td>
-      <td>Selasa, 15 Okt 2024 10:00 WIB</td>
-      <td>Tentang Bahan Langkah Jakarta - Kalau bosan de...</td>
+      <td>Kocak! Bule Ini Sebut Pecel Lele Sebagai Kadal...</td>
+      <td>Selasa, 19 Nov 2024 14:30 WIB</td>
+      <td>Jakarta - Pesan steak ayam via aplikasi ojek o...</td>
       <td>Kuliner</td>
     </tr>
   </tbody>
@@ -834,7 +817,7 @@ Setelah elemen yang tidak diinginkan dihapus, kode akan mengembalikan teks yang 
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f560acc2-0d01-4e8c-9958-dbe5648006a6')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f38b5575-06a5-4d43-bc28-6b6088b4e6ae')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -886,12 +869,12 @@ Setelah elemen yang tidak diinginkan dihapus, kode akan mengembalikan teks yang 
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f560acc2-0d01-4e8c-9958-dbe5648006a6 button.colab-df-convert');
+        document.querySelector('#df-f38b5575-06a5-4d43-bc28-6b6088b4e6ae button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f560acc2-0d01-4e8c-9958-dbe5648006a6');
+        const element = document.querySelector('#df-f38b5575-06a5-4d43-bc28-6b6088b4e6ae');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1014,8 +997,8 @@ By 21-001 Achmad Baharuddin Akbar
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

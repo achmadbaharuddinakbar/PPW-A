@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="Tugas 3 - Logistic Regression" href="Tugas3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../_static/foto.png" class="logo__image only-light" alt="Penambangan Web - A - Home"/>
-    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="Penambangan Web - A - Home"/>`);</script>
+    <img src="../_static/foto.png" class="logo__image only-dark pst-js-only" alt="Penambangan Web - A - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -185,6 +174,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas3.html"><strong>Tugas 3 - Logistic Regression</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Tugas 4 - Graph</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas6.html">Tugas 6 - Sistem pencarian dokumen menggunakan Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</a></li>
 </ul>
 
     </div>
@@ -370,24 +361,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -474,7 +457,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-27bc6d26-ea91-4e33-a200-ba44b4062886" class="colab-df-container">
+  <div id="df-95a67610-2a2f-42ea-ad98-7f1ab6443066" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -541,7 +524,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-27bc6d26-ea91-4e33-a200-ba44b4062886')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-95a67610-2a2f-42ea-ad98-7f1ab6443066')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -593,12 +576,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-27bc6d26-ea91-4e33-a200-ba44b4062886 button.colab-df-convert');
+        document.querySelector('#df-95a67610-2a2f-42ea-ad98-7f1ab6443066 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-27bc6d26-ea91-4e33-a200-ba44b4062886');
+        const element = document.querySelector('#df-95a67610-2a2f-42ea-ad98-7f1ab6443066');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -618,8 +601,8 @@ document.write(`
   </div>
 
 
-<div id="df-0227c686-e239-457a-a564-faa9ed548fa4">
-  <button class="colab-df-quickchart" onclick="quickchart('df-0227c686-e239-457a-a564-faa9ed548fa4')"
+<div id="df-1f86b848-afa3-4254-a9e4-dd659e15c7f7">
+  <button class="colab-df-quickchart" onclick="quickchart('df-1f86b848-afa3-4254-a9e4-dd659e15c7f7')"
             title="Suggest charts"
             style="display:none;">
 
@@ -738,7 +721,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-0227c686-e239-457a-a564-faa9ed548fa4 button');
+        document.querySelector('#df-1f86b848-afa3-4254-a9e4-dd659e15c7f7 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -787,7 +770,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c009c2c0-0bf7-4b74-abf7-80a3b78739c3" class="colab-df-container">
+  <div id="df-eef0dd9f-1e5e-4019-83cd-4eea667d1dda" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -857,7 +840,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c009c2c0-0bf7-4b74-abf7-80a3b78739c3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-eef0dd9f-1e5e-4019-83cd-4eea667d1dda')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -909,12 +892,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c009c2c0-0bf7-4b74-abf7-80a3b78739c3 button.colab-df-convert');
+        document.querySelector('#df-eef0dd9f-1e5e-4019-83cd-4eea667d1dda button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c009c2c0-0bf7-4b74-abf7-80a3b78739c3');
+        const element = document.querySelector('#df-eef0dd9f-1e5e-4019-83cd-4eea667d1dda');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -934,8 +917,8 @@ document.write(`
   </div>
 
 
-<div id="df-b8473e89-2b73-4765-8826-940dba1522cd">
-  <button class="colab-df-quickchart" onclick="quickchart('df-b8473e89-2b73-4765-8826-940dba1522cd')"
+<div id="df-48ecf62d-7cd0-427c-ae35-2b3ac846d90b">
+  <button class="colab-df-quickchart" onclick="quickchart('df-48ecf62d-7cd0-427c-ae35-2b3ac846d90b')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1054,14 +1037,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-b8473e89-2b73-4765-8826-940dba1522cd button');
+        document.querySelector('#df-48ecf62d-7cd0-427c-ae35-2b3ac846d90b button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_dc0901a1-a5bb-41a8-92a7-7ccf390c0a34">
+  <div id="id_7b542137-3c88-4bed-ac9d-b9eaf6c1777a">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1105,7 +1088,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_dc0901a1-a5bb-41a8-92a7-7ccf390c0a34 button.colab-df-generate');
+        document.querySelector('#id_7b542137-3c88-4bed-ac9d-b9eaf6c1777a button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -1195,7 +1178,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-07b833fa-6820-4b60-8631-fd6f2e1ec6b4" class="colab-df-container">
+  <div id="df-5e5074c0-275d-405a-8e4e-a1117982a4d1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1265,7 +1248,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-07b833fa-6820-4b60-8631-fd6f2e1ec6b4')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5e5074c0-275d-405a-8e4e-a1117982a4d1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1317,12 +1300,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-07b833fa-6820-4b60-8631-fd6f2e1ec6b4 button.colab-df-convert');
+        document.querySelector('#df-5e5074c0-275d-405a-8e4e-a1117982a4d1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-07b833fa-6820-4b60-8631-fd6f2e1ec6b4');
+        const element = document.querySelector('#df-5e5074c0-275d-405a-8e4e-a1117982a4d1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1342,8 +1325,8 @@ document.write(`
   </div>
 
 
-<div id="df-1a6b25c1-8908-4f30-a29f-72f18171eea8">
-  <button class="colab-df-quickchart" onclick="quickchart('df-1a6b25c1-8908-4f30-a29f-72f18171eea8')"
+<div id="df-7bd2321d-6ad2-4999-8ce0-b6e4c6a648a4">
+  <button class="colab-df-quickchart" onclick="quickchart('df-7bd2321d-6ad2-4999-8ce0-b6e4c6a648a4')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1462,7 +1445,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-1a6b25c1-8908-4f30-a29f-72f18171eea8 button');
+        document.querySelector('#df-7bd2321d-6ad2-4999-8ce0-b6e4c6a648a4 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1500,7 +1483,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-885063f5-362a-4517-96bf-3b1ab68b6e6a" class="colab-df-container">
+  <div id="df-3df0a6ad-77ad-4711-94d1-8c48a69b8138" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1742,7 +1725,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-885063f5-362a-4517-96bf-3b1ab68b6e6a')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3df0a6ad-77ad-4711-94d1-8c48a69b8138')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1794,12 +1777,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-885063f5-362a-4517-96bf-3b1ab68b6e6a button.colab-df-convert');
+        document.querySelector('#df-3df0a6ad-77ad-4711-94d1-8c48a69b8138 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-885063f5-362a-4517-96bf-3b1ab68b6e6a');
+        const element = document.querySelector('#df-3df0a6ad-77ad-4711-94d1-8c48a69b8138');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1819,8 +1802,8 @@ document.write(`
   </div>
 
 
-<div id="df-976db88c-bbb3-4de0-90fb-b4381b20341d">
-  <button class="colab-df-quickchart" onclick="quickchart('df-976db88c-bbb3-4de0-90fb-b4381b20341d')"
+<div id="df-5767e330-fe1f-4e8c-b763-5d44b1dc68a3">
+  <button class="colab-df-quickchart" onclick="quickchart('df-5767e330-fe1f-4e8c-b763-5d44b1dc68a3')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1939,14 +1922,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-976db88c-bbb3-4de0-90fb-b4381b20341d button');
+        document.querySelector('#df-5767e330-fe1f-4e8c-b763-5d44b1dc68a3 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_ff49f885-5a5c-4395-b045-b4d860c90511">
+  <div id="id_3eb2db5f-33fd-4083-9248-2ee73f3db927">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1990,7 +1973,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_ff49f885-5a5c-4395-b045-b4d860c90511 button.colab-df-generate');
+        document.querySelector('#id_3eb2db5f-33fd-4083-9248-2ee73f3db927 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -2020,7 +2003,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0cdf1ca5-917f-4c86-bb32-7dc10bcd7407" class="colab-df-container">
+  <div id="df-9f09b5aa-ad5c-4646-be9d-24930eab8502" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2155,7 +2138,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0cdf1ca5-917f-4c86-bb32-7dc10bcd7407')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-9f09b5aa-ad5c-4646-be9d-24930eab8502')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2207,12 +2190,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0cdf1ca5-917f-4c86-bb32-7dc10bcd7407 button.colab-df-convert');
+        document.querySelector('#df-9f09b5aa-ad5c-4646-be9d-24930eab8502 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0cdf1ca5-917f-4c86-bb32-7dc10bcd7407');
+        const element = document.querySelector('#df-9f09b5aa-ad5c-4646-be9d-24930eab8502');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2232,8 +2215,8 @@ document.write(`
   </div>
 
 
-<div id="df-c36db782-8339-4185-8af3-c6ef875a8d0a">
-  <button class="colab-df-quickchart" onclick="quickchart('df-c36db782-8339-4185-8af3-c6ef875a8d0a')"
+<div id="df-2dd3a23b-63c5-4d13-b36d-3b24f0d143b5">
+  <button class="colab-df-quickchart" onclick="quickchart('df-2dd3a23b-63c5-4d13-b36d-3b24f0d143b5')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2352,14 +2335,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-c36db782-8339-4185-8af3-c6ef875a8d0a button');
+        document.querySelector('#df-2dd3a23b-63c5-4d13-b36d-3b24f0d143b5 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_f1453d31-1e2e-4e76-9d96-f5b05221a8b2">
+  <div id="id_80212f6f-bfb4-4879-bc13-be644f9331bf">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -2403,7 +2386,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_f1453d31-1e2e-4e76-9d96-f5b05221a8b2 button.colab-df-generate');
+        document.querySelector('#id_80212f6f-bfb4-4879-bc13-be644f9331bf button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -2451,7 +2434,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-9d48d267-643d-485f-9739-02e595025ad9" class="colab-df-container">
+  <div id="df-93287ce0-6a12-4559-bf98-7f5b531b5536" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2586,7 +2569,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9d48d267-643d-485f-9739-02e595025ad9')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-93287ce0-6a12-4559-bf98-7f5b531b5536')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2638,12 +2621,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9d48d267-643d-485f-9739-02e595025ad9 button.colab-df-convert');
+        document.querySelector('#df-93287ce0-6a12-4559-bf98-7f5b531b5536 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9d48d267-643d-485f-9739-02e595025ad9');
+        const element = document.querySelector('#df-93287ce0-6a12-4559-bf98-7f5b531b5536');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2663,8 +2646,8 @@ document.write(`
   </div>
 
 
-<div id="df-2065a213-95d9-4530-a99e-e80a6dfff243">
-  <button class="colab-df-quickchart" onclick="quickchart('df-2065a213-95d9-4530-a99e-e80a6dfff243')"
+<div id="df-c8ab2d2e-fbe6-4a23-8f4a-7036dec39a91">
+  <button class="colab-df-quickchart" onclick="quickchart('df-c8ab2d2e-fbe6-4a23-8f4a-7036dec39a91')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2783,14 +2766,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-2065a213-95d9-4530-a99e-e80a6dfff243 button');
+        document.querySelector('#df-c8ab2d2e-fbe6-4a23-8f4a-7036dec39a91 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_0d88f183-ea0e-4b72-8d38-49553e86a778">
+  <div id="id_c7f5e152-7a86-4d6c-9a68-70f2cc8c8139">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -2834,7 +2817,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_0d88f183-ea0e-4b72-8d38-49553e86a778 button.colab-df-generate');
+        document.querySelector('#id_c7f5e152-7a86-4d6c-9a68-70f2cc8c8139 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -2855,7 +2838,7 @@ document.write(`
 <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.05</span>
 
 <span class="c1"># Buat matriks adjacency: jika cosine similarity &gt;= 0.6, maka 1; jika tidak, maka 0</span>
-<span class="n">adjacency_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">cosine_sim</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">adjacency_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">jaccard_similarity</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Buat dataframe untuk menampilkan matriks adjacency</span>
 <span class="n">adjacency_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">adjacency_matrix</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;kalimat ke n&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;kalimat ke n&#39;</span><span class="p">])</span>
@@ -2867,7 +2850,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ea87f6f5-b1b8-45bf-8f61-e7720736cbd6" class="colab-df-container">
+  <div id="df-eb128b10-b78d-495e-9aa0-82b5c1e232c6" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2925,7 +2908,7 @@ document.write(`
       <td>1</td>
       <td>0</td>
       <td>1</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
@@ -2935,7 +2918,7 @@ document.write(`
       <td>1</td>
       <td>0</td>
       <td>1</td>
-      <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2945,19 +2928,19 @@ document.write(`
       <th>Kalimat ke 4</th>
       <td>0</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
     </tr>
     <tr>
       <th>Kalimat ke 5</th>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
@@ -2968,7 +2951,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
@@ -3002,7 +2985,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ea87f6f5-b1b8-45bf-8f61-e7720736cbd6')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-eb128b10-b78d-495e-9aa0-82b5c1e232c6')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3054,12 +3037,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ea87f6f5-b1b8-45bf-8f61-e7720736cbd6 button.colab-df-convert');
+        document.querySelector('#df-eb128b10-b78d-495e-9aa0-82b5c1e232c6 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ea87f6f5-b1b8-45bf-8f61-e7720736cbd6');
+        const element = document.querySelector('#df-eb128b10-b78d-495e-9aa0-82b5c1e232c6');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3079,8 +3062,8 @@ document.write(`
   </div>
 
 
-<div id="df-7085922f-0b35-4e58-90cd-e1748763d3ba">
-  <button class="colab-df-quickchart" onclick="quickchart('df-7085922f-0b35-4e58-90cd-e1748763d3ba')"
+<div id="df-454c10e8-5e06-4937-bd6f-63f5cb1559d5">
+  <button class="colab-df-quickchart" onclick="quickchart('df-454c10e8-5e06-4937-bd6f-63f5cb1559d5')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3199,14 +3182,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-7085922f-0b35-4e58-90cd-e1748763d3ba button');
+        document.querySelector('#df-454c10e8-5e06-4937-bd6f-63f5cb1559d5 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_58fe685c-baee-42b0-a830-ce768485d683">
+  <div id="id_7eba9663-c45f-498f-b725-477046cb36a7">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -3250,7 +3233,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_58fe685c-baee-42b0-a830-ce768485d683 button.colab-df-generate');
+        document.querySelector('#id_7eba9663-c45f-498f-b725-477046cb36a7 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -3286,7 +3269,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e4352db06450c771170c5178f658fec17e88bba7966ee55073324948676ca187.png" src="../_images/e4352db06450c771170c5178f658fec17e88bba7966ee55073324948676ca187.png" />
+<img alt="../_images/abd7062e8589d5ed00fa98ef60a6198a5016e785e8ea828a80f09633015befb7.png" src="../_images/abd7062e8589d5ed00fa98ef60a6198a5016e785e8ea828a80f09633015befb7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3315,7 +3298,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-2dd89c3c-ac7a-4490-9b84-5c893ece10dc" class="colab-df-container">
+  <div id="df-ee8efaa7-cf9b-4e96-ac86-dde6d7da2de6" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3344,35 +3327,35 @@ document.write(`
     <tr>
       <th>0</th>
       <td>Kalimat ke 1</td>
-      <td>0.071429</td>
+      <td>0.285714</td>
       <td>0.714286</td>
-      <td>0.636364</td>
+      <td>0.583333</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Kalimat ke 2</td>
-      <td>0.015873</td>
-      <td>0.571429</td>
+      <td>0.119048</td>
+      <td>0.714286</td>
       <td>0.583333</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Kalimat ke 3</td>
-      <td>0.023810</td>
-      <td>0.571429</td>
-      <td>0.583333</td>
+      <td>0.000000</td>
+      <td>0.428571</td>
+      <td>0.388889</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Kalimat ke 4</td>
-      <td>0.285714</td>
-      <td>1.000000</td>
-      <td>0.777778</td>
+      <td>0.015873</td>
+      <td>0.571429</td>
+      <td>0.437500</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Kalimat ke 5</td>
-      <td>0.182540</td>
+      <td>0.444444</td>
       <td>1.000000</td>
       <td>0.777778</td>
     </tr>
@@ -3380,22 +3363,22 @@ document.write(`
       <th>5</th>
       <td>Kalimat ke 6</td>
       <td>0.000000</td>
-      <td>0.571429</td>
-      <td>0.583333</td>
+      <td>0.428571</td>
+      <td>0.466667</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Kalimat ke 7</td>
-      <td>0.119048</td>
+      <td>0.158730</td>
       <td>0.857143</td>
       <td>0.700000</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Kalimat ke 8</td>
-      <td>0.015873</td>
+      <td>0.119048</td>
       <td>0.714286</td>
-      <td>0.636364</td>
+      <td>0.583333</td>
     </tr>
   </tbody>
 </table>
@@ -3403,7 +3386,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-2dd89c3c-ac7a-4490-9b84-5c893ece10dc')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ee8efaa7-cf9b-4e96-ac86-dde6d7da2de6')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3455,12 +3438,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-2dd89c3c-ac7a-4490-9b84-5c893ece10dc button.colab-df-convert');
+        document.querySelector('#df-ee8efaa7-cf9b-4e96-ac86-dde6d7da2de6 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-2dd89c3c-ac7a-4490-9b84-5c893ece10dc');
+        const element = document.querySelector('#df-ee8efaa7-cf9b-4e96-ac86-dde6d7da2de6');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3480,8 +3463,8 @@ document.write(`
   </div>
 
 
-<div id="df-7cdd3149-24e8-4361-a74d-7f72d953f93f">
-  <button class="colab-df-quickchart" onclick="quickchart('df-7cdd3149-24e8-4361-a74d-7f72d953f93f')"
+<div id="df-d82b3ad4-1835-460f-af23-21a568c2d3ee">
+  <button class="colab-df-quickchart" onclick="quickchart('df-d82b3ad4-1835-460f-af23-21a568c2d3ee')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3600,14 +3583,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-7cdd3149-24e8-4361-a74d-7f72d953f93f button');
+        document.querySelector('#df-d82b3ad4-1835-460f-af23-21a568c2d3ee button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_c105b06f-bd7e-420e-949f-ba4c4d41fcdc">
+  <div id="id_ad61b5f5-b080-4af1-b4d7-280721aa315d">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -3651,7 +3634,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_c105b06f-bd7e-420e-949f-ba4c4d41fcdc button.colab-df-generate');
+        document.querySelector('#id_ad61b5f5-b080-4af1-b4d7-280721aa315d button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -3675,7 +3658,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-fe0346e8-2d30-4f54-84f9-f0d75903374d" class="colab-df-container">
+  <div id="df-fb241871-146b-4086-bcda-0ef190b33cbf" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3702,38 +3685,38 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>3</th>
-      <td>Kalimat ke 4</td>
-      <td>0.285714</td>
-      <td>1.000000</td>
-      <td>0.777778</td>
-    </tr>
-    <tr>
       <th>4</th>
       <td>Kalimat ke 5</td>
-      <td>0.182540</td>
+      <td>0.444444</td>
       <td>1.000000</td>
       <td>0.777778</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Kalimat ke 7</td>
-      <td>0.119048</td>
-      <td>0.857143</td>
-      <td>0.700000</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Kalimat ke 1</td>
-      <td>0.071429</td>
+      <td>0.285714</td>
       <td>0.714286</td>
-      <td>0.636364</td>
+      <td>0.583333</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Kalimat ke 3</td>
-      <td>0.023810</td>
-      <td>0.571429</td>
+      <th>6</th>
+      <td>Kalimat ke 7</td>
+      <td>0.158730</td>
+      <td>0.857143</td>
+      <td>0.700000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kalimat ke 2</td>
+      <td>0.119048</td>
+      <td>0.714286</td>
+      <td>0.583333</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Kalimat ke 8</td>
+      <td>0.119048</td>
+      <td>0.714286</td>
       <td>0.583333</td>
     </tr>
   </tbody>
@@ -3742,7 +3725,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-fe0346e8-2d30-4f54-84f9-f0d75903374d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fb241871-146b-4086-bcda-0ef190b33cbf')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3794,12 +3777,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-fe0346e8-2d30-4f54-84f9-f0d75903374d button.colab-df-convert');
+        document.querySelector('#df-fb241871-146b-4086-bcda-0ef190b33cbf button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-fe0346e8-2d30-4f54-84f9-f0d75903374d');
+        const element = document.querySelector('#df-fb241871-146b-4086-bcda-0ef190b33cbf');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3819,8 +3802,8 @@ document.write(`
   </div>
 
 
-<div id="df-a890f2a0-74ee-44f3-a30f-bf6931c0dbf4">
-  <button class="colab-df-quickchart" onclick="quickchart('df-a890f2a0-74ee-44f3-a30f-bf6931c0dbf4')"
+<div id="df-57955698-1b27-4850-b1d3-a1d57c12e6f9">
+  <button class="colab-df-quickchart" onclick="quickchart('df-57955698-1b27-4850-b1d3-a1d57c12e6f9')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3939,14 +3922,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-a890f2a0-74ee-44f3-a30f-bf6931c0dbf4 button');
+        document.querySelector('#df-57955698-1b27-4850-b1d3-a1d57c12e6f9 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_abf54b48-0d19-4719-8907-86e03415ace5">
+  <div id="id_6355cb1b-5f49-48e6-8a6a-85cd14dab4e5">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -3990,7 +3973,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_abf54b48-0d19-4719-8907-86e03415ace5 button.colab-df-generate');
+        document.querySelector('#id_6355cb1b-5f49-48e6-8a6a-85cd14dab4e5 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -4000,6 +3983,281 @@ document.write(`
       })();
     </script>
   </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hapus kolom yang tidak diperlukan</span>
+<span class="n">ranked_sentences</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">top_5_sentences</span><span class="p">,</span> <span class="n">result_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Kalimat&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;kalimat ke n&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan DataFrame hasil yang sudah diperbarui</span>
+<span class="n">ranked_sentences</span><span class="p">[[</span><span class="s1">&#39;kalimat ke n&#39;</span><span class="p">,</span> <span class="s1">&#39;kalimat&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-1113229c-cc63-4d69-8787-ffc0296e61bc" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kalimat ke n</th>
+      <th>kalimat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Kalimat ke 5</td>
+      <td>XLIFE hadir untuk mempermudah masyarakat menda...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kalimat ke 1</td>
+      <td>Jakarta - Manfaat dari terapi pijat selain rel...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Kalimat ke 7</td>
+      <td>Dengan berbagai layanan pijat, antara lain pij...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kalimat ke 2</td>
+      <td>Namun, ada beberapa kendala yang sering dijump...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Kalimat ke 8</td>
+      <td>Selain pijat, XLIFE juga melayani cleaning, pe...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1113229c-cc63-4d69-8787-ffc0296e61bc')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-1113229c-cc63-4d69-8787-ffc0296e61bc button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-1113229c-cc63-4d69-8787-ffc0296e61bc');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-e801f7d1-a684-4f9d-89d8-3f30cf10a1b6">
+  <button class="colab-df-quickchart" onclick="quickchart('df-e801f7d1-a684-4f9d-89d8-3f30cf10a1b6')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-e801f7d1-a684-4f9d-89d8-3f30cf10a1b6 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
 
     </div>
   </div>
@@ -4105,8 +4363,8 @@ By 21-001 Achmad Baharuddin Akbar
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

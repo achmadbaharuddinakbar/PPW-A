@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="Tugas 1 - Crawling Data (detik.com)" href="Tugas1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../_static/foto.png" class="logo__image only-light" alt="Penambangan Web - A - Home"/>
-    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="Penambangan Web - A - Home"/>`);</script>
+    <img src="../_static/foto.png" class="logo__image only-dark pst-js-only" alt="Penambangan Web - A - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -185,6 +174,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas3.html"><strong>Tugas 3 - Logistic Regression</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas4-2.html"><strong>Tugas 4 - Graph</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas6.html">Tugas 6 - Sistem pencarian dokumen menggunakan Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</a></li>
 </ul>
 
     </div>
@@ -370,24 +361,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -441,7 +424,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-754da848-24ae-47ae-93a4-fad5149846e2" class="colab-df-container">
+  <div id="df-1ee15583-32e1-4e5f-af03-c0c4d3bd7567" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -469,44 +452,44 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
-      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
-      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
+      <td>Soroti Kekurangan Nakes, Prabowo Minta India K...</td>
+      <td>Kamis, 21 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Presiden Republik Indonesia Prabowo ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
-      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
-      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
+      <td>Mayapada Hospital Bisa Tangani Bengkak Pasca T...</td>
+      <td>Kamis, 21 Nov 2024 09:06 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan solusi ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
-      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
-      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
+      <td>Jangan Sampai Keliru, Ini Beda Nyeri Punggung ...</td>
+      <td>Kamis, 21 Nov 2024 09:01 WIB</td>
+      <td>Jakarta - Saraf kejepit menjadi suatu masalah ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
-      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
-      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
+      <td>Heboh Pejabat di Swedia Punya Fobia Aneh, Taku...</td>
+      <td>Kamis, 21 Nov 2024 08:31 WIB</td>
+      <td>Jakarta - Seorang menteri Swedia yang punya ke...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
-      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
-      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
+      <td>Mayapada Hospital Punya Teknologi VABB untuk B...</td>
+      <td>Kamis, 21 Nov 2024 08:14 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan teknolo...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>7 Manfaat Daun Kelor untuk Kesehatan, Turunkan...</td>
-      <td>Rabu, 16 Okt 2024 16:01 WIB</td>
-      <td>Jakarta - Daun kelor atau Moringa oleifera ada...</td>
+      <td>Viral Template 'Earpods Berdarah', Benarkah Te...</td>
+      <td>Kamis, 21 Nov 2024 08:00 WIB</td>
+      <td>Jakarta - Tren di media sosial makin hari agak...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -515,7 +498,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-754da848-24ae-47ae-93a4-fad5149846e2')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1ee15583-32e1-4e5f-af03-c0c4d3bd7567')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -567,12 +550,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-754da848-24ae-47ae-93a4-fad5149846e2 button.colab-df-convert');
+        document.querySelector('#df-1ee15583-32e1-4e5f-af03-c0c4d3bd7567 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-754da848-24ae-47ae-93a4-fad5149846e2');
+        const element = document.querySelector('#df-1ee15583-32e1-4e5f-af03-c0c4d3bd7567');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -650,7 +633,7 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-35d83aa5-6585-42b4-b66b-9a2b21d816d8" class="colab-df-container">
+  <div id="df-ff08c1f8-4dd6-476c-9033-7e15c166afcf" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -679,51 +662,51 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
-      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
-      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
+      <td>Soroti Kekurangan Nakes, Prabowo Minta India K...</td>
+      <td>Kamis, 21 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Presiden Republik Indonesia Prabowo ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sifilis atau penyakit raja singa term...</td>
+      <td>Jakarta  Presiden Republik Indonesia Prabowo S...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
-      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
-      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
+      <td>Mayapada Hospital Bisa Tangani Bengkak Pasca T...</td>
+      <td>Kamis, 21 Nov 2024 09:06 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan solusi ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebagian orang pasti sudah mengenal i...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan solusi p...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
-      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
-      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
+      <td>Jangan Sampai Keliru, Ini Beda Nyeri Punggung ...</td>
+      <td>Kamis, 21 Nov 2024 09:01 WIB</td>
+      <td>Jakarta - Saraf kejepit menjadi suatu masalah ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Setiap orang mungkin pernah mengalami...</td>
+      <td>Jakarta  Saraf kejepit menjadi suatu masalah y...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
-      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
-      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
+      <td>Heboh Pejabat di Swedia Punya Fobia Aneh, Taku...</td>
+      <td>Kamis, 21 Nov 2024 08:31 WIB</td>
+      <td>Jakarta - Seorang menteri Swedia yang punya ke...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Air rebusan serai dikenal sebagai sal...</td>
+      <td>Jakarta  Seorang menteri Swedia yang punya ket...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
-      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
-      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
+      <td>Mayapada Hospital Punya Teknologi VABB untuk B...</td>
+      <td>Kamis, 21 Nov 2024 08:14 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan teknolo...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral momen member NewJeans Hanni ber...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan teknolog...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>7 Manfaat Daun Kelor untuk Kesehatan, Turunkan...</td>
-      <td>Rabu, 16 Okt 2024 16:01 WIB</td>
-      <td>Jakarta - Daun kelor atau Moringa oleifera ada...</td>
+      <td>Viral Template 'Earpods Berdarah', Benarkah Te...</td>
+      <td>Kamis, 21 Nov 2024 08:00 WIB</td>
+      <td>Jakarta - Tren di media sosial makin hari agak...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Daun kelor atau Moringa oleifera adal...</td>
+      <td>Jakarta  Tren di media sosial makin hari agakn...</td>
     </tr>
   </tbody>
 </table>
@@ -731,7 +714,7 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-35d83aa5-6585-42b4-b66b-9a2b21d816d8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ff08c1f8-4dd6-476c-9033-7e15c166afcf')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -783,12 +766,12 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-35d83aa5-6585-42b4-b66b-9a2b21d816d8 button.colab-df-convert');
+        document.querySelector('#df-ff08c1f8-4dd6-476c-9033-7e15c166afcf button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-35d83aa5-6585-42b4-b66b-9a2b21d816d8');
+        const element = document.querySelector('#df-ff08c1f8-4dd6-476c-9033-7e15c166afcf');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -836,7 +819,7 @@ dalam representasi kata dapat dipertahankan.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3e54b947-a5b2-4339-8154-bef0dae72689" class="colab-df-container">
+  <div id="df-739761a2-2275-4e7c-b868-fdd149ec5b8c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -866,57 +849,57 @@ dalam representasi kata dapat dipertahankan.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
-      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
-      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
+      <td>Soroti Kekurangan Nakes, Prabowo Minta India K...</td>
+      <td>Kamis, 21 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Presiden Republik Indonesia Prabowo ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sifilis atau penyakit raja singa term...</td>
-      <td>jakarta  sifilis atau penyakit raja singa term...</td>
+      <td>Jakarta  Presiden Republik Indonesia Prabowo S...</td>
+      <td>jakarta  presiden republik indonesia prabowo s...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
-      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
-      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
+      <td>Mayapada Hospital Bisa Tangani Bengkak Pasca T...</td>
+      <td>Kamis, 21 Nov 2024 09:06 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan solusi ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebagian orang pasti sudah mengenal i...</td>
-      <td>jakarta  sebagian orang pasti sudah mengenal i...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan solusi p...</td>
+      <td>jakarta  mayapada hospital menawarkan solusi p...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
-      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
-      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
+      <td>Jangan Sampai Keliru, Ini Beda Nyeri Punggung ...</td>
+      <td>Kamis, 21 Nov 2024 09:01 WIB</td>
+      <td>Jakarta - Saraf kejepit menjadi suatu masalah ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Setiap orang mungkin pernah mengalami...</td>
-      <td>jakarta  setiap orang mungkin pernah mengalami...</td>
+      <td>Jakarta  Saraf kejepit menjadi suatu masalah y...</td>
+      <td>jakarta  saraf kejepit menjadi suatu masalah y...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
-      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
-      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
+      <td>Heboh Pejabat di Swedia Punya Fobia Aneh, Taku...</td>
+      <td>Kamis, 21 Nov 2024 08:31 WIB</td>
+      <td>Jakarta - Seorang menteri Swedia yang punya ke...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Air rebusan serai dikenal sebagai sal...</td>
-      <td>jakarta  air rebusan serai dikenal sebagai sal...</td>
+      <td>Jakarta  Seorang menteri Swedia yang punya ket...</td>
+      <td>jakarta  seorang menteri swedia yang punya ket...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
-      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
-      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
+      <td>Mayapada Hospital Punya Teknologi VABB untuk B...</td>
+      <td>Kamis, 21 Nov 2024 08:14 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan teknolo...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral momen member NewJeans Hanni ber...</td>
-      <td>jakarta  viral momen member newjeans hanni ber...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan teknolog...</td>
+      <td>jakarta  mayapada hospital menawarkan teknolog...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>7 Manfaat Daun Kelor untuk Kesehatan, Turunkan...</td>
-      <td>Rabu, 16 Okt 2024 16:01 WIB</td>
-      <td>Jakarta - Daun kelor atau Moringa oleifera ada...</td>
+      <td>Viral Template 'Earpods Berdarah', Benarkah Te...</td>
+      <td>Kamis, 21 Nov 2024 08:00 WIB</td>
+      <td>Jakarta - Tren di media sosial makin hari agak...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Daun kelor atau Moringa oleifera adal...</td>
-      <td>jakarta  daun kelor atau moringa oleifera adal...</td>
+      <td>Jakarta  Tren di media sosial makin hari agakn...</td>
+      <td>jakarta  tren di media sosial makin hari agakn...</td>
     </tr>
   </tbody>
 </table>
@@ -924,7 +907,7 @@ dalam representasi kata dapat dipertahankan.</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-3e54b947-a5b2-4339-8154-bef0dae72689')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-739761a2-2275-4e7c-b868-fdd149ec5b8c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -976,12 +959,12 @@ dalam representasi kata dapat dipertahankan.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-3e54b947-a5b2-4339-8154-bef0dae72689 button.colab-df-convert');
+        document.querySelector('#df-739761a2-2275-4e7c-b868-fdd149ec5b8c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-3e54b947-a5b2-4339-8154-bef0dae72689');
+        const element = document.querySelector('#df-739761a2-2275-4e7c-b868-fdd149ec5b8c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1025,7 +1008,7 @@ berupa kata,frasa atau karakter terpisah.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-af25ea27-b205-404d-89ed-b7e4eb97a0d7" class="colab-df-container">
+  <div id="df-a50d711e-73e6-494a-b459-97266aba5aaa" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1056,63 +1039,63 @@ berupa kata,frasa atau karakter terpisah.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
-      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
-      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
+      <td>Soroti Kekurangan Nakes, Prabowo Minta India K...</td>
+      <td>Kamis, 21 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Presiden Republik Indonesia Prabowo ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sifilis atau penyakit raja singa term...</td>
-      <td>jakarta  sifilis atau penyakit raja singa term...</td>
-      <td>[jakarta, sifilis, atau, penyakit, raja, singa...</td>
+      <td>Jakarta  Presiden Republik Indonesia Prabowo S...</td>
+      <td>jakarta  presiden republik indonesia prabowo s...</td>
+      <td>[jakarta, presiden, republik, indonesia, prabo...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
-      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
-      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
+      <td>Mayapada Hospital Bisa Tangani Bengkak Pasca T...</td>
+      <td>Kamis, 21 Nov 2024 09:06 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan solusi ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebagian orang pasti sudah mengenal i...</td>
-      <td>jakarta  sebagian orang pasti sudah mengenal i...</td>
-      <td>[jakarta, sebagian, orang, pasti, sudah, menge...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan solusi p...</td>
+      <td>jakarta  mayapada hospital menawarkan solusi p...</td>
+      <td>[jakarta, mayapada, hospital, menawarkan, solu...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
-      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
-      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
+      <td>Jangan Sampai Keliru, Ini Beda Nyeri Punggung ...</td>
+      <td>Kamis, 21 Nov 2024 09:01 WIB</td>
+      <td>Jakarta - Saraf kejepit menjadi suatu masalah ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Setiap orang mungkin pernah mengalami...</td>
-      <td>jakarta  setiap orang mungkin pernah mengalami...</td>
-      <td>[jakarta, setiap, orang, mungkin, pernah, meng...</td>
+      <td>Jakarta  Saraf kejepit menjadi suatu masalah y...</td>
+      <td>jakarta  saraf kejepit menjadi suatu masalah y...</td>
+      <td>[jakarta, saraf, kejepit, menjadi, suatu, masa...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
-      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
-      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
+      <td>Heboh Pejabat di Swedia Punya Fobia Aneh, Taku...</td>
+      <td>Kamis, 21 Nov 2024 08:31 WIB</td>
+      <td>Jakarta - Seorang menteri Swedia yang punya ke...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Air rebusan serai dikenal sebagai sal...</td>
-      <td>jakarta  air rebusan serai dikenal sebagai sal...</td>
-      <td>[jakarta, air, rebusan, serai, dikenal, sebaga...</td>
+      <td>Jakarta  Seorang menteri Swedia yang punya ket...</td>
+      <td>jakarta  seorang menteri swedia yang punya ket...</td>
+      <td>[jakarta, seorang, menteri, swedia, yang, puny...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
-      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
-      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
+      <td>Mayapada Hospital Punya Teknologi VABB untuk B...</td>
+      <td>Kamis, 21 Nov 2024 08:14 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan teknolo...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral momen member NewJeans Hanni ber...</td>
-      <td>jakarta  viral momen member newjeans hanni ber...</td>
-      <td>[jakarta, viral, momen, member, newjeans, hann...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan teknolog...</td>
+      <td>jakarta  mayapada hospital menawarkan teknolog...</td>
+      <td>[jakarta, mayapada, hospital, menawarkan, tekn...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>7 Manfaat Daun Kelor untuk Kesehatan, Turunkan...</td>
-      <td>Rabu, 16 Okt 2024 16:01 WIB</td>
-      <td>Jakarta - Daun kelor atau Moringa oleifera ada...</td>
+      <td>Viral Template 'Earpods Berdarah', Benarkah Te...</td>
+      <td>Kamis, 21 Nov 2024 08:00 WIB</td>
+      <td>Jakarta - Tren di media sosial makin hari agak...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Daun kelor atau Moringa oleifera adal...</td>
-      <td>jakarta  daun kelor atau moringa oleifera adal...</td>
-      <td>[jakarta, daun, kelor, atau, moringa, oleifera...</td>
+      <td>Jakarta  Tren di media sosial makin hari agakn...</td>
+      <td>jakarta  tren di media sosial makin hari agakn...</td>
+      <td>[jakarta, tren, di, media, sosial, makin, hari...</td>
     </tr>
   </tbody>
 </table>
@@ -1120,7 +1103,7 @@ berupa kata,frasa atau karakter terpisah.</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-af25ea27-b205-404d-89ed-b7e4eb97a0d7')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a50d711e-73e6-494a-b459-97266aba5aaa')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1172,12 +1155,12 @@ berupa kata,frasa atau karakter terpisah.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-af25ea27-b205-404d-89ed-b7e4eb97a0d7 button.colab-df-convert');
+        document.querySelector('#df-a50d711e-73e6-494a-b459-97266aba5aaa button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-af25ea27-b205-404d-89ed-b7e4eb97a0d7');
+        const element = document.querySelector('#df-a50d711e-73e6-494a-b459-97266aba5aaa');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1234,7 +1217,7 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-bcb2efa8-301d-43cb-b638-ca57c63e7bed" class="colab-df-container">
+  <div id="df-9263abb9-e83a-40d6-9760-bcccec3b2ab8" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1266,69 +1249,69 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
-      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
-      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
+      <td>Soroti Kekurangan Nakes, Prabowo Minta India K...</td>
+      <td>Kamis, 21 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Presiden Republik Indonesia Prabowo ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sifilis atau penyakit raja singa term...</td>
-      <td>jakarta  sifilis atau penyakit raja singa term...</td>
-      <td>[jakarta, sifilis, atau, penyakit, raja, singa...</td>
-      <td>jakarta sifilis penyakit raja singa infeksi me...</td>
+      <td>Jakarta  Presiden Republik Indonesia Prabowo S...</td>
+      <td>jakarta  presiden republik indonesia prabowo s...</td>
+      <td>[jakarta, presiden, republik, indonesia, prabo...</td>
+      <td>jakarta presiden republik indonesia prabowo su...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
-      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
-      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
+      <td>Mayapada Hospital Bisa Tangani Bengkak Pasca T...</td>
+      <td>Kamis, 21 Nov 2024 09:06 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan solusi ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebagian orang pasti sudah mengenal i...</td>
-      <td>jakarta  sebagian orang pasti sudah mengenal i...</td>
-      <td>[jakarta, sebagian, orang, pasti, sudah, menge...</td>
-      <td>jakarta orang mengenal istilah puncak seksual ...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan solusi p...</td>
+      <td>jakarta  mayapada hospital menawarkan solusi p...</td>
+      <td>[jakarta, mayapada, hospital, menawarkan, solu...</td>
+      <td>jakarta mayapada hospital menawarkan solusi pe...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
-      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
-      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
+      <td>Jangan Sampai Keliru, Ini Beda Nyeri Punggung ...</td>
+      <td>Kamis, 21 Nov 2024 09:01 WIB</td>
+      <td>Jakarta - Saraf kejepit menjadi suatu masalah ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Setiap orang mungkin pernah mengalami...</td>
-      <td>jakarta  setiap orang mungkin pernah mengalami...</td>
-      <td>[jakarta, setiap, orang, mungkin, pernah, meng...</td>
-      <td>jakarta orang mengalami sariawan luka mulut me...</td>
+      <td>Jakarta  Saraf kejepit menjadi suatu masalah y...</td>
+      <td>jakarta  saraf kejepit menjadi suatu masalah y...</td>
+      <td>[jakarta, saraf, kejepit, menjadi, suatu, masa...</td>
+      <td>jakarta saraf kejepit diabaikan berdampak seri...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
-      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
-      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
+      <td>Heboh Pejabat di Swedia Punya Fobia Aneh, Taku...</td>
+      <td>Kamis, 21 Nov 2024 08:31 WIB</td>
+      <td>Jakarta - Seorang menteri Swedia yang punya ke...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Air rebusan serai dikenal sebagai sal...</td>
-      <td>jakarta  air rebusan serai dikenal sebagai sal...</td>
-      <td>[jakarta, air, rebusan, serai, dikenal, sebaga...</td>
-      <td>jakarta air rebusan serai dikenal salah ramuan...</td>
+      <td>Jakarta  Seorang menteri Swedia yang punya ket...</td>
+      <td>jakarta  seorang menteri swedia yang punya ket...</td>
+      <td>[jakarta, seorang, menteri, swedia, yang, puny...</td>
+      <td>jakarta menteri swedia ketakutan pisang bahan ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
-      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
-      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
+      <td>Mayapada Hospital Punya Teknologi VABB untuk B...</td>
+      <td>Kamis, 21 Nov 2024 08:14 WIB</td>
+      <td>Jakarta - Mayapada Hospital menawarkan teknolo...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral momen member NewJeans Hanni ber...</td>
-      <td>jakarta  viral momen member newjeans hanni ber...</td>
-      <td>[jakarta, viral, momen, member, newjeans, hann...</td>
-      <td>jakarta viral momen member newjeans hanni berb...</td>
+      <td>Jakarta  Mayapada Hospital menawarkan teknolog...</td>
+      <td>jakarta  mayapada hospital menawarkan teknolog...</td>
+      <td>[jakarta, mayapada, hospital, menawarkan, tekn...</td>
+      <td>jakarta mayapada hospital menawarkan teknologi...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>7 Manfaat Daun Kelor untuk Kesehatan, Turunkan...</td>
-      <td>Rabu, 16 Okt 2024 16:01 WIB</td>
-      <td>Jakarta - Daun kelor atau Moringa oleifera ada...</td>
+      <td>Viral Template 'Earpods Berdarah', Benarkah Te...</td>
+      <td>Kamis, 21 Nov 2024 08:00 WIB</td>
+      <td>Jakarta - Tren di media sosial makin hari agak...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Daun kelor atau Moringa oleifera adal...</td>
-      <td>jakarta  daun kelor atau moringa oleifera adal...</td>
-      <td>[jakarta, daun, kelor, atau, moringa, oleifera...</td>
-      <td>jakarta daun kelor moringa oleifera salah herb...</td>
+      <td>Jakarta  Tren di media sosial makin hari agakn...</td>
+      <td>jakarta  tren di media sosial makin hari agakn...</td>
+      <td>[jakarta, tren, di, media, sosial, makin, hari...</td>
+      <td>jakarta tren media sosial kian beragam wargane...</td>
     </tr>
   </tbody>
 </table>
@@ -1336,7 +1319,7 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-bcb2efa8-301d-43cb-b638-ca57c63e7bed')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-9263abb9-e83a-40d6-9760-bcccec3b2ab8')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1388,12 +1371,12 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-bcb2efa8-301d-43cb-b638-ca57c63e7bed button.colab-df-convert');
+        document.querySelector('#df-9263abb9-e83a-40d6-9760-bcccec3b2ab8 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-bcb2efa8-301d-43cb-b638-ca57c63e7bed');
+        const element = document.querySelector('#df-9263abb9-e83a-40d6-9760-bcccec3b2ab8');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1474,7 +1457,7 @@ kecil.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b9d26e29-7de2-4912-8025-b19b7489f0fb" class="colab-df-container">
+  <div id="df-20c6302d-a3a8-43d0-895c-a0128505ebf1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1493,27 +1476,27 @@ kecil.</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>abad</th>
       <th>abai</th>
-      <th>abang</th>
-      <th>abc</th>
-      <th>abdalla</th>
-      <th>abdullah</th>
       <th>abis</th>
+      <th>ablasi</th>
       <th>abnormal</th>
-      <th>acar</th>
+      <th>abu</th>
+      <th>academy</th>
       <th>acara</th>
-      <th>aceh</th>
+      <th>ade</th>
+      <th>adenomyosis</th>
       <th>...</th>
-      <th>you</th>
       <th>youtuber</th>
-      <th>yu</th>
-      <th>yudhistira</th>
-      <th>yun</th>
-      <th>yuni</th>
+      <th>yuan</th>
+      <th>yudi</th>
+      <th>yutaka</th>
+      <th>yuwono</th>
       <th>zaitun</th>
-      <th>zaman</th>
+      <th>zaizai</th>
       <th>zat</th>
-      <th>zonk</th>
+      <th>zatzat</th>
+      <th>zoonosis</th>
     </tr>
   </thead>
   <tbody>
@@ -1537,8 +1520,8 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1561,8 +1544,8 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1585,8 +1568,8 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1609,8 +1592,8 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1633,8 +1616,8 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1657,8 +1640,8 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.044711</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1681,8 +1664,8 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1705,8 +1688,8 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1729,8 +1712,8 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1753,18 +1736,18 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.042356</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>10 rows × 4917 columns</p>
+<p>10 rows × 4991 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-b9d26e29-7de2-4912-8025-b19b7489f0fb')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-20c6302d-a3a8-43d0-895c-a0128505ebf1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1816,12 +1799,12 @@ kecil.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-b9d26e29-7de2-4912-8025-b19b7489f0fb button.colab-df-convert');
+        document.querySelector('#df-20c6302d-a3a8-43d0-895c-a0128505ebf1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-b9d26e29-7de2-4912-8025-b19b7489f0fb');
+        const element = document.querySelector('#df-20c6302d-a3a8-43d0-895c-a0128505ebf1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1944,8 +1927,8 @@ By 21-001 Achmad Baharuddin Akbar
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
