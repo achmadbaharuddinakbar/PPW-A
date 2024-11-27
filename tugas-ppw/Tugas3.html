@@ -176,6 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas6.html">Tugas 6 - Sistem pencarian dokumen menggunakan Singular Value Decomposition (SVD)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link-penugasan-deployment.html"><strong>Link Penugasan Deployment</strong></a></li>
 </ul>
 
     </div>
@@ -436,7 +437,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt_tab to /root/nltk_data...
-[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data]   Unzipping tokenizers/punkt_tab.zip.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -455,7 +456,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8b1d0145-bc16-4631-80d1-7438414c2266" class="colab-df-container">
+  <div id="df-c1e64a58-44d7-4b8a-96b1-94822b4b5183" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -546,7 +547,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8b1d0145-bc16-4631-80d1-7438414c2266')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-c1e64a58-44d7-4b8a-96b1-94822b4b5183')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -598,12 +599,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8b1d0145-bc16-4631-80d1-7438414c2266 button.colab-df-convert');
+        document.querySelector('#df-c1e64a58-44d7-4b8a-96b1-94822b4b5183 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8b1d0145-bc16-4631-80d1-7438414c2266');
+        const element = document.querySelector('#df-c1e64a58-44d7-4b8a-96b1-94822b4b5183');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -653,7 +654,7 @@ DataFrame setelah Label Encoding:
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-af806933-537a-4d6b-bf7f-013011402dc8" class="colab-df-container">
+  <div id="df-5d9e037a-0f37-47f2-ae1d-5c8e08741878" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -823,7 +824,7 @@ DataFrame setelah Label Encoding:
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-af806933-537a-4d6b-bf7f-013011402dc8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5d9e037a-0f37-47f2-ae1d-5c8e08741878')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -875,12 +876,12 @@ DataFrame setelah Label Encoding:
 
     <script>
       const buttonEl =
-        document.querySelector('#df-af806933-537a-4d6b-bf7f-013011402dc8 button.colab-df-convert');
+        document.querySelector('#df-5d9e037a-0f37-47f2-ae1d-5c8e08741878 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-af806933-537a-4d6b-bf7f-013011402dc8');
+        const element = document.querySelector('#df-5d9e037a-0f37-47f2-ae1d-5c8e08741878');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1020,7 +1021,9 @@ Jumlah data uji: 20
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TF-IDF untuk data training:
-    aad      abad  abang  abnormal  abuabu  academy  acara  achilles  acungi  \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    aad      abad  abang  abnormal  abuabu  academy  acara  achilles  acungi  \
 0   0.0  0.041385    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
 1   0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
 2   0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
@@ -1062,7 +1065,9 @@ Jumlah data uji: 20
 [80 rows x 4320 columns]
 
 TF-IDF untuk data testing:
-    aad  abad  abang  abnormal  abuabu  academy  acara  achilles  acungi  \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    aad  abad  abang  abnormal  abuabu  academy  acara  achilles  acungi  \
 0   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
 1   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
 2   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
@@ -1624,7 +1629,9 @@ weighted avg       1.00      1.00      1.00        20
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TfidfVectorizer and Logistic Regression model have been successfully saved.
-Model Logistic Regression dan TF-IDF telah disimpan dengan joblib.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Logistic Regression dan TF-IDF telah disimpan dengan joblib.
 </pre></div>
 </div>
 </div>
