@@ -429,6 +429,7 @@
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -437,6 +438,8 @@
 [nltk_data]   Package stopwords is already up-to-date!
 [nltk_data] Downloading package punkt to /root/nltk_data...
 [nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package punkt_tab to /root/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -457,7 +460,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c134f821-d2ca-465a-9799-98f5e1dd41be" class="colab-df-container">
+  <div id="df-fa79d07b-ad8c-4b11-8ec4-2be37fb22d2d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -489,58 +492,58 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Soroti Kekurangan Nakes, Prabowo Minta India K...</td>
-      <td>Kamis, 21 Nov 2024 09:31 WIB</td>
-      <td>Jakarta - Presiden Republik Indonesia Prabowo ...</td>
+      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
+      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
+      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Presiden Republik Indonesia Prabowo S...</td>
-      <td>jakarta  presiden republik indonesia prabowo s...</td>
-      <td>['jakarta', 'presiden', 'republik', 'indonesia...</td>
-      <td>jakarta presiden republik indonesia prabowo su...</td>
+      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
+      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
+      <td>['jakarta', 'stroke', 'merupakan', 'salah', 's...</td>
+      <td>jakarta stroke salah kondisi medis menurunkan ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Mayapada Hospital Bisa Tangani Bengkak Pasca T...</td>
-      <td>Kamis, 21 Nov 2024 09:06 WIB</td>
-      <td>Jakarta - Mayapada Hospital menawarkan solusi ...</td>
+      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
+      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
+      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Mayapada Hospital menawarkan solusi p...</td>
-      <td>jakarta  mayapada hospital menawarkan solusi p...</td>
-      <td>['jakarta', 'mayapada', 'hospital', 'menawarka...</td>
-      <td>jakarta mayapada hospital menawarkan solusi pe...</td>
+      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
+      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
+      <td>['jakarta', 'petai', 'atau', 'parkia', 'specio...</td>
+      <td>jakarta petai parkia speciosa tanaman asia ten...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jangan Sampai Keliru, Ini Beda Nyeri Punggung ...</td>
-      <td>Kamis, 21 Nov 2024 09:01 WIB</td>
-      <td>Jakarta - Saraf kejepit menjadi suatu masalah ...</td>
+      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
+      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
+      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Saraf kejepit menjadi suatu masalah y...</td>
-      <td>jakarta  saraf kejepit menjadi suatu masalah y...</td>
-      <td>['jakarta', 'saraf', 'kejepit', 'menjadi', 'su...</td>
-      <td>jakarta saraf kejepit diabaikan berdampak seri...</td>
+      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
+      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
+      <td>['jakarta', 'pria', 'yang', 'dinobatkan', 'seb...</td>
+      <td>jakarta pria dinobatkan orang tertua dunia ver...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Heboh Pejabat di Swedia Punya Fobia Aneh, Taku...</td>
-      <td>Kamis, 21 Nov 2024 08:31 WIB</td>
-      <td>Jakarta - Seorang menteri Swedia yang punya ke...</td>
+      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
+      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
+      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Seorang menteri Swedia yang punya ket...</td>
-      <td>jakarta  seorang menteri swedia yang punya ket...</td>
-      <td>['jakarta', 'seorang', 'menteri', 'swedia', 'y...</td>
-      <td>jakarta menteri swedia ketakutan pisang bahan ...</td>
+      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
+      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
+      <td>['jakarta', 'wasir', 'sama', 'dengan', 'ambeie...</td>
+      <td>jakarta wasir ambeien nama penyakit hemoroid p...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Mayapada Hospital Punya Teknologi VABB untuk B...</td>
-      <td>Kamis, 21 Nov 2024 08:14 WIB</td>
-      <td>Jakarta - Mayapada Hospital menawarkan teknolo...</td>
+      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
+      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
+      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Mayapada Hospital menawarkan teknolog...</td>
-      <td>jakarta  mayapada hospital menawarkan teknolog...</td>
-      <td>['jakarta', 'mayapada', 'hospital', 'menawarka...</td>
-      <td>jakarta mayapada hospital menawarkan teknologi...</td>
+      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
+      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
+      <td>['jakarta', 'kelompok', 'penyelenggara', 'pemu...</td>
+      <td>jakarta kelompok penyelenggara pemungutan suar...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -555,58 +558,58 @@
     </tr>
     <tr>
       <th>95</th>
-      <td>Jijik! Supermarket Ini Penuh Bangkai Tikus dan...</td>
-      <td>Selasa, 19 Nov 2024 17:00 WIB</td>
-      <td>Jakarta - Supermarket seharusnya bersih. Tetap...</td>
+      <td>Pop Mart Tindak Penjual Makanan Labubu hingga ...</td>
+      <td>Selasa, 26 Nov 2024 09:30 WIB</td>
+      <td>Jakarta - Pop Mart akan menindak tegas para pe...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Supermarket seharusnya bersih Tetapi ...</td>
-      <td>jakarta  supermarket seharusnya bersih tetapi ...</td>
-      <td>['jakarta', 'supermarket', 'seharusnya', 'bers...</td>
-      <td>jakarta supermarket bersih supermarket dipenuh...</td>
+      <td>Jakarta  Pop Mart akan menindak tegas para pen...</td>
+      <td>jakarta  pop mart akan menindak tegas para pen...</td>
+      <td>['jakarta', 'pop', 'mart', 'akan', 'menindak',...</td>
+      <td>jakarta pop mart menindak penjual makanan paka...</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>Mike Tyson Tetap Bugar di Usia 58 Tahun, Ini M...</td>
-      <td>Selasa, 19 Nov 2024 16:30 WIB</td>
-      <td>Jakarta - Mike Tyson kembali menyorot perhatia...</td>
+      <td>3 Resep Ayam Kecap Pedas, Lauk Rumahan yang En...</td>
+      <td>Selasa, 26 Nov 2024 09:00 WIB</td>
+      <td>Tentang Bahan Langkah Jakarta - Ayam yang dima...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Mike Tyson kembali menyorot perhatian...</td>
-      <td>jakarta  mike tyson kembali menyorot perhatian...</td>
-      <td>['jakarta', 'mike', 'tyson', 'kembali', 'menyo...</td>
-      <td>jakarta mike tyson menyorot perhatian bertarun...</td>
+      <td>Tentang Bahan Langkah Jakarta  Ayam yang dimas...</td>
+      <td>tentang bahan langkah jakarta  ayam yang dimas...</td>
+      <td>['tentang', 'bahan', 'langkah', 'jakarta', 'ay...</td>
+      <td>bahan langkah jakarta ayam dimasak kecap manis...</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>5 Pengunjung Resto Ini Kena Denda Puluhan Juta...</td>
-      <td>Selasa, 19 Nov 2024 16:00 WIB</td>
-      <td>Jakarta - Karena dipicu berbagai alasan dan se...</td>
+      <td>Ngeunah! Nasi Liwet Ayam Goreng dan Ikan Peda ...</td>
+      <td>Selasa, 26 Nov 2024 08:30 WIB</td>
+      <td>Jakarta - Ngeunah! Nasi Liwet Ayam Goreng dan ...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Karena dipicu berbagai alasan dan seb...</td>
-      <td>jakarta  karena dipicu berbagai alasan dan seb...</td>
-      <td>['jakarta', 'karena', 'dipicu', 'berbagai', 'a...</td>
-      <td>jakarta dipicu alasan pengunjung resto dikenak...</td>
+      <td>Jakarta  Ngeunah Nasi Liwet Ayam Goreng dan Ik...</td>
+      <td>jakarta  ngeunah nasi liwet ayam goreng dan ik...</td>
+      <td>['jakarta', 'ngeunah', 'nasi', 'liwet', 'ayam'...</td>
+      <td>jakarta ngeunah nasi liwet ayam goreng ikan pe...</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>Canggih! Kini Susu Basi Bisa Dideteksi via Pon...</td>
-      <td>Selasa, 19 Nov 2024 15:00 WIB</td>
-      <td>Jakarta - Kecanggihan teknologi kini membuat d...</td>
+      <td>Konsumsi 5 Jenis Rempah Ini Ampuh Bakar Lemak ...</td>
+      <td>Selasa, 26 Nov 2024 08:00 WIB</td>
+      <td>Jakarta - Lemak yang menumpuk di perut tidak h...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Kecanggihan teknologi kini membuat de...</td>
-      <td>jakarta  kecanggihan teknologi kini membuat de...</td>
-      <td>['jakarta', 'kecanggihan', 'teknologi', 'kini'...</td>
-      <td>jakarta kecanggihan teknologi deteksi susu bas...</td>
+      <td>Jakarta  Lemak yang menumpuk di perut tidak ha...</td>
+      <td>jakarta  lemak yang menumpuk di perut tidak ha...</td>
+      <td>['jakarta', 'lemak', 'yang', 'menumpuk', 'di',...</td>
+      <td>jakarta lemak menumpuk perut mengganggu penamp...</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>Kocak! Bule Ini Sebut Pecel Lele Sebagai Kadal...</td>
-      <td>Selasa, 19 Nov 2024 14:30 WIB</td>
-      <td>Jakarta - Pesan steak ayam via aplikasi ojek o...</td>
+      <td>Garam Himalaya Vs Garam Meja, Ini Ciri-ciri da...</td>
+      <td>Selasa, 26 Nov 2024 07:30 WIB</td>
+      <td>Jakarta - Garam punya beragam jenis. Yang popu...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Pesan steak ayam via aplikasi ojek on...</td>
-      <td>jakarta  pesan steak ayam via aplikasi ojek on...</td>
-      <td>['jakarta', 'pesan', 'steak', 'ayam', 'via', '...</td>
-      <td>jakarta pesan steak ayam via aplikasi ojek onl...</td>
+      <td>Jakarta  Garam punya beragam jenis Yang popule...</td>
+      <td>jakarta  garam punya beragam jenis yang popule...</td>
+      <td>['jakarta', 'garam', 'punya', 'beragam', 'jeni...</td>
+      <td>jakarta garam beragam jenis populer garam hima...</td>
     </tr>
   </tbody>
 </table>
@@ -615,7 +618,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c134f821-d2ca-465a-9799-98f5e1dd41be')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fa79d07b-ad8c-4b11-8ec4-2be37fb22d2d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -667,12 +670,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c134f821-d2ca-465a-9799-98f5e1dd41be button.colab-df-convert');
+        document.querySelector('#df-fa79d07b-ad8c-4b11-8ec4-2be37fb22d2d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c134f821-d2ca-465a-9799-98f5e1dd41be');
+        const element = document.querySelector('#df-fa79d07b-ad8c-4b11-8ec4-2be37fb22d2d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -738,7 +741,7 @@
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-4139a486-a9a0-42fd-b607-ca7d201c7cf2" class="colab-df-container">
+  <div id="df-d0306066-3f49-4767-a3a0-90e38a06d799" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -757,27 +760,27 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>aad</th>
       <th>abad</th>
-      <th>abai</th>
-      <th>abis</th>
-      <th>ablasi</th>
+      <th>abang</th>
       <th>abnormal</th>
-      <th>abu</th>
+      <th>abuabu</th>
       <th>academy</th>
       <th>acara</th>
-      <th>ade</th>
-      <th>adenomyosis</th>
+      <th>achilles</th>
+      <th>acid</th>
+      <th>acungi</th>
       <th>...</th>
+      <th>youtube</th>
       <th>youtuber</th>
       <th>yuan</th>
-      <th>yudi</th>
-      <th>yutaka</th>
-      <th>yuwono</th>
+      <th>yung</th>
       <th>zaitun</th>
-      <th>zaizai</th>
+      <th>zaman</th>
       <th>zat</th>
       <th>zatzat</th>
-      <th>zoonosis</th>
+      <th>zhang</th>
+      <th>zushiku</th>
     </tr>
   </thead>
   <tbody>
@@ -795,13 +798,13 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -819,13 +822,13 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.108844</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -843,13 +846,13 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -867,13 +870,13 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -891,13 +894,13 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -939,13 +942,13 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.032806</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -963,13 +966,13 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -987,13 +990,13 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.087865</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1011,13 +1014,13 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1035,24 +1038,24 @@
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.047973</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>100 rows × 4991 columns</p>
+<p>100 rows × 4875 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4139a486-a9a0-42fd-b607-ca7d201c7cf2')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d0306066-3f49-4767-a3a0-90e38a06d799')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1104,12 +1107,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4139a486-a9a0-42fd-b607-ca7d201c7cf2 button.colab-df-convert');
+        document.querySelector('#df-d0306066-3f49-4767-a3a0-90e38a06d799 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4139a486-a9a0-42fd-b607-ca7d201c7cf2');
+        const element = document.querySelector('#df-d0306066-3f49-4767-a3a0-90e38a06d799');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1155,7 +1158,7 @@
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-af66472b-40ce-40e7-a20c-65616a167c0f" class="colab-df-container">
+  <div id="df-372309a8-135d-43fb-81c8-cd553bf9be46" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1200,122 +1203,122 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.106724</td>
-      <td>-0.012037</td>
-      <td>0.006242</td>
-      <td>-0.009770</td>
-      <td>0.006961</td>
-      <td>0.019942</td>
-      <td>0.030089</td>
-      <td>-0.006187</td>
-      <td>0.018838</td>
-      <td>-0.051879</td>
+      <td>0.119672</td>
+      <td>-0.007233</td>
+      <td>0.018752</td>
+      <td>0.166426</td>
+      <td>0.124740</td>
+      <td>-0.134036</td>
+      <td>-0.174659</td>
+      <td>-0.036299</td>
+      <td>0.041720</td>
+      <td>0.094258</td>
       <td>...</td>
-      <td>-0.000669</td>
-      <td>-0.002871</td>
-      <td>0.005176</td>
-      <td>0.000965</td>
-      <td>-0.000955</td>
-      <td>-0.007883</td>
-      <td>-0.002486</td>
-      <td>-0.002232</td>
-      <td>0.000149</td>
+      <td>0.004272</td>
+      <td>-0.002150</td>
+      <td>0.034077</td>
+      <td>0.012669</td>
+      <td>0.012589</td>
+      <td>-0.014458</td>
+      <td>-0.000954</td>
+      <td>0.002664</td>
+      <td>0.000341</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.266627</td>
-      <td>-0.198581</td>
-      <td>0.071352</td>
-      <td>0.392833</td>
-      <td>-0.005639</td>
-      <td>0.013603</td>
-      <td>-0.085681</td>
-      <td>0.064016</td>
-      <td>0.233886</td>
-      <td>-0.246113</td>
+      <td>0.502444</td>
+      <td>0.567351</td>
+      <td>-0.252613</td>
+      <td>-0.150717</td>
+      <td>-0.064037</td>
+      <td>0.051475</td>
+      <td>-0.044149</td>
+      <td>0.002131</td>
+      <td>-0.002184</td>
+      <td>-0.053178</td>
       <td>...</td>
-      <td>-0.030401</td>
-      <td>0.023415</td>
-      <td>0.000721</td>
-      <td>-0.008324</td>
-      <td>0.012867</td>
-      <td>-0.003993</td>
-      <td>0.000731</td>
-      <td>0.000413</td>
-      <td>-0.001448</td>
+      <td>0.010107</td>
+      <td>-0.046020</td>
+      <td>0.002191</td>
+      <td>0.011179</td>
+      <td>-0.040651</td>
+      <td>0.337759</td>
+      <td>0.031776</td>
+      <td>0.055193</td>
+      <td>0.131984</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.217216</td>
-      <td>-0.111323</td>
-      <td>0.045588</td>
-      <td>-0.029127</td>
-      <td>0.085035</td>
-      <td>0.012536</td>
-      <td>0.061484</td>
-      <td>-0.029580</td>
-      <td>0.092285</td>
-      <td>-0.491121</td>
+      <td>0.070090</td>
+      <td>-0.015553</td>
+      <td>0.063103</td>
+      <td>0.068901</td>
+      <td>-0.025831</td>
+      <td>-0.007714</td>
+      <td>-0.007590</td>
+      <td>-0.012777</td>
+      <td>-0.134950</td>
+      <td>-0.016862</td>
       <td>...</td>
-      <td>-0.136141</td>
-      <td>-0.045979</td>
-      <td>-0.023626</td>
-      <td>0.032544</td>
-      <td>-0.034433</td>
-      <td>0.014400</td>
-      <td>-0.005398</td>
-      <td>-0.000738</td>
-      <td>0.000297</td>
+      <td>-0.005442</td>
+      <td>0.006214</td>
+      <td>-0.002545</td>
+      <td>0.009183</td>
+      <td>-0.004841</td>
+      <td>-0.000228</td>
+      <td>-0.009560</td>
+      <td>-0.003460</td>
+      <td>-0.000776</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.113372</td>
-      <td>0.005862</td>
-      <td>-0.029294</td>
-      <td>-0.052294</td>
-      <td>-0.021568</td>
-      <td>-0.011935</td>
-      <td>0.016699</td>
-      <td>0.013151</td>
-      <td>-0.015687</td>
-      <td>-0.059067</td>
+      <td>0.104702</td>
+      <td>0.001089</td>
+      <td>0.024174</td>
+      <td>0.143488</td>
+      <td>0.060386</td>
+      <td>-0.025420</td>
+      <td>-0.050103</td>
+      <td>0.011530</td>
+      <td>0.035425</td>
+      <td>0.054333</td>
       <td>...</td>
-      <td>-0.002468</td>
-      <td>0.007596</td>
-      <td>-0.006117</td>
-      <td>-0.001106</td>
-      <td>-0.010889</td>
-      <td>-0.003023</td>
-      <td>-0.003165</td>
-      <td>0.001742</td>
-      <td>-0.001530</td>
+      <td>0.005509</td>
+      <td>-0.008042</td>
+      <td>0.018860</td>
+      <td>0.002152</td>
+      <td>0.002559</td>
+      <td>0.008208</td>
+      <td>0.006336</td>
+      <td>-0.001208</td>
+      <td>-0.003182</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.288008</td>
-      <td>-0.240852</td>
-      <td>0.122087</td>
-      <td>0.507549</td>
-      <td>-0.044444</td>
-      <td>0.010227</td>
-      <td>-0.122930</td>
-      <td>0.100639</td>
-      <td>0.245608</td>
-      <td>-0.154726</td>
+      <td>0.139415</td>
+      <td>0.015731</td>
+      <td>0.055566</td>
+      <td>0.103001</td>
+      <td>0.106094</td>
+      <td>-0.077669</td>
+      <td>-0.150016</td>
+      <td>-0.031937</td>
+      <td>-0.059898</td>
+      <td>0.021875</td>
       <td>...</td>
-      <td>0.029863</td>
-      <td>-0.040212</td>
-      <td>0.000749</td>
-      <td>0.021948</td>
-      <td>-0.016247</td>
-      <td>0.002096</td>
-      <td>0.005310</td>
-      <td>0.001952</td>
-      <td>0.030341</td>
+      <td>-0.001350</td>
+      <td>-0.027583</td>
+      <td>-0.041188</td>
+      <td>0.004844</td>
+      <td>0.005561</td>
+      <td>-0.004384</td>
+      <td>-0.001526</td>
+      <td>0.000549</td>
+      <td>0.000665</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
@@ -1344,122 +1347,122 @@
     </tr>
     <tr>
       <th>95</th>
-      <td>0.123232</td>
-      <td>0.068174</td>
-      <td>-0.042840</td>
-      <td>-0.034845</td>
-      <td>-0.119043</td>
-      <td>0.178695</td>
-      <td>0.002958</td>
-      <td>-0.052277</td>
-      <td>-0.038381</td>
-      <td>-0.018526</td>
+      <td>0.110765</td>
+      <td>0.009188</td>
+      <td>0.171939</td>
+      <td>-0.021116</td>
+      <td>-0.021135</td>
+      <td>-0.018805</td>
+      <td>0.028755</td>
+      <td>0.025273</td>
+      <td>-0.046097</td>
+      <td>-0.069919</td>
       <td>...</td>
-      <td>-0.023248</td>
-      <td>-0.005077</td>
-      <td>-0.000486</td>
-      <td>0.008559</td>
-      <td>0.000901</td>
-      <td>0.002465</td>
-      <td>0.002030</td>
-      <td>0.002874</td>
-      <td>-0.002152</td>
+      <td>-0.013699</td>
+      <td>-0.010798</td>
+      <td>0.007227</td>
+      <td>-0.004295</td>
+      <td>0.012193</td>
+      <td>0.005234</td>
+      <td>0.001568</td>
+      <td>-0.003777</td>
+      <td>0.002960</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>0.150202</td>
-      <td>0.056783</td>
-      <td>-0.124371</td>
-      <td>-0.046811</td>
-      <td>-0.022884</td>
-      <td>0.054014</td>
-      <td>-0.029077</td>
-      <td>-0.004084</td>
-      <td>-0.068674</td>
-      <td>0.002461</td>
+      <td>0.132292</td>
+      <td>0.009644</td>
+      <td>0.358165</td>
+      <td>-0.200666</td>
+      <td>0.406584</td>
+      <td>0.407241</td>
+      <td>-0.068192</td>
+      <td>0.003446</td>
+      <td>0.118587</td>
+      <td>0.006488</td>
       <td>...</td>
-      <td>-0.011240</td>
-      <td>-0.008200</td>
-      <td>-0.007510</td>
-      <td>0.003077</td>
-      <td>-0.003184</td>
-      <td>0.004771</td>
-      <td>0.003943</td>
-      <td>-0.003662</td>
-      <td>0.000992</td>
+      <td>0.254791</td>
+      <td>0.039339</td>
+      <td>0.005760</td>
+      <td>-0.013633</td>
+      <td>-0.003505</td>
+      <td>-0.007983</td>
+      <td>0.003930</td>
+      <td>-0.003956</td>
+      <td>0.001042</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>0.129951</td>
-      <td>0.092993</td>
-      <td>-0.071604</td>
-      <td>-0.053881</td>
-      <td>-0.233386</td>
-      <td>0.320248</td>
-      <td>-0.035302</td>
-      <td>0.024737</td>
-      <td>0.037735</td>
-      <td>0.027366</td>
+      <td>0.064229</td>
+      <td>0.025704</td>
+      <td>0.241568</td>
+      <td>-0.096882</td>
+      <td>-0.073613</td>
+      <td>-0.080207</td>
+      <td>0.037184</td>
+      <td>-0.057030</td>
+      <td>0.086632</td>
+      <td>-0.247088</td>
       <td>...</td>
-      <td>0.002291</td>
-      <td>0.002315</td>
-      <td>0.000397</td>
-      <td>-0.000591</td>
-      <td>0.006479</td>
-      <td>-0.002853</td>
-      <td>0.003209</td>
-      <td>-0.001453</td>
-      <td>-0.000439</td>
+      <td>-0.045756</td>
+      <td>0.006087</td>
+      <td>-0.018294</td>
+      <td>-0.003936</td>
+      <td>-0.008548</td>
+      <td>0.001892</td>
+      <td>-0.000108</td>
+      <td>0.000359</td>
+      <td>-0.001396</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>0.064543</td>
-      <td>0.002186</td>
-      <td>-0.038743</td>
-      <td>0.001043</td>
-      <td>0.017546</td>
-      <td>0.011457</td>
-      <td>-0.025084</td>
-      <td>-0.005296</td>
-      <td>0.042880</td>
-      <td>-0.029617</td>
+      <td>0.163560</td>
+      <td>0.010151</td>
+      <td>0.099159</td>
+      <td>0.138420</td>
+      <td>0.155889</td>
+      <td>-0.189586</td>
+      <td>-0.280449</td>
+      <td>0.022792</td>
+      <td>-0.062145</td>
+      <td>-0.217397</td>
       <td>...</td>
-      <td>-0.002983</td>
-      <td>-0.001499</td>
-      <td>-0.006720</td>
-      <td>0.009814</td>
-      <td>-0.005959</td>
-      <td>0.002278</td>
-      <td>-0.002719</td>
-      <td>0.000269</td>
-      <td>-0.001394</td>
+      <td>-0.033108</td>
+      <td>0.103803</td>
+      <td>-0.115807</td>
+      <td>-0.004042</td>
+      <td>-0.008421</td>
+      <td>0.009004</td>
+      <td>-0.002034</td>
+      <td>-0.001784</td>
+      <td>-0.002102</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>0.241591</td>
-      <td>0.663417</td>
-      <td>0.316022</td>
-      <td>0.119218</td>
-      <td>0.160942</td>
-      <td>-0.023005</td>
-      <td>-0.002851</td>
-      <td>-0.029168</td>
-      <td>0.030244</td>
-      <td>0.015372</td>
+      <td>0.068926</td>
+      <td>0.021486</td>
+      <td>0.105628</td>
+      <td>-0.015303</td>
+      <td>0.129207</td>
+      <td>0.100521</td>
+      <td>-0.044391</td>
+      <td>0.021667</td>
+      <td>-0.022811</td>
+      <td>0.012201</td>
       <td>...</td>
-      <td>0.050114</td>
-      <td>0.163784</td>
-      <td>-0.007237</td>
-      <td>-0.018532</td>
-      <td>0.005647</td>
-      <td>0.022788</td>
-      <td>-0.010557</td>
-      <td>-0.055556</td>
-      <td>0.006823</td>
+      <td>-0.007696</td>
+      <td>0.004174</td>
+      <td>-0.000650</td>
+      <td>0.001612</td>
+      <td>0.003062</td>
+      <td>0.002452</td>
+      <td>-0.003320</td>
+      <td>-0.002326</td>
+      <td>-0.004348</td>
       <td>Kuliner</td>
     </tr>
   </tbody>
@@ -1469,7 +1472,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-af66472b-40ce-40e7-a20c-65616a167c0f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-372309a8-135d-43fb-81c8-cd553bf9be46')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1521,12 +1524,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-af66472b-40ce-40e7-a20c-65616a167c0f button.colab-df-convert');
+        document.querySelector('#df-372309a8-135d-43fb-81c8-cd553bf9be46 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-af66472b-40ce-40e7-a20c-65616a167c0f');
+        const element = document.querySelector('#df-372309a8-135d-43fb-81c8-cd553bf9be46');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1631,657 +1634,6 @@
 </div>
 </div>
 <hr class="docutils" />
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
-
-<span class="c1"># Menggunakan TF-IDF untuk transformasi teks</span>
-<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
-
-<span class="c1"># Memisahkan dataset menjadi data training dan testing</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">news_data</span><span class="p">[</span><span class="s1">&#39;kategori&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="c1"># Melakukan reduksi dimensi pada data TF-IDF menggunakan SVD</span>
-<span class="n">n_components</span> <span class="o">=</span> <span class="mi">80</span>  <span class="c1"># Mengatur jumlah komponen sesuai keinginan</span>
-<span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
-<span class="n">X_train_svd</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">X_test_svd</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengubah hasil SVD menjadi DataFrame</span>
-<span class="n">svd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_train_svd</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;feature </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_components</span><span class="p">)])</span>
-<span class="n">svd</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-d555bc13-d2d2-4ad5-b76f-dec9acb870bd" class="colab-df-container">
-    <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>feature 1</th>
-      <th>feature 2</th>
-      <th>feature 3</th>
-      <th>feature 4</th>
-      <th>feature 5</th>
-      <th>feature 6</th>
-      <th>feature 7</th>
-      <th>feature 8</th>
-      <th>feature 9</th>
-      <th>feature 10</th>
-      <th>...</th>
-      <th>feature 71</th>
-      <th>feature 72</th>
-      <th>feature 73</th>
-      <th>feature 74</th>
-      <th>feature 75</th>
-      <th>feature 76</th>
-      <th>feature 77</th>
-      <th>feature 78</th>
-      <th>feature 79</th>
-      <th>feature 80</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.149138</td>
-      <td>0.088192</td>
-      <td>-0.025737</td>
-      <td>-0.012817</td>
-      <td>0.028467</td>
-      <td>0.032598</td>
-      <td>0.094246</td>
-      <td>-0.128312</td>
-      <td>0.319420</td>
-      <td>-0.221137</td>
-      <td>...</td>
-      <td>0.006136</td>
-      <td>-0.001084</td>
-      <td>-0.041222</td>
-      <td>0.014467</td>
-      <td>0.016481</td>
-      <td>-0.016953</td>
-      <td>-0.008583</td>
-      <td>0.002420</td>
-      <td>0.000329</td>
-      <td>0.005554</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.104755</td>
-      <td>0.081044</td>
-      <td>0.011026</td>
-      <td>0.047268</td>
-      <td>-0.019506</td>
-      <td>0.027006</td>
-      <td>-0.035625</td>
-      <td>-0.081078</td>
-      <td>0.057197</td>
-      <td>-0.013999</td>
-      <td>...</td>
-      <td>0.002311</td>
-      <td>0.005698</td>
-      <td>0.039626</td>
-      <td>-0.011277</td>
-      <td>0.003770</td>
-      <td>0.003892</td>
-      <td>0.006602</td>
-      <td>0.001815</td>
-      <td>-0.001229</td>
-      <td>0.001761</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.122897</td>
-      <td>0.005459</td>
-      <td>0.129695</td>
-      <td>0.273201</td>
-      <td>-0.058263</td>
-      <td>0.125100</td>
-      <td>-0.006946</td>
-      <td>0.170399</td>
-      <td>-0.048914</td>
-      <td>-0.000011</td>
-      <td>...</td>
-      <td>0.031337</td>
-      <td>0.000836</td>
-      <td>-0.007190</td>
-      <td>0.011786</td>
-      <td>0.007391</td>
-      <td>-0.005116</td>
-      <td>-0.000370</td>
-      <td>0.000069</td>
-      <td>0.003178</td>
-      <td>0.000458</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.170052</td>
-      <td>0.024351</td>
-      <td>0.160846</td>
-      <td>0.327857</td>
-      <td>-0.096308</td>
-      <td>0.148069</td>
-      <td>-0.007637</td>
-      <td>0.177077</td>
-      <td>-0.011303</td>
-      <td>0.005027</td>
-      <td>...</td>
-      <td>-0.036495</td>
-      <td>0.036358</td>
-      <td>0.016827</td>
-      <td>-0.006368</td>
-      <td>-0.003179</td>
-      <td>-0.002580</td>
-      <td>-0.003020</td>
-      <td>-0.000416</td>
-      <td>-0.004958</td>
-      <td>0.000997</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.230973</td>
-      <td>0.131773</td>
-      <td>0.000427</td>
-      <td>0.042288</td>
-      <td>-0.114952</td>
-      <td>-0.068184</td>
-      <td>-0.115280</td>
-      <td>-0.195818</td>
-      <td>0.071897</td>
-      <td>0.045816</td>
-      <td>...</td>
-      <td>-0.072964</td>
-      <td>-0.021780</td>
-      <td>0.016458</td>
-      <td>0.007892</td>
-      <td>0.010239</td>
-      <td>0.000384</td>
-      <td>-0.012573</td>
-      <td>0.003441</td>
-      <td>-0.000198</td>
-      <td>0.001742</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>0.112817</td>
-      <td>0.059486</td>
-      <td>-0.003667</td>
-      <td>0.003123</td>
-      <td>0.007889</td>
-      <td>0.020963</td>
-      <td>-0.015618</td>
-      <td>-0.101718</td>
-      <td>0.141282</td>
-      <td>-0.022103</td>
-      <td>...</td>
-      <td>-0.008354</td>
-      <td>-0.010461</td>
-      <td>0.019731</td>
-      <td>-0.008379</td>
-      <td>0.010436</td>
-      <td>-0.003760</td>
-      <td>-0.005495</td>
-      <td>0.005935</td>
-      <td>0.000880</td>
-      <td>0.002314</td>
-    </tr>
-    <tr>
-      <th>76</th>
-      <td>0.223728</td>
-      <td>0.279698</td>
-      <td>-0.113680</td>
-      <td>-0.249515</td>
-      <td>0.385201</td>
-      <td>0.706885</td>
-      <td>-0.156486</td>
-      <td>-0.033333</td>
-      <td>-0.126538</td>
-      <td>0.077864</td>
-      <td>...</td>
-      <td>-0.019261</td>
-      <td>-0.018870</td>
-      <td>-0.025896</td>
-      <td>-0.000626</td>
-      <td>0.000757</td>
-      <td>0.003125</td>
-      <td>-0.001942</td>
-      <td>0.003099</td>
-      <td>-0.012953</td>
-      <td>0.298372</td>
-    </tr>
-    <tr>
-      <th>77</th>
-      <td>0.225430</td>
-      <td>-0.146204</td>
-      <td>-0.038527</td>
-      <td>0.117017</td>
-      <td>0.054944</td>
-      <td>0.068957</td>
-      <td>0.550983</td>
-      <td>-0.308842</td>
-      <td>-0.410830</td>
-      <td>-0.293234</td>
-      <td>...</td>
-      <td>0.024875</td>
-      <td>0.017859</td>
-      <td>-0.017694</td>
-      <td>-0.021533</td>
-      <td>-0.411688</td>
-      <td>0.205095</td>
-      <td>-0.040040</td>
-      <td>0.002605</td>
-      <td>-0.001654</td>
-      <td>-0.000074</td>
-    </tr>
-    <tr>
-      <th>78</th>
-      <td>0.132725</td>
-      <td>0.076059</td>
-      <td>0.022150</td>
-      <td>-0.009855</td>
-      <td>-0.005591</td>
-      <td>-0.020663</td>
-      <td>0.121497</td>
-      <td>-0.090870</td>
-      <td>0.273695</td>
-      <td>-0.105995</td>
-      <td>...</td>
-      <td>-0.014825</td>
-      <td>0.002326</td>
-      <td>0.025843</td>
-      <td>0.001693</td>
-      <td>-0.010011</td>
-      <td>0.008448</td>
-      <td>-0.018275</td>
-      <td>-0.013871</td>
-      <td>-0.000305</td>
-      <td>-0.001389</td>
-    </tr>
-    <tr>
-      <th>79</th>
-      <td>0.164059</td>
-      <td>-0.176274</td>
-      <td>-0.110843</td>
-      <td>-0.051213</td>
-      <td>-0.024203</td>
-      <td>-0.006277</td>
-      <td>-0.186835</td>
-      <td>0.025506</td>
-      <td>0.058801</td>
-      <td>-0.267415</td>
-      <td>...</td>
-      <td>-0.061171</td>
-      <td>-0.191790</td>
-      <td>0.092951</td>
-      <td>-0.026385</td>
-      <td>0.035227</td>
-      <td>0.107874</td>
-      <td>-0.003814</td>
-      <td>-0.005250</td>
-      <td>0.000526</td>
-      <td>-0.005043</td>
-    </tr>
-  </tbody>
-</table>
-<p>80 rows × 80 columns</p>
-</div>
-    <div class="colab-df-buttons">
-
-  <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d555bc13-d2d2-4ad5-b76f-dec9acb870bd')"
-            title="Convert this dataframe to an interactive table."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
-    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
-  </svg>
-    </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    .colab-df-buttons div {
-      margin-bottom: 4px;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-    <script>
-      const buttonEl =
-        document.querySelector('#df-d555bc13-d2d2-4ad5-b76f-dec9acb870bd button.colab-df-convert');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d555bc13-d2d2-4ad5-b76f-dec9acb870bd');
-        const dataTable =
-          await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                    [key], {});
-        if (!dataTable) return;
-
-        const docLinkHtml = 'Like what you see? Visit the ' +
-          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-          + ' to learn more about interactive tables.';
-        element.innerHTML = '';
-        dataTable['output_type'] = 'display_data';
-        await google.colab.output.renderOutput(dataTable, element);
-        const docLink = document.createElement('div');
-        docLink.innerHTML = docLinkHtml;
-        element.appendChild(docLink);
-      }
-    </script>
-  </div>
-
-
-<div id="df-e7d54f65-0a6d-430e-83eb-cb2b9ed8f015">
-  <button class="colab-df-quickchart" onclick="quickchart('df-e7d54f65-0a6d-430e-83eb-cb2b9ed8f015')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-e7d54f65-0a6d-430e-83eb-cb2b9ed8f015 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
-
-  <div id="id_e98ae180-c322-4f4c-83c7-fe98a916563b">
-    <style>
-      .colab-df-generate {
-        background-color: #E8F0FE;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        fill: #1967D2;
-        height: 32px;
-        padding: 0 0 0 0;
-        width: 32px;
-      }
-
-      .colab-df-generate:hover {
-        background-color: #E2EBFA;
-        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-        fill: #174EA6;
-      }
-
-      [theme=dark] .colab-df-generate {
-        background-color: #3B4455;
-        fill: #D2E3FC;
-      }
-
-      [theme=dark] .colab-df-generate:hover {
-        background-color: #434B5C;
-        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-        fill: #FFFFFF;
-      }
-    </style>
-    <button class="colab-df-generate" onclick="generateWithVariable('svd')"
-            title="Generate code using this dataframe."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
-  </svg>
-    </button>
-    <script>
-      (() => {
-      const buttonEl =
-        document.querySelector('#id_e98ae180-c322-4f4c-83c7-fe98a916563b button.colab-df-generate');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      buttonEl.onclick = () => {
-        google.colab.notebook.generateWithVariable('svd');
-      }
-      })();
-    </script>
-  </div>
-
-    </div>
-  </div>
-</div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat dan melatih model Logistic Regression</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_svd</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># Memprediksi hasil pada data testing</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_svd</span><span class="p">)</span>
-
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan confusion matrix dan laporan klasifikasi</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 80.00%
-Confusion Matrix:
-[[9 3]
- [1 7]]
-
-Classification Report:
-              precision    recall  f1-score   support
-
-   Kesehatan       0.90      0.75      0.82        12
-     Kuliner       0.70      0.88      0.78         8
-
-    accuracy                           0.80        20
-   macro avg       0.80      0.81      0.80        20
-weighted avg       0.82      0.80      0.80        20
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 
     <script type="text/x-thebe-config">
