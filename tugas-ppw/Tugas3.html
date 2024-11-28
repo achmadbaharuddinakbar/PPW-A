@@ -176,6 +176,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas6.html">Tugas 6 - Sistem pencarian dokumen menggunakan Singular Value Decomposition (SVD)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas8.html"><strong>Tugas 8 : Clustering dengan Fuzzy C-means</strong></a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="link-penugasan-deployment.html"><strong>Link Penugasan Deployment</strong></a></li>
 </ul>
 
@@ -437,7 +439,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt_tab to /root/nltk_data...
-[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data]   Unzipping tokenizers/punkt_tab.zip.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -456,7 +458,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-35b58138-2f32-4ab9-bafa-889545cfeceb" class="colab-df-container">
+  <div id="df-7588c2d1-04b4-4f67-930c-b74916e2dba4" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -488,58 +490,58 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
-      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
-      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
-      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
-      <td>['jakarta', 'stroke', 'merupakan', 'salah', 's...</td>
-      <td>jakarta stroke salah kondisi medis menurunkan ...</td>
+      <td>Jakarta  Kesehatan paruparu dapat terancam ole...</td>
+      <td>jakarta  kesehatan paruparu dapat terancam ole...</td>
+      <td>['jakarta', 'kesehatan', 'paruparu', 'dapat', ...</td>
+      <td>jakarta kesehatan paruparu terancam faktor gay...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
-      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
-      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
-      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
-      <td>['jakarta', 'petai', 'atau', 'parkia', 'specio...</td>
-      <td>jakarta petai parkia speciosa tanaman asia ten...</td>
+      <td>Jakarta  Temuan antibiotik menjadi salah satu ...</td>
+      <td>jakarta  temuan antibiotik menjadi salah satu ...</td>
+      <td>['jakarta', 'temuan', 'antibiotik', 'menjadi',...</td>
+      <td>jakarta temuan antibiotik salah terobosan medi...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
-      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
-      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
-      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
-      <td>['jakarta', 'pria', 'yang', 'dinobatkan', 'seb...</td>
-      <td>jakarta pria dinobatkan orang tertua dunia ver...</td>
+      <td>Jakarta  Kanker payudara menjadi salah satu pe...</td>
+      <td>jakarta  kanker payudara menjadi salah satu pe...</td>
+      <td>['jakarta', 'kanker', 'payudara', 'menjadi', '...</td>
+      <td>jakarta kanker payudara salah penyakit serius ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
-      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
-      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
-      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
-      <td>['jakarta', 'wasir', 'sama', 'dengan', 'ambeie...</td>
-      <td>jakarta wasir ambeien nama penyakit hemoroid p...</td>
+      <td>Jakarta  Siapa yang tidak ingin hidup lebih la...</td>
+      <td>jakarta  siapa yang tidak ingin hidup lebih la...</td>
+      <td>['jakarta', 'siapa', 'yang', 'tidak', 'ingin',...</td>
+      <td>jakarta hidup sehat pola makan berperan memper...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
-      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
-      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
-      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
-      <td>['jakarta', 'kelompok', 'penyelenggara', 'pemu...</td>
-      <td>jakarta kelompok penyelenggara pemungutan suar...</td>
+      <td>Jakarta  Presiden terpilih AS Donald Trump men...</td>
+      <td>jakarta  presiden terpilih as donald trump men...</td>
+      <td>['jakarta', 'presiden', 'terpilih', 'as', 'don...</td>
+      <td>jakarta presiden terpilih as donald trump dr j...</td>
     </tr>
   </tbody>
 </table>
@@ -547,7 +549,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-35b58138-2f32-4ab9-bafa-889545cfeceb')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7588c2d1-04b4-4f67-930c-b74916e2dba4')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -599,12 +601,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-35b58138-2f32-4ab9-bafa-889545cfeceb button.colab-df-convert');
+        document.querySelector('#df-7588c2d1-04b4-4f67-930c-b74916e2dba4 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-35b58138-2f32-4ab9-bafa-889545cfeceb');
+        const element = document.querySelector('#df-7588c2d1-04b4-4f67-930c-b74916e2dba4');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -654,7 +656,7 @@ DataFrame setelah Label Encoding:
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-a704f38c-f9e4-4486-aac1-2012f2e82f1d" class="colab-df-container">
+  <div id="df-17bde353-3169-468a-9bc7-744f27520795" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -687,62 +689,62 @@ DataFrame setelah Label Encoding:
   <tbody>
     <tr>
       <th>0</th>
-      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
-      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
-      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
-      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
-      <td>['jakarta', 'stroke', 'merupakan', 'salah', 's...</td>
-      <td>jakarta stroke salah kondisi medis menurunkan ...</td>
+      <td>Jakarta  Kesehatan paruparu dapat terancam ole...</td>
+      <td>jakarta  kesehatan paruparu dapat terancam ole...</td>
+      <td>['jakarta', 'kesehatan', 'paruparu', 'dapat', ...</td>
+      <td>jakarta kesehatan paruparu terancam faktor gay...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
-      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
-      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
-      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
-      <td>['jakarta', 'petai', 'atau', 'parkia', 'specio...</td>
-      <td>jakarta petai parkia speciosa tanaman asia ten...</td>
+      <td>Jakarta  Temuan antibiotik menjadi salah satu ...</td>
+      <td>jakarta  temuan antibiotik menjadi salah satu ...</td>
+      <td>['jakarta', 'temuan', 'antibiotik', 'menjadi',...</td>
+      <td>jakarta temuan antibiotik salah terobosan medi...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
-      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
-      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
-      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
-      <td>['jakarta', 'pria', 'yang', 'dinobatkan', 'seb...</td>
-      <td>jakarta pria dinobatkan orang tertua dunia ver...</td>
+      <td>Jakarta  Kanker payudara menjadi salah satu pe...</td>
+      <td>jakarta  kanker payudara menjadi salah satu pe...</td>
+      <td>['jakarta', 'kanker', 'payudara', 'menjadi', '...</td>
+      <td>jakarta kanker payudara salah penyakit serius ...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
-      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
-      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
-      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
-      <td>['jakarta', 'wasir', 'sama', 'dengan', 'ambeie...</td>
-      <td>jakarta wasir ambeien nama penyakit hemoroid p...</td>
+      <td>Jakarta  Siapa yang tidak ingin hidup lebih la...</td>
+      <td>jakarta  siapa yang tidak ingin hidup lebih la...</td>
+      <td>['jakarta', 'siapa', 'yang', 'tidak', 'ingin',...</td>
+      <td>jakarta hidup sehat pola makan berperan memper...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
-      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
-      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
-      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
-      <td>['jakarta', 'kelompok', 'penyelenggara', 'pemu...</td>
-      <td>jakarta kelompok penyelenggara pemungutan suar...</td>
+      <td>Jakarta  Presiden terpilih AS Donald Trump men...</td>
+      <td>jakarta  presiden terpilih as donald trump men...</td>
+      <td>['jakarta', 'presiden', 'terpilih', 'as', 'don...</td>
+      <td>jakarta presiden terpilih as donald trump dr j...</td>
       <td>0</td>
     </tr>
     <tr>
@@ -759,62 +761,62 @@ DataFrame setelah Label Encoding:
     </tr>
     <tr>
       <th>95</th>
-      <td>Pop Mart Tindak Penjual Makanan Labubu hingga ...</td>
-      <td>Selasa, 26 Nov 2024 09:30 WIB</td>
-      <td>Jakarta - Pop Mart akan menindak tegas para pe...</td>
+      <td>Demi Traktir Pacar Gratis, Pria Ini Selipkan S...</td>
+      <td>Selasa, 26 Nov 2024 16:00 WIB</td>
+      <td>Jakarta - Traktir pacar di restoran tapi tak m...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Pop Mart akan menindak tegas para pen...</td>
-      <td>jakarta  pop mart akan menindak tegas para pen...</td>
-      <td>['jakarta', 'pop', 'mart', 'akan', 'menindak',...</td>
-      <td>jakarta pop mart menindak penjual makanan paka...</td>
+      <td>Jakarta  Traktir pacar di restoran tapi tak ma...</td>
+      <td>jakarta  traktir pacar di restoran tapi tak ma...</td>
+      <td>['jakarta', 'traktir', 'pacar', 'di', 'restora...</td>
+      <td>jakarta traktir pacar restoran bayar pria modu...</td>
       <td>1</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>3 Resep Ayam Kecap Pedas, Lauk Rumahan yang En...</td>
-      <td>Selasa, 26 Nov 2024 09:00 WIB</td>
-      <td>Tentang Bahan Langkah Jakarta - Ayam yang dima...</td>
+      <td>Surga Kuliner Jakarta Barat, Ada Makanan Legen...</td>
+      <td>Selasa, 26 Nov 2024 15:30 WIB</td>
+      <td>Jakarta - Belakangan ini eksistensi Jakarta Ba...</td>
       <td>Kuliner</td>
-      <td>Tentang Bahan Langkah Jakarta  Ayam yang dimas...</td>
-      <td>tentang bahan langkah jakarta  ayam yang dimas...</td>
-      <td>['tentang', 'bahan', 'langkah', 'jakarta', 'ay...</td>
-      <td>bahan langkah jakarta ayam dimasak kecap manis...</td>
+      <td>Jakarta  Belakangan ini eksistensi Jakarta Bar...</td>
+      <td>jakarta  belakangan ini eksistensi jakarta bar...</td>
+      <td>['jakarta', 'belakangan', 'ini', 'eksistensi',...</td>
+      <td>jakarta eksistensi jakarta barat surga kuliner...</td>
       <td>1</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>Ngeunah! Nasi Liwet Ayam Goreng dan Ikan Peda ...</td>
-      <td>Selasa, 26 Nov 2024 08:30 WIB</td>
-      <td>Jakarta - Ngeunah! Nasi Liwet Ayam Goreng dan ...</td>
+      <td>5 Cara Atasi Food Coma, Anti Ngantuk Usai Maka...</td>
+      <td>Selasa, 26 Nov 2024 15:00 WIB</td>
+      <td>Jakarta - Usai makan banyak terutama ketika ma...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Ngeunah Nasi Liwet Ayam Goreng dan Ik...</td>
-      <td>jakarta  ngeunah nasi liwet ayam goreng dan ik...</td>
-      <td>['jakarta', 'ngeunah', 'nasi', 'liwet', 'ayam'...</td>
-      <td>jakarta ngeunah nasi liwet ayam goreng ikan pe...</td>
+      <td>Jakarta  Usai makan banyak terutama ketika mak...</td>
+      <td>jakarta  usai makan banyak terutama ketika mak...</td>
+      <td>['jakarta', 'usai', 'makan', 'banyak', 'teruta...</td>
+      <td>jakarta makan makan siang kantuk kerap muncul ...</td>
       <td>1</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>Konsumsi 5 Jenis Rempah Ini Ampuh Bakar Lemak ...</td>
-      <td>Selasa, 26 Nov 2024 08:00 WIB</td>
-      <td>Jakarta - Lemak yang menumpuk di perut tidak h...</td>
+      <td>Ada Beragam Sajian Hong Kong Lezat di Restoran...</td>
+      <td>Selasa, 26 Nov 2024 14:30 WIB</td>
+      <td>Jakarta - Satu lagi restoran seafood ala Hong ...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Lemak yang menumpuk di perut tidak ha...</td>
-      <td>jakarta  lemak yang menumpuk di perut tidak ha...</td>
-      <td>['jakarta', 'lemak', 'yang', 'menumpuk', 'di',...</td>
-      <td>jakarta lemak menumpuk perut mengganggu penamp...</td>
+      <td>Jakarta  Satu lagi restoran seafood ala Hong K...</td>
+      <td>jakarta  satu lagi restoran seafood ala hong k...</td>
+      <td>['jakarta', 'satu', 'lagi', 'restoran', 'seafo...</td>
+      <td>jakarta restoran seafood ala hong kong hadir j...</td>
       <td>1</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>Garam Himalaya Vs Garam Meja, Ini Ciri-ciri da...</td>
-      <td>Selasa, 26 Nov 2024 07:30 WIB</td>
-      <td>Jakarta - Garam punya beragam jenis. Yang popu...</td>
+      <td>Pegawai Ini Ungkap Kekacauan Dapur Kafe yang B...</td>
+      <td>Selasa, 26 Nov 2024 14:00 WIB</td>
+      <td>Jakarta - Sebuah restoran sekaligus kafe popul...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Garam punya beragam jenis Yang popule...</td>
-      <td>jakarta  garam punya beragam jenis yang popule...</td>
-      <td>['jakarta', 'garam', 'punya', 'beragam', 'jeni...</td>
-      <td>jakarta garam beragam jenis populer garam hima...</td>
+      <td>Jakarta  Sebuah restoran sekaligus kafe popule...</td>
+      <td>jakarta  sebuah restoran sekaligus kafe popule...</td>
+      <td>['jakarta', 'sebuah', 'restoran', 'sekaligus',...</td>
+      <td>jakarta restoran kafe populer new york viral m...</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -824,7 +826,7 @@ DataFrame setelah Label Encoding:
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a704f38c-f9e4-4486-aac1-2012f2e82f1d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-17bde353-3169-468a-9bc7-744f27520795')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -876,12 +878,12 @@ DataFrame setelah Label Encoding:
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a704f38c-f9e4-4486-aac1-2012f2e82f1d button.colab-df-convert');
+        document.querySelector('#df-17bde353-3169-468a-9bc7-744f27520795 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a704f38c-f9e4-4486-aac1-2012f2e82f1d');
+        const element = document.querySelector('#df-17bde353-3169-468a-9bc7-744f27520795');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -927,17 +929,17 @@ DataFrame setelah Label Encoding:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     jakarta stroke salah kondisi medis menurunkan ...
-1     jakarta petai parkia speciosa tanaman asia ten...
-2     jakarta pria dinobatkan orang tertua dunia ver...
-3     jakarta wasir ambeien nama penyakit hemoroid p...
-4     jakarta kelompok penyelenggara pemungutan suar...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     jakarta kesehatan paruparu terancam faktor gay...
+1     jakarta temuan antibiotik salah terobosan medi...
+2     jakarta kanker payudara salah penyakit serius ...
+3     jakarta hidup sehat pola makan berperan memper...
+4     jakarta presiden terpilih as donald trump dr j...
                             ...                        
-95    jakarta pop mart menindak penjual makanan paka...
-96    bahan langkah jakarta ayam dimasak kecap manis...
-97    jakarta ngeunah nasi liwet ayam goreng ikan pe...
-98    jakarta lemak menumpuk perut mengganggu penamp...
-99    jakarta garam beragam jenis populer garam hima...
+95    jakarta traktir pacar restoran bayar pria modu...
+96    jakarta eksistensi jakarta barat surga kuliner...
+97    jakarta makan makan siang kantuk kerap muncul ...
+98    jakarta restoran seafood ala hong kong hadir j...
+99    jakarta restoran kafe populer new york viral m...
 Name: Filtering/stopword removal, Length: 100, dtype: object
 0     0
 1     0
@@ -1021,115 +1023,115 @@ Jumlah data uji: 20
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TF-IDF untuk data training:
-    aad      abad  abang  abnormal  abuabu  academy  acara  achilles  acungi  \
-0   0.0  0.041371    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-1   0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-2   0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-3   0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-4   0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-..  ...       ...    ...       ...     ...      ...    ...       ...     ...   
-75  0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-76  0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-77  0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-78  0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-79  0.0  0.000000    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
+    aad  abad  abang  abnormal  abrasif  abses  abuabu  academy  acara  \
+0   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+1   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+2   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+3   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+4   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+..  ...   ...    ...       ...      ...    ...     ...      ...    ...   
+75  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+76  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+77  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+78  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+79  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
 
-    adam  ...  you  yourself   youtube  youtuber  yuan  yung  zat  zatzat  \
-0    0.0  ...  0.0       0.0  0.000000  0.000000   0.0   0.0  0.0     0.0   
-1    0.0  ...  0.0       0.0  0.000000  0.000000   0.0   0.0  0.0     0.0   
-2    0.0  ...  0.0       0.0  0.000000  0.000000   0.0   0.0  0.0     0.0   
-3    0.0  ...  0.0       0.0  0.162325  0.185406   0.0   0.0  0.0     0.0   
-4    0.0  ...  0.0       0.0  0.000000  0.000000   0.0   0.0  0.0     0.0   
-..   ...  ...  ...       ...       ...       ...   ...   ...  ...     ...   
-75   0.0  ...  0.0       0.0  0.000000  0.000000   0.0   0.0  0.0     0.0   
-76   0.0  ...  0.0       0.0  0.000000  0.000000   0.0   0.0  0.0     0.0   
-77   0.0  ...  0.0       0.0  0.000000  0.000000   0.0   0.0  0.0     0.0   
-78   0.0  ...  0.0       0.0  0.000000  0.000000   0.0   0.0  0.0     0.0   
-79   0.0  ...  0.0       0.0  0.000000  0.000000   0.0   0.0  0.0     0.0   
+    achilles  ...  yunus  yusuf  zac    zaitun  zaman  zat  zatzat  zhang  \
+0        0.0  ...    0.0    0.0  0.0  0.000000    0.0  0.0     0.0    0.0   
+1        0.0  ...    0.0    0.0  0.0  0.000000    0.0  0.0     0.0    0.0   
+2        0.0  ...    0.0    0.0  0.0  0.000000    0.0  0.0     0.0    0.0   
+3        0.0  ...    0.0    0.0  0.0  0.000000    0.0  0.0     0.0    0.0   
+4        0.0  ...    0.0    0.0  0.0  0.000000    0.0  0.0     0.0    0.0   
+..       ...  ...    ...    ...  ...       ...    ...  ...     ...    ...   
+75       0.0  ...    0.0    0.0  0.0  0.041402    0.0  0.0     0.0    0.0   
+76       0.0  ...    0.0    0.0  0.0  0.000000    0.0  0.0     0.0    0.0   
+77       0.0  ...    0.0    0.0  0.0  0.000000    0.0  0.0     0.0    0.0   
+78       0.0  ...    0.0    0.0  0.0  0.000000    0.0  0.0     0.0    0.0   
+79       0.0  ...    0.0    0.0  0.0  0.000000    0.0  0.0     0.0    0.0   
 
-    zhang   zushiku  
-0     0.0  0.045276  
-1     0.0  0.000000  
-2     0.0  0.000000  
-3     0.0  0.000000  
-4     0.0  0.000000  
-..    ...       ...  
-75    0.0  0.000000  
-76    0.0  0.000000  
-77    0.0  0.000000  
-78    0.0  0.000000  
-79    0.0  0.000000  
+       zona  zushiku  
+0   0.00000      0.0  
+1   0.00000      0.0  
+2   0.00000      0.0  
+3   0.00000      0.0  
+4   0.00000      0.0  
+..      ...      ...  
+75  0.09062      0.0  
+76  0.00000      0.0  
+77  0.00000      0.0  
+78  0.00000      0.0  
+79  0.00000      0.0  
 
-[80 rows x 4316 columns]
+[80 rows x 4344 columns]
 
 TF-IDF untuk data testing:
-    aad  abad  abang  abnormal  abuabu  academy  acara  achilles  acungi  \
-0   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-1   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-2   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-3   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-4   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-5   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-6   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-7   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-8   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-9   0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-10  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-11  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-12  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-13  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-14  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-15  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-16  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-17  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-18  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
-19  0.0   0.0    0.0       0.0     0.0      0.0    0.0       0.0     0.0   
+    aad  abad  abang  abnormal  abrasif  abses  abuabu  academy  acara  \
+0   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+1   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+2   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+3   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+4   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+5   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+6   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+7   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+8   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+9   0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+10  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+11  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+12  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+13  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+14  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+15  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+16  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+17  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+18  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
+19  0.0   0.0    0.0       0.0      0.0    0.0     0.0      0.0    0.0   
 
-        adam  ...  you  yourself  youtube  youtuber  yuan  yung       zat  \
-0   0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.046042   
-1   0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-2   0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-3   0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-4   0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-5   0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.133427   
-6   0.155867  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-7   0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-8   0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-9   0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-10  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-11  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-12  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-13  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-14  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-15  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-16  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-17  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-18  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
-19  0.000000  ...  0.0       0.0      0.0       0.0   0.0   0.0  0.000000   
+    achilles  ...  yunus  yusuf  zac  zaitun  zaman       zat  zatzat  zhang  \
+0        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+1        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+2        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+3        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.109303     0.0    0.0   
+4        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+5        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.052741     0.0    0.0   
+6        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+7        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+8        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+9        0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+10       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+11       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+12       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+13       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+14       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+15       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+16       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.030033     0.0    0.0   
+17       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+18       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
+19       0.0  ...    0.0    0.0  0.0     0.0    0.0  0.000000     0.0    0.0   
 
-      zatzat  zhang  zushiku  
-0   0.000000    0.0      0.0  
-1   0.000000    0.0      0.0  
-2   0.000000    0.0      0.0  
-3   0.000000    0.0      0.0  
-4   0.000000    0.0      0.0  
-5   0.063075    0.0      0.0  
-6   0.000000    0.0      0.0  
-7   0.000000    0.0      0.0  
-8   0.000000    0.0      0.0  
-9   0.000000    0.0      0.0  
-10  0.000000    0.0      0.0  
-11  0.000000    0.0      0.0  
-12  0.000000    0.0      0.0  
-13  0.000000    0.0      0.0  
-14  0.000000    0.0      0.0  
-15  0.000000    0.0      0.0  
-16  0.000000    0.0      0.0  
-17  0.000000    0.0      0.0  
-18  0.000000    0.0      0.0  
-19  0.000000    0.0      0.0  
+    zona  zushiku  
+0    0.0      0.0  
+1    0.0      0.0  
+2    0.0      0.0  
+3    0.0      0.0  
+4    0.0      0.0  
+5    0.0      0.0  
+6    0.0      0.0  
+7    0.0      0.0  
+8    0.0      0.0  
+9    0.0      0.0  
+10   0.0      0.0  
+11   0.0      0.0  
+12   0.0      0.0  
+13   0.0      0.0  
+14   0.0      0.0  
+15   0.0      0.0  
+16   0.0      0.0  
+17   0.0      0.0  
+18   0.0      0.0  
+19   0.0      0.0  
 
-[20 rows x 4316 columns]
+[20 rows x 4344 columns]
 </pre></div>
 </div>
 </div>
@@ -1587,15 +1589,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00        13
-           1       1.00      1.00      1.00         7
+           0       1.00      0.62      0.76        13
+           1       0.58      1.00      0.74         7
 
-    accuracy                           1.00        20
-   macro avg       1.00      1.00      1.00        20
-weighted avg       1.00      1.00      1.00        20
+    accuracy                           0.75        20
+   macro avg       0.79      0.81      0.75        20
+weighted avg       0.85      0.75      0.75        20
 </pre></div>
 </div>
-<img alt="../_images/cc3319aea8f0ec6b6d73db137edded43bf21b340b5b48b6a7a7b185e1878d2a8.png" src="../_images/cc3319aea8f0ec6b6d73db137edded43bf21b340b5b48b6a7a7b185e1878d2a8.png" />
+<img alt="../_images/2f327e7a135f20af289f223ec164ce475d3ae8acc71a5da0d2c4079542be4941.png" src="../_images/2f327e7a135f20af289f223ec164ce475d3ae8acc71a5da0d2c4079542be4941.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1625,7 +1627,9 @@ weighted avg       1.00      1.00      1.00        20
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TfidfVectorizer and Logistic Regression model have been successfully saved.
-Model Logistic Regression dan TF-IDF telah disimpan dengan joblib.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Logistic Regression dan TF-IDF telah disimpan dengan joblib.
 </pre></div>
 </div>
 </div>

@@ -176,6 +176,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas6.html">Tugas 6 - Sistem pencarian dokumen menggunakan Singular Value Decomposition (SVD)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas8.html"><strong>Tugas 8 : Clustering dengan Fuzzy C-means</strong></a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="link-penugasan-deployment.html"><strong>Link Penugasan Deployment</strong></a></li>
 </ul>
 
@@ -425,7 +427,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8e0fe840-d95d-4400-a71a-c72eff35fa99" class="colab-df-container">
+  <div id="df-878d0577-9624-4569-abfe-8ee7c7e81312" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -453,44 +455,44 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
-      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
-      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
-      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
-      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
-      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
-      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
-      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
-      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
-      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
-      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>6 Tanda Diabetes pada Kulit yang Kerap Diabaikan</td>
-      <td>Rabu, 27 Nov 2024 15:08 WIB</td>
-      <td>Jakarta - Penyakit diabetes dapat memengaruhi ...</td>
+      <td>Ini yang Terjadi Pada Tubuh Jika Rutin Makan S...</td>
+      <td>Kamis, 28 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Kol, yang juga dikenal dengan sebuta...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -499,7 +501,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8e0fe840-d95d-4400-a71a-c72eff35fa99')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-878d0577-9624-4569-abfe-8ee7c7e81312')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -551,12 +553,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8e0fe840-d95d-4400-a71a-c72eff35fa99 button.colab-df-convert');
+        document.querySelector('#df-878d0577-9624-4569-abfe-8ee7c7e81312 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8e0fe840-d95d-4400-a71a-c72eff35fa99');
+        const element = document.querySelector('#df-878d0577-9624-4569-abfe-8ee7c7e81312');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -634,7 +636,7 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0b01695f-19ff-41b3-991e-80dd4f1a1aa6" class="colab-df-container">
+  <div id="df-df2f979c-dd42-4a56-ad35-c6343a7a0b41" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -663,51 +665,51 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
-      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
-      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
+      <td>Jakarta  Kesehatan paruparu dapat terancam ole...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
-      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
-      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
+      <td>Jakarta  Temuan antibiotik menjadi salah satu ...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
-      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
-      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
+      <td>Jakarta  Kanker payudara menjadi salah satu pe...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
-      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
-      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
+      <td>Jakarta  Siapa yang tidak ingin hidup lebih la...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
-      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
-      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
+      <td>Jakarta  Presiden terpilih AS Donald Trump men...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>6 Tanda Diabetes pada Kulit yang Kerap Diabaikan</td>
-      <td>Rabu, 27 Nov 2024 15:08 WIB</td>
-      <td>Jakarta - Penyakit diabetes dapat memengaruhi ...</td>
+      <td>Ini yang Terjadi Pada Tubuh Jika Rutin Makan S...</td>
+      <td>Kamis, 28 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Kol, yang juga dikenal dengan sebuta...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Penyakit diabetes dapat memengaruhi b...</td>
+      <td>Jakarta  Kol yang juga dikenal dengan sebutan ...</td>
     </tr>
   </tbody>
 </table>
@@ -715,7 +717,7 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0b01695f-19ff-41b3-991e-80dd4f1a1aa6')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-df2f979c-dd42-4a56-ad35-c6343a7a0b41')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -767,12 +769,12 @@ teks dari elemen-elemen yang tidak diperlukan atau mengganggu, seperti :</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0b01695f-19ff-41b3-991e-80dd4f1a1aa6 button.colab-df-convert');
+        document.querySelector('#df-df2f979c-dd42-4a56-ad35-c6343a7a0b41 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0b01695f-19ff-41b3-991e-80dd4f1a1aa6');
+        const element = document.querySelector('#df-df2f979c-dd42-4a56-ad35-c6343a7a0b41');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -820,7 +822,7 @@ dalam representasi kata dapat dipertahankan.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d21f2365-eea9-4a41-a6c9-6f246ebaffd5" class="colab-df-container">
+  <div id="df-71ed26ae-7514-4665-8634-9a1a244e56c4" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -850,57 +852,57 @@ dalam representasi kata dapat dipertahankan.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
-      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
-      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
-      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
+      <td>Jakarta  Kesehatan paruparu dapat terancam ole...</td>
+      <td>jakarta  kesehatan paruparu dapat terancam ole...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
-      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
-      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
-      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
+      <td>Jakarta  Temuan antibiotik menjadi salah satu ...</td>
+      <td>jakarta  temuan antibiotik menjadi salah satu ...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
-      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
-      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
-      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
+      <td>Jakarta  Kanker payudara menjadi salah satu pe...</td>
+      <td>jakarta  kanker payudara menjadi salah satu pe...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
-      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
-      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
-      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
+      <td>Jakarta  Siapa yang tidak ingin hidup lebih la...</td>
+      <td>jakarta  siapa yang tidak ingin hidup lebih la...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
-      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
-      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
-      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
+      <td>Jakarta  Presiden terpilih AS Donald Trump men...</td>
+      <td>jakarta  presiden terpilih as donald trump men...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>6 Tanda Diabetes pada Kulit yang Kerap Diabaikan</td>
-      <td>Rabu, 27 Nov 2024 15:08 WIB</td>
-      <td>Jakarta - Penyakit diabetes dapat memengaruhi ...</td>
+      <td>Ini yang Terjadi Pada Tubuh Jika Rutin Makan S...</td>
+      <td>Kamis, 28 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Kol, yang juga dikenal dengan sebuta...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Penyakit diabetes dapat memengaruhi b...</td>
-      <td>jakarta  penyakit diabetes dapat memengaruhi b...</td>
+      <td>Jakarta  Kol yang juga dikenal dengan sebutan ...</td>
+      <td>jakarta  kol yang juga dikenal dengan sebutan ...</td>
     </tr>
   </tbody>
 </table>
@@ -908,7 +910,7 @@ dalam representasi kata dapat dipertahankan.</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d21f2365-eea9-4a41-a6c9-6f246ebaffd5')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-71ed26ae-7514-4665-8634-9a1a244e56c4')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -960,12 +962,12 @@ dalam representasi kata dapat dipertahankan.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d21f2365-eea9-4a41-a6c9-6f246ebaffd5 button.colab-df-convert');
+        document.querySelector('#df-71ed26ae-7514-4665-8634-9a1a244e56c4 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d21f2365-eea9-4a41-a6c9-6f246ebaffd5');
+        const element = document.querySelector('#df-71ed26ae-7514-4665-8634-9a1a244e56c4');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1009,7 +1011,7 @@ berupa kata,frasa atau karakter terpisah.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5a502b67-5800-40e3-97a2-a22161967d0d" class="colab-df-container">
+  <div id="df-4349cd5f-23a5-4da4-9a61-606aa51d45c3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1040,63 +1042,63 @@ berupa kata,frasa atau karakter terpisah.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
-      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
-      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
-      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
-      <td>[jakarta, stroke, merupakan, salah, satu, kond...</td>
+      <td>Jakarta  Kesehatan paruparu dapat terancam ole...</td>
+      <td>jakarta  kesehatan paruparu dapat terancam ole...</td>
+      <td>[jakarta, kesehatan, paruparu, dapat, terancam...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
-      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
-      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
-      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
-      <td>[jakarta, petai, atau, parkia, speciosa, merup...</td>
+      <td>Jakarta  Temuan antibiotik menjadi salah satu ...</td>
+      <td>jakarta  temuan antibiotik menjadi salah satu ...</td>
+      <td>[jakarta, temuan, antibiotik, menjadi, salah, ...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
-      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
-      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
-      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
-      <td>[jakarta, pria, yang, dinobatkan, sebagai, ora...</td>
+      <td>Jakarta  Kanker payudara menjadi salah satu pe...</td>
+      <td>jakarta  kanker payudara menjadi salah satu pe...</td>
+      <td>[jakarta, kanker, payudara, menjadi, salah, sa...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
-      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
-      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
-      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
-      <td>[jakarta, wasir, sama, dengan, ambeien, keduan...</td>
+      <td>Jakarta  Siapa yang tidak ingin hidup lebih la...</td>
+      <td>jakarta  siapa yang tidak ingin hidup lebih la...</td>
+      <td>[jakarta, siapa, yang, tidak, ingin, hidup, le...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
-      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
-      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
-      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
-      <td>[jakarta, kelompok, penyelenggara, pemungutan,...</td>
+      <td>Jakarta  Presiden terpilih AS Donald Trump men...</td>
+      <td>jakarta  presiden terpilih as donald trump men...</td>
+      <td>[jakarta, presiden, terpilih, as, donald, trum...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>6 Tanda Diabetes pada Kulit yang Kerap Diabaikan</td>
-      <td>Rabu, 27 Nov 2024 15:08 WIB</td>
-      <td>Jakarta - Penyakit diabetes dapat memengaruhi ...</td>
+      <td>Ini yang Terjadi Pada Tubuh Jika Rutin Makan S...</td>
+      <td>Kamis, 28 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Kol, yang juga dikenal dengan sebuta...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Penyakit diabetes dapat memengaruhi b...</td>
-      <td>jakarta  penyakit diabetes dapat memengaruhi b...</td>
-      <td>[jakarta, penyakit, diabetes, dapat, memengaru...</td>
+      <td>Jakarta  Kol yang juga dikenal dengan sebutan ...</td>
+      <td>jakarta  kol yang juga dikenal dengan sebutan ...</td>
+      <td>[jakarta, kol, yang, juga, dikenal, dengan, se...</td>
     </tr>
   </tbody>
 </table>
@@ -1104,7 +1106,7 @@ berupa kata,frasa atau karakter terpisah.</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5a502b67-5800-40e3-97a2-a22161967d0d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4349cd5f-23a5-4da4-9a61-606aa51d45c3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1156,12 +1158,12 @@ berupa kata,frasa atau karakter terpisah.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5a502b67-5800-40e3-97a2-a22161967d0d button.colab-df-convert');
+        document.querySelector('#df-4349cd5f-23a5-4da4-9a61-606aa51d45c3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5a502b67-5800-40e3-97a2-a22161967d0d');
+        const element = document.querySelector('#df-4349cd5f-23a5-4da4-9a61-606aa51d45c3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1199,7 +1201,7 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
-[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data]   Unzipping corpora/stopwords.zip.
 </pre></div>
 </div>
 </div>
@@ -1218,7 +1220,7 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f4729c22-88ca-40c3-bbc1-12b29fae43f8" class="colab-df-container">
+  <div id="df-21218044-8b82-4ec4-9400-7e82171a5de4" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1250,69 +1252,69 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
-      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
-      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
-      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
-      <td>[jakarta, stroke, merupakan, salah, satu, kond...</td>
-      <td>jakarta stroke salah kondisi medis menurunkan ...</td>
+      <td>Jakarta  Kesehatan paruparu dapat terancam ole...</td>
+      <td>jakarta  kesehatan paruparu dapat terancam ole...</td>
+      <td>[jakarta, kesehatan, paruparu, dapat, terancam...</td>
+      <td>jakarta kesehatan paruparu terancam faktor gay...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
-      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
-      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
-      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
-      <td>[jakarta, petai, atau, parkia, speciosa, merup...</td>
-      <td>jakarta petai parkia speciosa tanaman asia ten...</td>
+      <td>Jakarta  Temuan antibiotik menjadi salah satu ...</td>
+      <td>jakarta  temuan antibiotik menjadi salah satu ...</td>
+      <td>[jakarta, temuan, antibiotik, menjadi, salah, ...</td>
+      <td>jakarta temuan antibiotik salah terobosan medi...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
-      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
-      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
-      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
-      <td>[jakarta, pria, yang, dinobatkan, sebagai, ora...</td>
-      <td>jakarta pria dinobatkan orang tertua dunia ver...</td>
+      <td>Jakarta  Kanker payudara menjadi salah satu pe...</td>
+      <td>jakarta  kanker payudara menjadi salah satu pe...</td>
+      <td>[jakarta, kanker, payudara, menjadi, salah, sa...</td>
+      <td>jakarta kanker payudara salah penyakit serius ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
-      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
-      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
-      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
-      <td>[jakarta, wasir, sama, dengan, ambeien, keduan...</td>
-      <td>jakarta wasir ambeien nama penyakit hemoroid p...</td>
+      <td>Jakarta  Siapa yang tidak ingin hidup lebih la...</td>
+      <td>jakarta  siapa yang tidak ingin hidup lebih la...</td>
+      <td>[jakarta, siapa, yang, tidak, ingin, hidup, le...</td>
+      <td>jakarta hidup sehat pola makan berperan memper...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
-      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
-      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
-      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
-      <td>[jakarta, kelompok, penyelenggara, pemungutan,...</td>
-      <td>jakarta kelompok penyelenggara pemungutan suar...</td>
+      <td>Jakarta  Presiden terpilih AS Donald Trump men...</td>
+      <td>jakarta  presiden terpilih as donald trump men...</td>
+      <td>[jakarta, presiden, terpilih, as, donald, trum...</td>
+      <td>jakarta presiden terpilih as donald trump dr j...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>6 Tanda Diabetes pada Kulit yang Kerap Diabaikan</td>
-      <td>Rabu, 27 Nov 2024 15:08 WIB</td>
-      <td>Jakarta - Penyakit diabetes dapat memengaruhi ...</td>
+      <td>Ini yang Terjadi Pada Tubuh Jika Rutin Makan S...</td>
+      <td>Kamis, 28 Nov 2024 09:31 WIB</td>
+      <td>Jakarta - Kol, yang juga dikenal dengan sebuta...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Penyakit diabetes dapat memengaruhi b...</td>
-      <td>jakarta  penyakit diabetes dapat memengaruhi b...</td>
-      <td>[jakarta, penyakit, diabetes, dapat, memengaru...</td>
-      <td>jakarta penyakit diabetes memengaruhi tubuh sa...</td>
+      <td>Jakarta  Kol yang juga dikenal dengan sebutan ...</td>
+      <td>jakarta  kol yang juga dikenal dengan sebutan ...</td>
+      <td>[jakarta, kol, yang, juga, dikenal, dengan, se...</td>
+      <td>jakarta kol dikenal sebutan kubis sayuran memi...</td>
     </tr>
   </tbody>
 </table>
@@ -1320,7 +1322,7 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f4729c22-88ca-40c3-bbc1-12b29fae43f8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-21218044-8b82-4ec4-9400-7e82171a5de4')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1372,12 +1374,12 @@ tidak relevan berdasarkan dari daftar stopword removal yang digunakan.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f4729c22-88ca-40c3-bbc1-12b29fae43f8 button.colab-df-convert');
+        document.querySelector('#df-21218044-8b82-4ec4-9400-7e82171a5de4 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f4729c22-88ca-40c3-bbc1-12b29fae43f8');
+        const element = document.querySelector('#df-21218044-8b82-4ec4-9400-7e82171a5de4');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1458,7 +1460,7 @@ kecil.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5d36427d-19ea-4a34-803a-c3902c04d12a" class="colab-df-container">
+  <div id="df-da34f87f-2c9f-4749-88d4-f8ccc3de1f79" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1481,34 +1483,34 @@ kecil.</p>
       <th>abad</th>
       <th>abang</th>
       <th>abnormal</th>
+      <th>abrasif</th>
+      <th>abses</th>
       <th>abuabu</th>
       <th>academy</th>
       <th>acara</th>
       <th>achilles</th>
-      <th>acid</th>
-      <th>acungi</th>
       <th>...</th>
-      <th>youtube</th>
-      <th>youtuber</th>
-      <th>yuan</th>
-      <th>yung</th>
+      <th>yunus</th>
+      <th>yusuf</th>
+      <th>zac</th>
       <th>zaitun</th>
       <th>zaman</th>
       <th>zat</th>
       <th>zatzat</th>
       <th>zhang</th>
+      <th>zona</th>
       <th>zushiku</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.021256</td>
+      <td>0.0</td>
+      <td>0.023164</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1517,20 +1519,20 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>0.0</td>
+      <td>0.039026</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
@@ -1541,20 +1543,20 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.108844</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
@@ -1565,20 +1567,20 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
@@ -1589,20 +1591,20 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.043598</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.095023</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
@@ -1613,22 +1615,22 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.053052</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.053052</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1637,20 +1639,20 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
+      <td>0.023478</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>6</th>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
@@ -1661,20 +1663,20 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>7</th>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
@@ -1685,20 +1687,20 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.026603</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>8</th>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
@@ -1709,20 +1711,20 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>9</th>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
@@ -1733,22 +1735,22 @@ kecil.</p>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>10 rows × 4871 columns</p>
+<p>10 rows × 4887 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5d36427d-19ea-4a34-803a-c3902c04d12a')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-da34f87f-2c9f-4749-88d4-f8ccc3de1f79')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1800,12 +1802,12 @@ kecil.</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5d36427d-19ea-4a34-803a-c3902c04d12a button.colab-df-convert');
+        document.querySelector('#df-da34f87f-2c9f-4749-88d4-f8ccc3de1f79 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5d36427d-19ea-4a34-803a-c3902c04d12a');
+        const element = document.querySelector('#df-da34f87f-2c9f-4749-88d4-f8ccc3de1f79');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});

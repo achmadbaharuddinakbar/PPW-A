@@ -176,6 +176,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 6 - Sistem pencarian dokumen menggunakan Singular Value Decomposition (SVD)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas8.html"><strong>Tugas 8 : Clustering dengan Fuzzy C-means</strong></a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="link-penugasan-deployment.html"><strong>Link Penugasan Deployment</strong></a></li>
 </ul>
 
@@ -438,8 +440,12 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
 [nltk_data] Downloading package punkt to /root/nltk_data...
-[nltk_data]   Package punkt is already up-to-date!
-[nltk_data] Downloading package punkt_tab to /root/nltk_data...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Unzipping tokenizers/punkt.zip.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt_tab to /root/nltk_data...
 [nltk_data]   Package punkt_tab is already up-to-date!
 </pre></div>
 </div>
@@ -461,7 +467,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3002d35b-e7db-4ddc-9745-e4273908bad8" class="colab-df-container">
+  <div id="df-4c5a0ab5-cd7a-4968-83c4-3b6f07f88c81" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -493,58 +499,58 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
-      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
-      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
-      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
-      <td>['jakarta', 'stroke', 'merupakan', 'salah', 's...</td>
-      <td>jakarta stroke salah kondisi medis menurunkan ...</td>
+      <td>Jakarta  Kesehatan paruparu dapat terancam ole...</td>
+      <td>jakarta  kesehatan paruparu dapat terancam ole...</td>
+      <td>['jakarta', 'kesehatan', 'paruparu', 'dapat', ...</td>
+      <td>jakarta kesehatan paruparu terancam faktor gay...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
-      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
-      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
-      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
-      <td>['jakarta', 'petai', 'atau', 'parkia', 'specio...</td>
-      <td>jakarta petai parkia speciosa tanaman asia ten...</td>
+      <td>Jakarta  Temuan antibiotik menjadi salah satu ...</td>
+      <td>jakarta  temuan antibiotik menjadi salah satu ...</td>
+      <td>['jakarta', 'temuan', 'antibiotik', 'menjadi',...</td>
+      <td>jakarta temuan antibiotik salah terobosan medi...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
-      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
-      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
-      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
-      <td>['jakarta', 'pria', 'yang', 'dinobatkan', 'seb...</td>
-      <td>jakarta pria dinobatkan orang tertua dunia ver...</td>
+      <td>Jakarta  Kanker payudara menjadi salah satu pe...</td>
+      <td>jakarta  kanker payudara menjadi salah satu pe...</td>
+      <td>['jakarta', 'kanker', 'payudara', 'menjadi', '...</td>
+      <td>jakarta kanker payudara salah penyakit serius ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
-      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
-      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
-      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
-      <td>['jakarta', 'wasir', 'sama', 'dengan', 'ambeie...</td>
-      <td>jakarta wasir ambeien nama penyakit hemoroid p...</td>
+      <td>Jakarta  Siapa yang tidak ingin hidup lebih la...</td>
+      <td>jakarta  siapa yang tidak ingin hidup lebih la...</td>
+      <td>['jakarta', 'siapa', 'yang', 'tidak', 'ingin',...</td>
+      <td>jakarta hidup sehat pola makan berperan memper...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
-      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
-      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
-      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
-      <td>['jakarta', 'kelompok', 'penyelenggara', 'pemu...</td>
-      <td>jakarta kelompok penyelenggara pemungutan suar...</td>
+      <td>Jakarta  Presiden terpilih AS Donald Trump men...</td>
+      <td>jakarta  presiden terpilih as donald trump men...</td>
+      <td>['jakarta', 'presiden', 'terpilih', 'as', 'don...</td>
+      <td>jakarta presiden terpilih as donald trump dr j...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -559,58 +565,58 @@
     </tr>
     <tr>
       <th>95</th>
-      <td>Pop Mart Tindak Penjual Makanan Labubu hingga ...</td>
-      <td>Selasa, 26 Nov 2024 09:30 WIB</td>
-      <td>Jakarta - Pop Mart akan menindak tegas para pe...</td>
+      <td>Demi Traktir Pacar Gratis, Pria Ini Selipkan S...</td>
+      <td>Selasa, 26 Nov 2024 16:00 WIB</td>
+      <td>Jakarta - Traktir pacar di restoran tapi tak m...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Pop Mart akan menindak tegas para pen...</td>
-      <td>jakarta  pop mart akan menindak tegas para pen...</td>
-      <td>['jakarta', 'pop', 'mart', 'akan', 'menindak',...</td>
-      <td>jakarta pop mart menindak penjual makanan paka...</td>
+      <td>Jakarta  Traktir pacar di restoran tapi tak ma...</td>
+      <td>jakarta  traktir pacar di restoran tapi tak ma...</td>
+      <td>['jakarta', 'traktir', 'pacar', 'di', 'restora...</td>
+      <td>jakarta traktir pacar restoran bayar pria modu...</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>3 Resep Ayam Kecap Pedas, Lauk Rumahan yang En...</td>
-      <td>Selasa, 26 Nov 2024 09:00 WIB</td>
-      <td>Tentang Bahan Langkah Jakarta - Ayam yang dima...</td>
+      <td>Surga Kuliner Jakarta Barat, Ada Makanan Legen...</td>
+      <td>Selasa, 26 Nov 2024 15:30 WIB</td>
+      <td>Jakarta - Belakangan ini eksistensi Jakarta Ba...</td>
       <td>Kuliner</td>
-      <td>Tentang Bahan Langkah Jakarta  Ayam yang dimas...</td>
-      <td>tentang bahan langkah jakarta  ayam yang dimas...</td>
-      <td>['tentang', 'bahan', 'langkah', 'jakarta', 'ay...</td>
-      <td>bahan langkah jakarta ayam dimasak kecap manis...</td>
+      <td>Jakarta  Belakangan ini eksistensi Jakarta Bar...</td>
+      <td>jakarta  belakangan ini eksistensi jakarta bar...</td>
+      <td>['jakarta', 'belakangan', 'ini', 'eksistensi',...</td>
+      <td>jakarta eksistensi jakarta barat surga kuliner...</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>Ngeunah! Nasi Liwet Ayam Goreng dan Ikan Peda ...</td>
-      <td>Selasa, 26 Nov 2024 08:30 WIB</td>
-      <td>Jakarta - Ngeunah! Nasi Liwet Ayam Goreng dan ...</td>
+      <td>5 Cara Atasi Food Coma, Anti Ngantuk Usai Maka...</td>
+      <td>Selasa, 26 Nov 2024 15:00 WIB</td>
+      <td>Jakarta - Usai makan banyak terutama ketika ma...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Ngeunah Nasi Liwet Ayam Goreng dan Ik...</td>
-      <td>jakarta  ngeunah nasi liwet ayam goreng dan ik...</td>
-      <td>['jakarta', 'ngeunah', 'nasi', 'liwet', 'ayam'...</td>
-      <td>jakarta ngeunah nasi liwet ayam goreng ikan pe...</td>
+      <td>Jakarta  Usai makan banyak terutama ketika mak...</td>
+      <td>jakarta  usai makan banyak terutama ketika mak...</td>
+      <td>['jakarta', 'usai', 'makan', 'banyak', 'teruta...</td>
+      <td>jakarta makan makan siang kantuk kerap muncul ...</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>Konsumsi 5 Jenis Rempah Ini Ampuh Bakar Lemak ...</td>
-      <td>Selasa, 26 Nov 2024 08:00 WIB</td>
-      <td>Jakarta - Lemak yang menumpuk di perut tidak h...</td>
+      <td>Ada Beragam Sajian Hong Kong Lezat di Restoran...</td>
+      <td>Selasa, 26 Nov 2024 14:30 WIB</td>
+      <td>Jakarta - Satu lagi restoran seafood ala Hong ...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Lemak yang menumpuk di perut tidak ha...</td>
-      <td>jakarta  lemak yang menumpuk di perut tidak ha...</td>
-      <td>['jakarta', 'lemak', 'yang', 'menumpuk', 'di',...</td>
-      <td>jakarta lemak menumpuk perut mengganggu penamp...</td>
+      <td>Jakarta  Satu lagi restoran seafood ala Hong K...</td>
+      <td>jakarta  satu lagi restoran seafood ala hong k...</td>
+      <td>['jakarta', 'satu', 'lagi', 'restoran', 'seafo...</td>
+      <td>jakarta restoran seafood ala hong kong hadir j...</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>Garam Himalaya Vs Garam Meja, Ini Ciri-ciri da...</td>
-      <td>Selasa, 26 Nov 2024 07:30 WIB</td>
-      <td>Jakarta - Garam punya beragam jenis. Yang popu...</td>
+      <td>Pegawai Ini Ungkap Kekacauan Dapur Kafe yang B...</td>
+      <td>Selasa, 26 Nov 2024 14:00 WIB</td>
+      <td>Jakarta - Sebuah restoran sekaligus kafe popul...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Garam punya beragam jenis Yang popule...</td>
-      <td>jakarta  garam punya beragam jenis yang popule...</td>
-      <td>['jakarta', 'garam', 'punya', 'beragam', 'jeni...</td>
-      <td>jakarta garam beragam jenis populer garam hima...</td>
+      <td>Jakarta  Sebuah restoran sekaligus kafe popule...</td>
+      <td>jakarta  sebuah restoran sekaligus kafe popule...</td>
+      <td>['jakarta', 'sebuah', 'restoran', 'sekaligus',...</td>
+      <td>jakarta restoran kafe populer new york viral m...</td>
     </tr>
   </tbody>
 </table>
@@ -619,7 +625,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-3002d35b-e7db-4ddc-9745-e4273908bad8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4c5a0ab5-cd7a-4968-83c4-3b6f07f88c81')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -671,12 +677,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-3002d35b-e7db-4ddc-9745-e4273908bad8 button.colab-df-convert');
+        document.querySelector('#df-4c5a0ab5-cd7a-4968-83c4-3b6f07f88c81 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-3002d35b-e7db-4ddc-9745-e4273908bad8');
+        const element = document.querySelector('#df-4c5a0ab5-cd7a-4968-83c4-3b6f07f88c81');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -742,7 +748,7 @@
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-1c235d08-6499-43e0-b1fb-4cecf642dd05" class="colab-df-container">
+  <div id="df-b1dbaed2-646a-40cf-9a10-a6ea571ccf9b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -765,22 +771,22 @@
       <th>abad</th>
       <th>abang</th>
       <th>abnormal</th>
+      <th>abrasif</th>
+      <th>abses</th>
       <th>abuabu</th>
       <th>academy</th>
       <th>acara</th>
       <th>achilles</th>
-      <th>acid</th>
-      <th>acungi</th>
       <th>...</th>
-      <th>youtube</th>
-      <th>youtuber</th>
-      <th>yuan</th>
-      <th>yung</th>
+      <th>yunus</th>
+      <th>yusuf</th>
+      <th>zac</th>
       <th>zaitun</th>
       <th>zaman</th>
       <th>zat</th>
       <th>zatzat</th>
       <th>zhang</th>
+      <th>zona</th>
       <th>zushiku</th>
     </tr>
   </thead>
@@ -788,19 +794,16 @@
     <tr>
       <th>0</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.021256</td>
       <td>0.0</td>
+      <td>0.023164</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -808,47 +811,47 @@
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.0</td>
+      <td>0.039026</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.108844</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -856,47 +859,47 @@
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.043598</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.095023</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -904,6 +907,9 @@
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>...</th>
@@ -932,19 +938,16 @@
     <tr>
       <th>95</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -952,23 +955,23 @@
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>96</th>
       <td>0.0</td>
+      <td>0.042803</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -976,23 +979,23 @@
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.046646</td>
     </tr>
     <tr>
       <th>97</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1000,23 +1003,23 @@
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>98</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.042228</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.036281</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1024,39 +1027,42 @@
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>99</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.047974</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
   </tbody>
 </table>
-<p>100 rows × 4871 columns</p>
+<p>100 rows × 4887 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1c235d08-6499-43e0-b1fb-4cecf642dd05')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b1dbaed2-646a-40cf-9a10-a6ea571ccf9b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1108,12 +1114,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1c235d08-6499-43e0-b1fb-4cecf642dd05 button.colab-df-convert');
+        document.querySelector('#df-b1dbaed2-646a-40cf-9a10-a6ea571ccf9b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1c235d08-6499-43e0-b1fb-4cecf642dd05');
+        const element = document.querySelector('#df-b1dbaed2-646a-40cf-9a10-a6ea571ccf9b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1159,7 +1165,7 @@
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-0038c23f-fe3e-4b99-8f57-a1230a9ceaed" class="colab-df-container">
+  <div id="df-219ac266-ff5f-425d-b892-0247e20e57df" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1204,122 +1210,122 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.119679</td>
-      <td>-0.007229</td>
-      <td>0.018878</td>
-      <td>0.166469</td>
-      <td>0.123370</td>
-      <td>-0.136243</td>
-      <td>-0.173927</td>
-      <td>-0.038318</td>
-      <td>0.039622</td>
-      <td>0.093569</td>
+      <td>0.125903</td>
+      <td>-0.033204</td>
+      <td>0.062941</td>
+      <td>0.032143</td>
+      <td>-0.105631</td>
+      <td>0.129877</td>
+      <td>-0.000450</td>
+      <td>0.023683</td>
+      <td>0.001578</td>
+      <td>0.123574</td>
       <td>...</td>
-      <td>0.004673</td>
-      <td>-0.001857</td>
-      <td>0.034072</td>
-      <td>0.012672</td>
-      <td>0.012598</td>
-      <td>-0.014435</td>
-      <td>-0.000956</td>
-      <td>0.002648</td>
-      <td>0.000340</td>
+      <td>0.003939</td>
+      <td>-0.025153</td>
+      <td>-0.014224</td>
+      <td>0.007286</td>
+      <td>0.003640</td>
+      <td>-0.005823</td>
+      <td>-0.004935</td>
+      <td>-0.000051</td>
+      <td>-0.000186</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.502500</td>
-      <td>0.568398</td>
-      <td>-0.250546</td>
-      <td>-0.150316</td>
-      <td>-0.063618</td>
-      <td>0.051646</td>
-      <td>-0.044138</td>
-      <td>0.001886</td>
-      <td>-0.001966</td>
-      <td>-0.053317</td>
+      <td>0.095175</td>
+      <td>0.004498</td>
+      <td>0.070801</td>
+      <td>0.034798</td>
+      <td>-0.075387</td>
+      <td>0.015904</td>
+      <td>-0.035129</td>
+      <td>-0.027842</td>
+      <td>0.062753</td>
+      <td>0.044653</td>
       <td>...</td>
-      <td>0.009716</td>
-      <td>-0.043805</td>
-      <td>0.002495</td>
-      <td>0.011163</td>
-      <td>-0.040663</td>
-      <td>0.337880</td>
-      <td>0.031723</td>
-      <td>0.054953</td>
-      <td>0.131989</td>
+      <td>0.000205</td>
+      <td>-0.018222</td>
+      <td>0.003286</td>
+      <td>-0.001065</td>
+      <td>0.000708</td>
+      <td>-0.003352</td>
+      <td>-0.000998</td>
+      <td>-0.000241</td>
+      <td>0.000219</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.069795</td>
-      <td>-0.015755</td>
-      <td>0.063185</td>
-      <td>0.068373</td>
-      <td>-0.025663</td>
-      <td>-0.006735</td>
-      <td>-0.007839</td>
-      <td>-0.012268</td>
-      <td>-0.134426</td>
-      <td>-0.017286</td>
+      <td>0.118838</td>
+      <td>-0.026338</td>
+      <td>0.071900</td>
+      <td>0.039951</td>
+      <td>-0.139178</td>
+      <td>0.171848</td>
+      <td>0.008304</td>
+      <td>0.013461</td>
+      <td>-0.014776</td>
+      <td>0.126156</td>
       <td>...</td>
-      <td>-0.005653</td>
-      <td>0.006206</td>
-      <td>-0.002589</td>
-      <td>0.009160</td>
-      <td>-0.004825</td>
-      <td>-0.000230</td>
-      <td>-0.009553</td>
-      <td>-0.003445</td>
-      <td>-0.000774</td>
+      <td>-0.003057</td>
+      <td>0.030211</td>
+      <td>0.018248</td>
+      <td>-0.006205</td>
+      <td>0.005040</td>
+      <td>0.003340</td>
+      <td>0.001291</td>
+      <td>-0.000558</td>
+      <td>-0.000399</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.104535</td>
-      <td>0.001053</td>
-      <td>0.024304</td>
-      <td>0.143563</td>
-      <td>0.059679</td>
-      <td>-0.026507</td>
-      <td>-0.050087</td>
-      <td>0.010968</td>
-      <td>0.034960</td>
-      <td>0.054317</td>
+      <td>0.349521</td>
+      <td>-0.002204</td>
+      <td>0.201251</td>
+      <td>0.078800</td>
+      <td>-0.192949</td>
+      <td>-0.207276</td>
+      <td>-0.180939</td>
+      <td>-0.190177</td>
+      <td>-0.036600</td>
+      <td>-0.008452</td>
       <td>...</td>
-      <td>0.005713</td>
-      <td>-0.008003</td>
-      <td>0.018777</td>
-      <td>0.002162</td>
-      <td>0.002529</td>
-      <td>0.008189</td>
-      <td>0.006340</td>
-      <td>-0.001177</td>
-      <td>-0.003178</td>
+      <td>0.005293</td>
+      <td>-0.025345</td>
+      <td>-0.006267</td>
+      <td>0.007178</td>
+      <td>0.011132</td>
+      <td>-0.003064</td>
+      <td>0.001196</td>
+      <td>0.000789</td>
+      <td>0.004577</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.139537</td>
-      <td>0.015638</td>
-      <td>0.056715</td>
-      <td>0.102252</td>
-      <td>0.106372</td>
-      <td>-0.077103</td>
-      <td>-0.149473</td>
-      <td>-0.032765</td>
-      <td>-0.060237</td>
-      <td>0.022131</td>
+      <td>0.115857</td>
+      <td>-0.018947</td>
+      <td>0.091601</td>
+      <td>0.016161</td>
+      <td>-0.073742</td>
+      <td>0.037247</td>
+      <td>-0.027488</td>
+      <td>-0.044637</td>
+      <td>0.037145</td>
+      <td>0.026052</td>
       <td>...</td>
-      <td>-0.001599</td>
-      <td>-0.028625</td>
-      <td>-0.040292</td>
-      <td>0.004884</td>
-      <td>0.005598</td>
-      <td>-0.004531</td>
+      <td>0.002602</td>
+      <td>0.018272</td>
+      <td>0.014085</td>
+      <td>-0.005238</td>
       <td>-0.001524</td>
-      <td>0.000641</td>
-      <td>0.000667</td>
+      <td>-0.003399</td>
+      <td>-0.008456</td>
+      <td>-0.004780</td>
+      <td>0.000111</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
@@ -1348,122 +1354,122 @@
     </tr>
     <tr>
       <th>95</th>
-      <td>0.110099</td>
-      <td>0.008538</td>
-      <td>0.172021</td>
-      <td>-0.022040</td>
-      <td>-0.020972</td>
-      <td>-0.017181</td>
-      <td>0.028203</td>
-      <td>0.026315</td>
-      <td>-0.043739</td>
-      <td>-0.069196</td>
+      <td>0.087802</td>
+      <td>0.086783</td>
+      <td>0.032891</td>
+      <td>0.019670</td>
+      <td>-0.106077</td>
+      <td>0.043439</td>
+      <td>0.004751</td>
+      <td>-0.064663</td>
+      <td>0.032455</td>
+      <td>-0.215184</td>
       <td>...</td>
-      <td>-0.013276</td>
-      <td>-0.011164</td>
-      <td>0.007258</td>
-      <td>-0.004262</td>
-      <td>0.012089</td>
-      <td>0.005150</td>
-      <td>0.001592</td>
-      <td>-0.003656</td>
-      <td>0.002975</td>
+      <td>0.000222</td>
+      <td>0.005914</td>
+      <td>0.010766</td>
+      <td>0.001826</td>
+      <td>0.002394</td>
+      <td>0.001844</td>
+      <td>0.002936</td>
+      <td>0.001804</td>
+      <td>0.000897</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>0.133946</td>
-      <td>0.007939</td>
-      <td>0.358454</td>
-      <td>-0.197269</td>
-      <td>0.407840</td>
-      <td>0.405578</td>
-      <td>-0.069070</td>
-      <td>0.003825</td>
-      <td>0.120275</td>
-      <td>0.007549</td>
+      <td>0.197780</td>
+      <td>0.467843</td>
+      <td>-0.142952</td>
+      <td>-0.103289</td>
+      <td>0.139513</td>
+      <td>0.096715</td>
+      <td>-0.155306</td>
+      <td>-0.019710</td>
+      <td>-0.011612</td>
+      <td>0.102936</td>
       <td>...</td>
-      <td>0.243625</td>
-      <td>0.046449</td>
-      <td>0.003981</td>
-      <td>-0.013799</td>
-      <td>-0.003153</td>
-      <td>-0.007707</td>
-      <td>0.003881</td>
-      <td>-0.004172</td>
-      <td>0.001022</td>
+      <td>-0.001974</td>
+      <td>0.019903</td>
+      <td>0.013197</td>
+      <td>-0.012711</td>
+      <td>0.004808</td>
+      <td>0.032582</td>
+      <td>-0.001544</td>
+      <td>-0.001125</td>
+      <td>-0.000282</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>0.064219</td>
-      <td>0.024755</td>
-      <td>0.241617</td>
-      <td>-0.097768</td>
-      <td>-0.073494</td>
-      <td>-0.079449</td>
-      <td>0.037887</td>
-      <td>-0.057051</td>
-      <td>0.086572</td>
-      <td>-0.247926</td>
+      <td>0.200256</td>
+      <td>0.087543</td>
+      <td>0.068581</td>
+      <td>0.014955</td>
+      <td>-0.059988</td>
+      <td>-0.089433</td>
+      <td>-0.067299</td>
+      <td>-0.092737</td>
+      <td>-0.024084</td>
+      <td>-0.017717</td>
       <td>...</td>
-      <td>-0.046625</td>
-      <td>0.006228</td>
-      <td>-0.018230</td>
-      <td>-0.003997</td>
-      <td>-0.008440</td>
-      <td>0.001948</td>
-      <td>-0.000114</td>
-      <td>0.000307</td>
-      <td>-0.001402</td>
+      <td>-0.054387</td>
+      <td>0.026649</td>
+      <td>0.016086</td>
+      <td>0.001586</td>
+      <td>-0.000836</td>
+      <td>-0.002326</td>
+      <td>0.007678</td>
+      <td>0.005551</td>
+      <td>0.000807</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>0.163463</td>
-      <td>0.009841</td>
-      <td>0.099459</td>
-      <td>0.137952</td>
-      <td>0.154880</td>
-      <td>-0.190940</td>
-      <td>-0.280473</td>
-      <td>0.020797</td>
-      <td>-0.060352</td>
-      <td>-0.216834</td>
+      <td>0.154152</td>
+      <td>0.211190</td>
+      <td>-0.019188</td>
+      <td>-0.036591</td>
+      <td>-0.128611</td>
+      <td>-0.084928</td>
+      <td>0.152041</td>
+      <td>-0.000622</td>
+      <td>0.035505</td>
+      <td>-0.141786</td>
       <td>...</td>
-      <td>-0.035895</td>
-      <td>0.103424</td>
-      <td>-0.115783</td>
-      <td>-0.004080</td>
-      <td>-0.008435</td>
-      <td>0.009051</td>
-      <td>-0.002032</td>
-      <td>-0.001817</td>
-      <td>-0.002106</td>
+      <td>-0.014072</td>
+      <td>0.018686</td>
+      <td>-0.005166</td>
+      <td>0.001613</td>
+      <td>0.003786</td>
+      <td>-0.003422</td>
+      <td>0.002266</td>
+      <td>0.002229</td>
+      <td>0.000498</td>
       <td>Kuliner</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>0.068891</td>
-      <td>0.021064</td>
-      <td>0.105832</td>
-      <td>-0.014881</td>
-      <td>0.129376</td>
-      <td>0.100482</td>
-      <td>-0.044938</td>
-      <td>0.021913</td>
-      <td>-0.020659</td>
-      <td>0.013053</td>
+      <td>0.115553</td>
+      <td>0.136688</td>
+      <td>0.016291</td>
+      <td>0.076830</td>
+      <td>-0.039134</td>
+      <td>0.070194</td>
+      <td>0.034465</td>
+      <td>-0.018173</td>
+      <td>0.121464</td>
+      <td>-0.211425</td>
       <td>...</td>
-      <td>-0.007625</td>
-      <td>0.003863</td>
-      <td>-0.000658</td>
-      <td>0.001625</td>
-      <td>0.003021</td>
-      <td>0.002419</td>
-      <td>-0.003313</td>
-      <td>-0.002283</td>
-      <td>-0.004344</td>
+      <td>-0.010862</td>
+      <td>-0.007490</td>
+      <td>0.011292</td>
+      <td>0.005837</td>
+      <td>-0.003078</td>
+      <td>-0.024072</td>
+      <td>0.000590</td>
+      <td>-0.001185</td>
+      <td>-0.000330</td>
       <td>Kuliner</td>
     </tr>
   </tbody>
@@ -1473,7 +1479,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0038c23f-fe3e-4b99-8f57-a1230a9ceaed')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-219ac266-ff5f-425d-b892-0247e20e57df')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1525,12 +1531,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0038c23f-fe3e-4b99-8f57-a1230a9ceaed button.colab-df-convert');
+        document.querySelector('#df-219ac266-ff5f-425d-b892-0247e20e57df button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0038c23f-fe3e-4b99-8f57-a1230a9ceaed');
+        const element = document.querySelector('#df-219ac266-ff5f-425d-b892-0247e20e57df');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
