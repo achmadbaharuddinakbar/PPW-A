@@ -63,7 +63,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/Tugas8';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Selamat Datang di Jupyter Book Saya" href="../intro.html" />
+    <link rel="next" title="Link Penugasan Deployment" href="link-penugasan-deployment.html" />
+    <link rel="prev" title="Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi" href="Tugas7.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -168,8 +169,16 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tugas1.html"><strong>Tugas 1 - Crawling Data (detik.com)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas2.html"><strong>Tugas 2 - Pre-Processing Data dengan TF-IDF</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas3.html"><strong>Tugas 3 - Logistic Regression</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas4-2.html"><strong>Tugas 4 - Graph</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas5.html"><strong>Tugas 5 : Keyword Extraction</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas6.html">Tugas 6 - Sistem pencarian dokumen menggunakan Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Tugas 8 : Clustering dengan Fuzzy C-means</strong></a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="link-penugasan-deployment.html"><strong>Link Penugasan Deployment</strong></a></li>
 </ul>
 
     </div>
@@ -424,13 +433,13 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: fuzzy-c-means in /usr/local/lib/python3.10/dist-packages (1.7.2)
 Requirement already satisfied: joblib&lt;2.0.0,&gt;=1.2.0 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (1.4.2)
 Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (1.26.4)
-Requirement already satisfied: pydantic&lt;3.0.0,&gt;=2.6.4 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (2.9.2)
+Requirement already satisfied: pydantic&lt;3.0.0,&gt;=2.6.4 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (2.10.3)
 Requirement already satisfied: tabulate&lt;0.9.0,&gt;=0.8.9 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (0.8.10)
 Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.64.1 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (4.66.6)
 Requirement already satisfied: typer&lt;0.10.0,&gt;=0.9.0 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (0.9.4)
 Requirement already satisfied: annotated-types&gt;=0.6.0 in /usr/local/lib/python3.10/dist-packages (from pydantic&lt;3.0.0,&gt;=2.6.4-&gt;fuzzy-c-means) (0.7.0)
-Requirement already satisfied: pydantic-core==2.23.4 in /usr/local/lib/python3.10/dist-packages (from pydantic&lt;3.0.0,&gt;=2.6.4-&gt;fuzzy-c-means) (2.23.4)
-Requirement already satisfied: typing-extensions&gt;=4.6.1 in /usr/local/lib/python3.10/dist-packages (from pydantic&lt;3.0.0,&gt;=2.6.4-&gt;fuzzy-c-means) (4.12.2)
+Requirement already satisfied: pydantic-core==2.27.1 in /usr/local/lib/python3.10/dist-packages (from pydantic&lt;3.0.0,&gt;=2.6.4-&gt;fuzzy-c-means) (2.27.1)
+Requirement already satisfied: typing-extensions&gt;=4.12.2 in /usr/local/lib/python3.10/dist-packages (from pydantic&lt;3.0.0,&gt;=2.6.4-&gt;fuzzy-c-means) (4.12.2)
 Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/python3.10/dist-packages (from typer&lt;0.10.0,&gt;=0.9.0-&gt;fuzzy-c-means) (8.1.7)
 </pre></div>
 </div>
@@ -453,14 +462,14 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/My Drive/PPW-A/report/tugas-ppw/hasil_preprocesing.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/My Drive/PPW-A/report/tugas-ppw/hasil_preproc.csv&quot;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-111690d7-003a-408e-b094-e0495e940fc6" class="colab-df-container">
+  <div id="df-a19b243b-4657-4017-8b70-078f2c8ba3f4" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -492,58 +501,58 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
   <tbody>
     <tr>
       <th>0</th>
-      <td>7 Rekomendasi Makanan Pencegah Kanker, Ada Wor...</td>
-      <td>Rabu, 04 Des 2024 19:19 WIB</td>
-      <td>Jakarta - Kanker merupakan salah satu penyakit...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kanker merupakan salah satu penyakit ...</td>
-      <td>jakarta  kanker merupakan salah satu penyakit ...</td>
-      <td>['jakarta', 'kanker', 'merupakan', 'salah', 's...</td>
-      <td>jakarta kanker salah penyakit ditakuti orang p...</td>
+      <td>Jakarta  Kesehatan paruparu dapat terancam ole...</td>
+      <td>jakarta  kesehatan paruparu dapat terancam ole...</td>
+      <td>['jakarta', 'kesehatan', 'paruparu', 'dapat', ...</td>
+      <td>jakarta kesehatan paruparu terancam faktor gay...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Wanita Sering Halu gegara Skizofrenia, P...</td>
-      <td>Rabu, 04 Des 2024 18:05 WIB</td>
-      <td>Jakarta - Viral seorang wanita menceritakan pe...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral seorang wanita menceritakan pen...</td>
-      <td>jakarta  viral seorang wanita menceritakan pen...</td>
-      <td>['jakarta', 'viral', 'seorang', 'wanita', 'men...</td>
-      <td>jakarta viral wanita menceritakan pengalamanny...</td>
+      <td>Jakarta  Temuan antibiotik menjadi salah satu ...</td>
+      <td>jakarta  temuan antibiotik menjadi salah satu ...</td>
+      <td>['jakarta', 'temuan', 'antibiotik', 'menjadi',...</td>
+      <td>jakarta temuan antibiotik salah terobosan medi...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Ilmuwan Teliti Efek Lockdown Pandemi COVID-19 ...</td>
-      <td>Rabu, 04 Des 2024 17:02 WIB</td>
-      <td>Jakarta - Sebuah penelitian terbaru mengungkap...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebuah penelitian terbaru mengungkapk...</td>
-      <td>jakarta  sebuah penelitian terbaru mengungkapk...</td>
-      <td>['jakarta', 'sebuah', 'penelitian', 'terbaru',...</td>
-      <td>jakarta penelitian terbaru perubahan signifika...</td>
+      <td>Jakarta  Kanker payudara menjadi salah satu pe...</td>
+      <td>jakarta  kanker payudara menjadi salah satu pe...</td>
+      <td>['jakarta', 'kanker', 'payudara', 'menjadi', '...</td>
+      <td>jakarta kanker payudara salah penyakit serius ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Curhat Warga Vietnam Sewa Pacar gegara Ortu Se...</td>
-      <td>Rabu, 04 Des 2024 16:01 WIB</td>
-      <td>Jakarta - Tidak hanya di Korea Selatan dan Jep...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tidak hanya di Korea Selatan dan Jepa...</td>
-      <td>jakarta  tidak hanya di korea selatan dan jepa...</td>
-      <td>['jakarta', 'tidak', 'hanya', 'di', 'korea', '...</td>
-      <td>jakarta korea selatan jepang tren anak muda ma...</td>
+      <td>Jakarta  Siapa yang tidak ingin hidup lebih la...</td>
+      <td>jakarta  siapa yang tidak ingin hidup lebih la...</td>
+      <td>['jakarta', 'siapa', 'yang', 'tidak', 'ingin',...</td>
+      <td>jakarta hidup sehat pola makan berperan memper...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Ramai soal 'Brain Rot', Istilah Kekinian gegar...</td>
-      <td>Rabu, 04 Des 2024 15:00 WIB</td>
-      <td>Jakarta - Belakangan ramai soal istilah 'brain...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Belakangan ramai soal istilah brain r...</td>
-      <td>jakarta  belakangan ramai soal istilah brain r...</td>
-      <td>['jakarta', 'belakangan', 'ramai', 'soal', 'is...</td>
-      <td>jakarta ramai istilah brain rot media sosial i...</td>
+      <td>Jakarta  Presiden terpilih AS Donald Trump men...</td>
+      <td>jakarta  presiden terpilih as donald trump men...</td>
+      <td>['jakarta', 'presiden', 'terpilih', 'as', 'don...</td>
+      <td>jakarta presiden terpilih as donald trump dr j...</td>
     </tr>
   </tbody>
 </table>
@@ -551,7 +560,7 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-111690d7-003a-408e-b094-e0495e940fc6')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a19b243b-4657-4017-8b70-078f2c8ba3f4')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -603,12 +612,12 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-111690d7-003a-408e-b094-e0495e940fc6 button.colab-df-convert');
+        document.querySelector('#df-a19b243b-4657-4017-8b70-078f2c8ba3f4 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-111690d7-003a-408e-b094-e0495e940fc6');
+        const element = document.querySelector('#df-a19b243b-4657-4017-8b70-078f2c8ba3f4');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -664,7 +673,7 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 3529)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 3191)
 </pre></div>
 </div>
 </div>
@@ -724,256 +733,242 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=2: Silhouette=0.8588551195188908, ARI=0.012148896880163282, NMI=0.09456435533426642
-Iterasi dengan n_components=3: Silhouette=0.8137782429821612, ARI=0.012148896880163282, NMI=0.09456435533426642
-Iterasi dengan n_components=4: Silhouette=0.7571487186145959, ARI=0.012148896880163282, NMI=0.09456435533426642
-Iterasi dengan n_components=5: Silhouette=0.7226637621070542, ARI=0.012148896880163282, NMI=0.09456435533426642
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=2: Silhouette=0.9384882305315918, ARI=0.000808721249959564, NMI=0.03555936072748941
+Iterasi dengan n_components=3: Silhouette=0.8218742089931235, ARI=0.01701445012943135, NMI=0.10806496399729751
+Iterasi dengan n_components=4: Silhouette=0.7830594775749598, ARI=0.01701445012943135, NMI=0.10806496399729751
+Iterasi dengan n_components=5: Silhouette=0.7475495856202385, ARI=0.011460342675592873, NMI=0.05611196255773773
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=6: Silhouette=0.6842558633294931, ARI=0.012148896880163282, NMI=0.09456435533426642
-Iterasi dengan n_components=7: Silhouette=0.6395494297279459, ARI=0.007389132627638759, NMI=0.04469202501254566
-Iterasi dengan n_components=8: Silhouette=0.5932438942855692, ARI=0.011460342675592873, NMI=0.05611196255773773
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=6: Silhouette=0.7159425378059875, ARI=0.006713123426611697, NMI=0.03230741979513904
+Iterasi dengan n_components=7: Silhouette=0.6840311683294058, ARI=-0.00035696756057293293, NMI=0.008943110719578682
+Iterasi dengan n_components=8: Silhouette=0.6598469842531456, ARI=-0.004888426933445935, NMI=0.0
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=9: Silhouette=0.586155214026078, ARI=0.027958062905641536, NMI=0.07218050712528158
-Iterasi dengan n_components=10: Silhouette=0.5600001173744134, ARI=0.027389582698751143, NMI=0.06037580908432075
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=9: Silhouette=0.15741507055406326, ARI=0.6044186131938011, NMI=0.5048484896887586
+Iterasi dengan n_components=10: Silhouette=0.11171192950233134, ARI=0.7721314419105764, NMI=0.7287008798015754
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=11: Silhouette=0.5211038529106099, ARI=0.05146807645384303, NMI=0.07973360923467632
-Iterasi dengan n_components=12: Silhouette=0.4809930135145709, ARI=0.08344151483951832, NMI=0.11012381882721671
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=11: Silhouette=0.25736402687246857, ARI=0.1681622859101649, NMI=0.13534965598921833
+Iterasi dengan n_components=12: Silhouette=0.16045226892507952, ARI=0.26296713523044524, NMI=0.20550722361410448
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=13: Silhouette=0.46020178504693043, ARI=0.07155766131001808, NMI=0.09082968489674628
-Iterasi dengan n_components=14: Silhouette=0.40932091726255565, ARI=0.12215158924205378, NMI=0.12458222025879266
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=13: Silhouette=0.21457453509614005, ARI=0.18549111151014544, NMI=0.14786423385306455
+Iterasi dengan n_components=14: Silhouette=0.318977410070834, ARI=0.058734995044234795, NMI=0.054496040820052626
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=15: Silhouette=0.2437665642026939, ARI=0.42995482536145835, NMI=0.356324324338513
-Iterasi dengan n_components=16: Silhouette=0.29573059318029526, ARI=0.26338804947296285, NMI=0.2267775588415968
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=15: Silhouette=0.20496116199497125, ARI=0.1515532411564015, NMI=0.12135760363826194
+Iterasi dengan n_components=16: Silhouette=0.2478063670574143, ARI=0.08089810609306711, NMI=0.06784386573859888
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=17: Silhouette=0.2704042485961468, ARI=0.3298501311811197, NMI=0.2743987069926899
-Iterasi dengan n_components=18: Silhouette=0.2768631639694562, ARI=0.28472468699132264, NMI=0.24196846294651436
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=17: Silhouette=0.21592968306585544, ARI=0.1855841739300754, NMI=0.1505442577655267
+Iterasi dengan n_components=18: Silhouette=0.2253997746301783, ARI=0.16827089819284236, NMI=0.13813850526105884
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=19: Silhouette=0.22735949393227092, ARI=0.4036631352127851, NMI=0.329100323955614
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=19: Silhouette=0.28250023344216946, ARI=0.03935244667963731, NMI=0.03883393686222534
+Iterasi dengan n_components=20: Silhouette=0.22578125485516506, ARI=0.0810181123791726, NMI=0.06914597085163761
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=20: Silhouette=0.20549608371249012, ARI=0.4036631352127851, NMI=0.329100323955614
-Iterasi dengan n_components=21: Silhouette=0.2310725969752699, ARI=0.3536382332778376, NMI=0.291753502652149
-Iterasi dengan n_components=22: Silhouette=0.18646954720001852, ARI=0.42986176018023825, NMI=0.3447660573350479
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=21: Silhouette=0.20173732467498023, ARI=0.1067541593722072, NMI=0.08758776832390541
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=23: Silhouette=0.1833323063158241, ARI=0.3781818181818182, NMI=0.3042340369904945
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=22: Silhouette=0.24108151746423126, ARI=0.05855067497276855, NMI=0.05293526690877434
+Iterasi dengan n_components=23: Silhouette=0.2343710129324179, ARI=0.04854289723591032, NMI=0.045626023826804925
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=24: Silhouette=0.168647990945225, ARI=0.3535116074052307, NMI=0.28135366840352244
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=24: Silhouette=0.20547221672569316, ARI=0.030599755201958383, NMI=0.030751805676497313
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=25: Silhouette=0.1657020451450072, ARI=0.4036144578313253, NMI=0.32392379834363044
-Iterasi dengan n_components=26: Silhouette=0.15283783785413138, ARI=0.32965319641319296, NMI=0.26018095459477675
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=25: Silhouette=0.21655965413181144, ARI=0.02300904451271005, NMI=0.02517440612296311
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=27: Silhouette=0.17512236134137527, ARI=0.30677700519048084, NMI=0.25101673091682575
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=26: Silhouette=0.21148860052065427, ARI=0.04854289723591032, NMI=0.045626023826804925
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=28: Silhouette=0.18818042155781078, ARI=0.24259734536744995, NMI=0.19927780647054036
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=27: Silhouette=0.16679133215538003, ARI=0.06913269886873766, NMI=0.058519792136740086
+Iterasi dengan n_components=28: Silhouette=0.1922596314651501, ARI=0.04854289723591032, NMI=0.045626023826804925
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=29: Silhouette=0.1846731431541557, ARI=0.24259734536744995, NMI=0.19927780647054036
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=29: Silhouette=0.1731008187328572, ARI=0.030599755201958383, NMI=0.030751805676497313
+Iterasi dengan n_components=30: Silhouette=0.16905158309337712, ARI=0.004749082007343941, NMI=0.011011968121955752
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=30: Silhouette=0.1738089647857901, ARI=0.2631475859367349, NMI=0.21409369088299846
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=31: Silhouette=0.18130371247730254, ARI=0.04854289723591032, NMI=0.045626023826804925
+Iterasi dengan n_components=32: Silhouette=0.1695483489538008, ARI=0.06937576499388005, NMI=0.0607708675871891
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=31: Silhouette=0.1813502719380917, ARI=0.24259734536744995, NMI=0.19927780647054036
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=33: Silhouette=0.1934429017615519, ARI=0.058734995044234795, NMI=0.054496040820052626
+Iterasi dengan n_components=34: Silhouette=0.15777399524285982, ARI=0.02300904451271005, NMI=0.02517440612296311
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=32: Silhouette=0.17651205163338413, ARI=0.24259734536744995, NMI=0.19927780647054036
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=35: Silhouette=0.15304248709385182, ARI=0.030599755201958383, NMI=0.030751805676497313
+Iterasi dengan n_components=36: Silhouette=0.16347179176323132, ARI=0.04837209302325581, NMI=0.04444801538936912
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=33: Silhouette=0.1883611476890033, ARI=0.24272094190216262, NMI=0.2049456375426203
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=37: Silhouette=0.1436148330200945, ARI=0.06923905592008618, NMI=0.059486349180544316
+Iterasi dengan n_components=38: Silhouette=0.14535717305855037, ARI=0.022721986215001898, NMI=0.02415423012293781
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=34: Silhouette=0.17415499652190436, ARI=0.24259734536744995, NMI=0.19927780647054036
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=39: Silhouette=0.13899420021766043, ARI=0.05827405947381952, NMI=0.05073566873993589
+Iterasi dengan n_components=40: Silhouette=0.15864993200581318, ARI=0.01605875152998776, NMI=0.019622102805851988
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=35: Silhouette=0.19797444967829514, ARI=0.18584994941748523, NMI=0.15874219849682203
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=41: Silhouette=0.13054769179266523, ARI=0.048123541030705694, NMI=0.0428259941262739
+Iterasi dengan n_components=42: Silhouette=0.14288292279976564, ARI=0.03045734991675644, NMI=0.030119699730181713
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=36: Silhouette=0.20465714101062307, ARI=0.13626518850262473, NMI=0.11876912541700375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=43: Silhouette=0.1320580904009982, ARI=0.05827405947381952, NMI=0.05073566873993589
+Iterasi dengan n_components=44: Silhouette=0.13425205395232528, ARI=0.0482322985016159, NMI=0.04352281535923647
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=37: Silhouette=0.16252985485784832, ARI=0.2228641370869033, NMI=0.18514337499882702
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=45: Silhouette=0.13935507762736207, ARI=0.06937576499388005, NMI=0.0607708675871891
+Iterasi dengan n_components=46: Silhouette=0.12231807231500667, ARI=0.03045734991675644, NMI=0.030119699730181713
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=38: Silhouette=0.15536126344918727, ARI=0.2228641370869033, NMI=0.18514337499882702
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=47: Silhouette=0.12333275841439945, ARI=0.015914210165507786, NMI=0.01922279654840564
+Iterasi dengan n_components=48: Silhouette=0.12416439182948952, ARI=0.022721986215001898, NMI=0.02415423012293781
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=39: Silhouette=0.18924983159054892, ARI=0.13626518850262473, NMI=0.11876912541700375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=49: Silhouette=0.11342259140957701, ARI=0.03045734991675644, NMI=0.030119699730181713
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=40: Silhouette=0.15460164478495483, ARI=0.2228641370869033, NMI=0.18514337499882702
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=50: Silhouette=0.11297453205656838, ARI=0.038882019514464454, NMI=0.036191778422235275
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=41: Silhouette=0.17294605530606616, ARI=0.15192703064321378, NMI=0.13000390226622416
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=51: Silhouette=0.12702497841215282, ARI=0.01605875152998776, NMI=0.019622102805851988
+Iterasi dengan n_components=52: Silhouette=0.11304700370202918, ARI=0.009793959575431853, NMI=0.014576828435880821
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=42: Silhouette=0.17723822142245468, ARI=0.15210688591983557, NMI=0.13459183880031764
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=53: Silhouette=0.10945637309069173, ARI=0.038882019514464454, NMI=0.036191778422235275
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=43: Silhouette=0.15414357033467468, ARI=0.18584994941748523, NMI=0.15874219849682203
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=54: Silhouette=0.11927583373737746, ARI=0.01605875152998776, NMI=0.019622102805851988
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=44: Silhouette=0.1701861537901587, ARI=0.13626518850262473, NMI=0.11876912541700375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=55: Silhouette=0.10762336404878113, ARI=0.038882019514464454, NMI=0.036191778422235275
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=45: Silhouette=0.16316078844382192, ARI=0.15192703064321378, NMI=0.13000390226622416
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=56: Silhouette=0.11337842565998672, ARI=0.03900751180222049, NMI=0.036865411084647505
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=46: Silhouette=0.1757556842551875, ARI=0.13646243245998574, NMI=0.12328837996546078
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=57: Silhouette=0.09860671568196742, ARI=0.058397019760813774, NMI=0.05169322737348285
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=47: Silhouette=0.17586853999305416, ARI=0.15231431646932186, NMI=0.1402834245040046
-Iterasi dengan n_components=48: Silhouette=0.16770002194793512, ARI=0.16875930268121114, NMI=0.15217136598067355
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=58: Silhouette=0.09939628924350263, ARI=0.022849588503392755, NMI=0.024598769673812613
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=49: Silhouette=0.16288946634971335, ARI=0.16875930268121114, NMI=0.15217136598067355
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=59: Silhouette=0.10406423592087705, ARI=0.030599755201958383, NMI=0.030751805676497313
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=50: Silhouette=0.15040958533390317, ARI=0.18602261048304214, NMI=0.16455265253877288
-Iterasi dengan n_components=51: Silhouette=0.15915364367406556, ARI=0.15231431646932186, NMI=0.1402834245040046
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=60: Silhouette=0.09913103598802411, ARI=0.009793959575431853, NMI=0.014576828435880821
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=52: Silhouette=0.15182225213684591, ARI=0.16875930268121114, NMI=0.15217136598067355
-Iterasi dengan n_components=53: Silhouette=0.14899940803202583, ARI=0.16875930268121114, NMI=0.15217136598067355
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=61: Silhouette=0.08169901761603604, ARI=0.03878787878787879, NMI=0.03570031803557409
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=54: Silhouette=0.13879869073732298, ARI=0.13626518850262473, NMI=0.11876912541700375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=62: Silhouette=0.08579914176816253, ARI=0.038882019514464454, NMI=0.036191778422235275
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=55: Silhouette=0.13818217553924053, ARI=0.15210688591983557, NMI=0.13459183880031764
-Iterasi dengan n_components=56: Silhouette=0.14042347395770177, ARI=0.16875930268121114, NMI=0.15217136598067355
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=63: Silhouette=0.07988007613895472, ARI=0.05818181818181818, NMI=0.050037551925623425
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=57: Silhouette=0.13606882221753802, ARI=0.16875930268121114, NMI=0.15217136598067355
-Iterasi dengan n_components=58: Silhouette=0.1320013818910411, ARI=0.15210688591983557, NMI=0.13459183880031764
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=64: Silhouette=0.0780121738510965, ARI=0.05818181818181818, NMI=0.050037551925623425
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=59: Silhouette=0.1292290340987842, ARI=0.15210688591983557, NMI=0.13459183880031764
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=65: Silhouette=0.08538700993053595, ARI=0.038882019514464454, NMI=0.036191778422235275
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=60: Silhouette=0.1245843540569966, ARI=0.18602261048304214, NMI=0.16455265253877288
-Iterasi dengan n_components=61: Silhouette=0.11173711528971103, ARI=0.18584994941748523, NMI=0.15874219849682203
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=66: Silhouette=0.066358607334404, ARI=0.10660832867364056, NMI=0.08552565975067121
+Iterasi dengan n_components=67: Silhouette=0.06191897638950742, ARI=0.0581203139476509, NMI=0.04958135523402417
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=62: Silhouette=0.1182800826361408, ARI=0.15210688591983557, NMI=0.13459183880031764
-Iterasi dengan n_components=63: Silhouette=0.1178187213697517, ARI=0.15210688591983557, NMI=0.13459183880031764
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=68: Silhouette=0.0683142545300262, ARI=0.05818181818181818, NMI=0.050037551925623425
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=64: Silhouette=0.1098074871917001, ARI=0.16856943577695385, NMI=0.14640120026863412
-Iterasi dengan n_components=65: Silhouette=0.10958706371604858, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=69: Silhouette=0.061030654056533844, ARI=0.08074805415311274, NMI=0.06627595469152042
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=66: Silhouette=0.10845813004912948, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=70: Silhouette=0.06831060352302874, ARI=0.03878787878787879, NMI=0.03570031803557409
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=67: Silhouette=0.10630489864179996, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=71: Silhouette=0.0634357556262482, ARI=0.06905671466353218, NMI=0.05784608233490577
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=68: Silhouette=0.10543152227624819, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=72: Silhouette=0.06172751438352034, ARI=0.06905671466353218, NMI=0.05784608233490577
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=69: Silhouette=0.1037608758413036, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=73: Silhouette=0.051931703440931794, ARI=0.058089558818127274, NMI=0.04935595704614155
+Iterasi dengan n_components=74: Silhouette=0.06525236056842976, ARI=0.048123541030705694, NMI=0.0428259941262739
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=70: Silhouette=0.09807895548343297, ARI=0.18584994941748523, NMI=0.15874219849682203
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=75: Silhouette=0.06340106063129433, ARI=0.030346561321601725, NMI=0.02964327933391515
+Iterasi dengan n_components=76: Silhouette=0.05284068568273544, ARI=0.0581203139476509, NMI=0.04958135523402417
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=71: Silhouette=0.10133427784798466, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=77: Silhouette=0.05138506007713637, ARI=0.03872510805725504, NMI=0.03537901103653688
+Iterasi dengan n_components=78: Silhouette=0.04790199727709523, ARI=0.06901111818582553, NMI=0.05744833341206719
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=72: Silhouette=0.09600172390502465, ARI=0.15192703064321378, NMI=0.13000390226622416
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=79: Silhouette=0.0537188515762762, ARI=0.06905671466353218, NMI=0.05784608233490577
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=73: Silhouette=0.09821902714824306, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=80: Silhouette=0.049478513309967595, ARI=0.08074805415311274, NMI=0.06627595469152042
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=74: Silhouette=0.09642335992933307, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=81: Silhouette=0.04818478146639178, ARI=0.08074805415311274, NMI=0.06627595469152042
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=75: Silhouette=0.0865601289739421, ARI=0.16840662366749484, NMI=0.1417811079197256
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=82: Silhouette=0.025882791721601555, ARI=0.06905671466353218, NMI=0.05784608233490577
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=76: Silhouette=0.09311128615080116, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=83: Silhouette=0.0245753504875298, ARI=0.06905671466353218, NMI=0.05784608233490577
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=77: Silhouette=0.09153982271350362, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=84: Silhouette=0.02393892851037728, ARI=0.09330002938583602, NMI=0.0758873370772664
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=78: Silhouette=0.08503422164605601, ARI=0.18584994941748523, NMI=0.15874219849682203
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=85: Silhouette=0.0266263476672101, ARI=0.08074805415311274, NMI=0.06627595469152042
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=79: Silhouette=0.089482579663885, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=86: Silhouette=0.020120529016596108, ARI=0.08080808080808081, NMI=0.06689538498623886
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=80: Silhouette=0.08380752687770172, ARI=0.18584994941748523, NMI=0.15874219849682203
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=87: Silhouette=0.01964543476629242, ARI=0.08080808080808081, NMI=0.06689538498623886
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=81: Silhouette=0.0873790289122486, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=88: Silhouette=0.016499349077169354, ARI=0.09337403483569762, NMI=0.07678658807403242
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=82: Silhouette=0.08596042230787378, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=89: Silhouette=0.016521489767411537, ARI=0.09337403483569762, NMI=0.07678658807403242
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=83: Silhouette=0.0854402289405236, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=90: Silhouette=0.015055528064348322, ARI=0.048123541030705694, NMI=0.0428259941262739
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=84: Silhouette=0.08440281670886757, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=91: Silhouette=0.013570332982011773, ARI=0.030346561321601725, NMI=0.02964327933391515
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=85: Silhouette=0.08951481198485248, ARI=0.15210688591983557, NMI=0.13459183880031764
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=92: Silhouette=0.012382389007979847, ARI=0.030346561321601725, NMI=0.02964327933391515
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=86: Silhouette=0.08821212026474493, ARI=0.15210688591983557, NMI=0.13459183880031764
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=93: Silhouette=0.014072789678969817, ARI=0.03878787878787879, NMI=0.03570031803557409
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=87: Silhouette=0.08152669474928408, ARI=0.16856943577695385, NMI=0.14640120026863412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=94: Silhouette=0.027603950051233915, ARI=0.030204081632653063, NMI=0.029049405545332304
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=88: Silhouette=0.06973808839658177, ARI=0.15177478580171358, NMI=0.12634639359704986
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=95: Silhouette=0.05429301648490023, ARI=0.04837209302325581, NMI=0.04444801538936912
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=89: Silhouette=0.07166048523470972, ARI=0.18570379436964504, NMI=0.15412974927401074
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=96: Silhouette=0.05444809820561614, ARI=0.04837209302325581, NMI=0.04444801538936912
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=90: Silhouette=0.07030761999009051, ARI=0.18570379436964504, NMI=0.15412974927401074
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=97: Silhouette=0.04168334416825235, ARI=-0.004758781132736584, NMI=0.003379135584865404
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=91: Silhouette=0.06803167649365066, ARI=0.2228641370869033, NMI=0.18514337499882702
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=98: Silhouette=0.03529059849470591, ARI=-0.007834641821676385, NMI=0.0
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=92: Silhouette=0.07250221401396026, ARI=0.20394825412755332, NMI=0.1716447463558835
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=93: Silhouette=0.06804381298081073, ARI=0.15177478580171358, NMI=0.12634639359704986
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=94: Silhouette=0.07054497802959926, ARI=0.16840662366749484, NMI=0.1417811079197256
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=95: Silhouette=0.06931903463705934, ARI=0.16840662366749484, NMI=0.1417811079197256
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=96: Silhouette=0.06832346416174076, ARI=0.16840662366749484, NMI=0.1417811079197256
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=97: Silhouette=0.06978961709991799, ARI=0.18584994941748523, NMI=0.15874219849682203
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=98: Silhouette=0.08202849044251911, ARI=0.1689761872729719, NMI=0.15933429388669476
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=99: Silhouette=0.08965446047585779, ARI=0.10818078479145701, NMI=0.1138228555959753
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=99: Silhouette=0.035290598494705915, ARI=-0.007834641821676385, NMI=0.0
 </pre></div>
 </div>
 </div>
@@ -993,9 +988,9 @@ Iterasi dengan n_components=65: Silhouette=0.10958706371604858, ARI=0.1685694357
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best Silhouette Score is achieved by n_components=2 with score: 0.8588551195188908
-Best ARI is achieved by n_components=15 with score: 0.42995482536145835
-Best NMI is achieved by n_components=15 with score: 0.356324324338513
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best Silhouette Score is achieved by n_components=2 with score: 0.9384882305315918
+Best ARI is achieved by n_components=10 with score: 0.7721314419105764
+Best NMI is achieved by n_components=10 with score: 0.7287008798015754
 </pre></div>
 </div>
 </div>
@@ -1043,7 +1038,7 @@ Best NMI is achieved by n_components=15 with score: 0.356324324338513
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12817909d5c2ef6cd281885c0c63d7358f2fc605a9f1c1b87ad078be5727984b.png" src="../_images/12817909d5c2ef6cd281885c0c63d7358f2fc605a9f1c1b87ad078be5727984b.png" />
+<img alt="../_images/ebcb1091a93f6e35e41332c84de8eeac845dd5c579da05730b2434657110c8fd.png" src="../_images/ebcb1091a93f6e35e41332c84de8eeac845dd5c579da05730b2434657110c8fd.png" />
 </div>
 </div>
 </section>
@@ -1057,7 +1052,7 @@ Best NMI is achieved by n_components=15 with score: 0.356324324338513
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># Untuk manipulasi DataFrame</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/My Drive/PPW-A/report/tugas-ppw/hasil_preprocesing.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/My Drive/PPW-A/report/tugas-ppw/hasil_preproc.csv&#39;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Filtering/stopword removal&#39;</span><span class="p">]</span>
 <span class="n">random_seed</span> <span class="o">=</span> <span class="mi">42</span>  <span class="c1"># Tetapkan seed untuk konsistensi</span>
 
@@ -1115,15 +1110,15 @@ Best NMI is achieved by n_components=15 with score: 0.356324324338513
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score: 0.5600
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score: 0.1117
 Jumlah data pada setiap cluster:
 Cluster
-1    85
-0    15
+0    56
+1    44
 Name: count, dtype: int64
 </pre></div>
 </div>
-<img alt="../_images/62c1634bcaea063d2b606ea6ebc9e4ce2dedd137783b30d1ffb31015105eee8e.png" src="../_images/62c1634bcaea063d2b606ea6ebc9e4ce2dedd137783b30d1ffb31015105eee8e.png" />
+<img alt="../_images/a2e5546ab3840086f63c5675fc2a165c0faa90f0082058a3abcd1a6a32e51b26.png" src="../_images/a2e5546ab3840086f63c5675fc2a165c0faa90f0082058a3abcd1a6a32e51b26.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1136,7 +1131,7 @@ Name: count, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-55a01fa5-d71b-415e-a532-5ed8a93853ee" class="colab-df-container">
+  <div id="df-8768557f-a5ba-44c8-aa03-b8c43c2e6378" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1169,63 +1164,63 @@ Name: count, dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>7 Rekomendasi Makanan Pencegah Kanker, Ada Wor...</td>
-      <td>Rabu, 04 Des 2024 19:19 WIB</td>
-      <td>Jakarta - Kanker merupakan salah satu penyakit...</td>
+      <td>Mayapada Hospital Pakai Teknik Bronkoskopi Cry...</td>
+      <td>Kamis, 28 Nov 2024 11:30 WIB</td>
+      <td>Jakarta - Kesehatan paru-paru dapat terancam o...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kanker merupakan salah satu penyakit ...</td>
-      <td>jakarta  kanker merupakan salah satu penyakit ...</td>
-      <td>['jakarta', 'kanker', 'merupakan', 'salah', 's...</td>
-      <td>jakarta kanker salah penyakit ditakuti orang p...</td>
-      <td>1</td>
+      <td>Jakarta  Kesehatan paruparu dapat terancam ole...</td>
+      <td>jakarta  kesehatan paruparu dapat terancam ole...</td>
+      <td>['jakarta', 'kesehatan', 'paruparu', 'dapat', ...</td>
+      <td>jakarta kesehatan paruparu terancam faktor gay...</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Wanita Sering Halu gegara Skizofrenia, P...</td>
-      <td>Rabu, 04 Des 2024 18:05 WIB</td>
-      <td>Jakarta - Viral seorang wanita menceritakan pe...</td>
+      <td>Dunia Hadapi Ancaman 'Kebal' Antibiotik, Puluh...</td>
+      <td>Kamis, 28 Nov 2024 11:03 WIB</td>
+      <td>Jakarta - Temuan antibiotik menjadi salah satu...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral seorang wanita menceritakan pen...</td>
-      <td>jakarta  viral seorang wanita menceritakan pen...</td>
-      <td>['jakarta', 'viral', 'seorang', 'wanita', 'men...</td>
-      <td>jakarta viral wanita menceritakan pengalamanny...</td>
-      <td>1</td>
+      <td>Jakarta  Temuan antibiotik menjadi salah satu ...</td>
+      <td>jakarta  temuan antibiotik menjadi salah satu ...</td>
+      <td>['jakarta', 'temuan', 'antibiotik', 'menjadi',...</td>
+      <td>jakarta temuan antibiotik salah terobosan medi...</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Ilmuwan Teliti Efek Lockdown Pandemi COVID-19 ...</td>
-      <td>Rabu, 04 Des 2024 17:02 WIB</td>
-      <td>Jakarta - Sebuah penelitian terbaru mengungkap...</td>
+      <td>Mayapada Hospital Hadirkan Layanan Modern Dete...</td>
+      <td>Kamis, 28 Nov 2024 10:59 WIB</td>
+      <td>Jakarta - Kanker payudara menjadi salah satu p...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebuah penelitian terbaru mengungkapk...</td>
-      <td>jakarta  sebuah penelitian terbaru mengungkapk...</td>
-      <td>['jakarta', 'sebuah', 'penelitian', 'terbaru',...</td>
-      <td>jakarta penelitian terbaru perubahan signifika...</td>
-      <td>1</td>
+      <td>Jakarta  Kanker payudara menjadi salah satu pe...</td>
+      <td>jakarta  kanker payudara menjadi salah satu pe...</td>
+      <td>['jakarta', 'kanker', 'payudara', 'menjadi', '...</td>
+      <td>jakarta kanker payudara salah penyakit serius ...</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Curhat Warga Vietnam Sewa Pacar gegara Ortu Se...</td>
-      <td>Rabu, 04 Des 2024 16:01 WIB</td>
-      <td>Jakarta - Tidak hanya di Korea Selatan dan Jep...</td>
+      <td>Daftar Makanan yang Bisa Bikin Panjang Umur, S...</td>
+      <td>Kamis, 28 Nov 2024 10:35 WIB</td>
+      <td>Jakarta - Siapa yang tidak ingin hidup lebih l...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tidak hanya di Korea Selatan dan Jepa...</td>
-      <td>jakarta  tidak hanya di korea selatan dan jepa...</td>
-      <td>['jakarta', 'tidak', 'hanya', 'di', 'korea', '...</td>
-      <td>jakarta korea selatan jepang tren anak muda ma...</td>
-      <td>1</td>
+      <td>Jakarta  Siapa yang tidak ingin hidup lebih la...</td>
+      <td>jakarta  siapa yang tidak ingin hidup lebih la...</td>
+      <td>['jakarta', 'siapa', 'yang', 'tidak', 'ingin',...</td>
+      <td>jakarta hidup sehat pola makan berperan memper...</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Ramai soal 'Brain Rot', Istilah Kekinian gegar...</td>
-      <td>Rabu, 04 Des 2024 15:00 WIB</td>
-      <td>Jakarta - Belakangan ramai soal istilah 'brain...</td>
+      <td>Trump Tunjuk Pengkritik Vaksin COVID-19 Pimpin...</td>
+      <td>Kamis, 28 Nov 2024 10:00 WIB</td>
+      <td>Jakarta - Presiden terpilih AS Donald Trump me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Belakangan ramai soal istilah brain r...</td>
-      <td>jakarta  belakangan ramai soal istilah brain r...</td>
-      <td>['jakarta', 'belakangan', 'ramai', 'soal', 'is...</td>
-      <td>jakarta ramai istilah brain rot media sosial i...</td>
-      <td>1</td>
+      <td>Jakarta  Presiden terpilih AS Donald Trump men...</td>
+      <td>jakarta  presiden terpilih as donald trump men...</td>
+      <td>['jakarta', 'presiden', 'terpilih', 'as', 'don...</td>
+      <td>jakarta presiden terpilih as donald trump dr j...</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1241,63 +1236,63 @@ Name: count, dtype: int64
     </tr>
     <tr>
       <th>95</th>
-      <td>Gurih Hangat! 5 Soto Tangkar di Jakarta, Ada y...</td>
-      <td>Selasa, 03 Des 2024 12:00 WIB</td>
-      <td>Jakarta - Soto tangkar dengan daging iga dan k...</td>
+      <td>Demi Traktir Pacar Gratis, Pria Ini Selipkan S...</td>
+      <td>Selasa, 26 Nov 2024 16:00 WIB</td>
+      <td>Jakarta - Traktir pacar di restoran tapi tak m...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Soto tangkar dengan daging iga dan ku...</td>
-      <td>jakarta  soto tangkar dengan daging iga dan ku...</td>
-      <td>['jakarta', 'soto', 'tangkar', 'dengan', 'dagi...</td>
-      <td>jakarta soto tangkar daging iga kuah berkaldu ...</td>
+      <td>Jakarta  Traktir pacar di restoran tapi tak ma...</td>
+      <td>jakarta  traktir pacar di restoran tapi tak ma...</td>
+      <td>['jakarta', 'traktir', 'pacar', 'di', 'restora...</td>
+      <td>jakarta traktir pacar restoran bayar pria modu...</td>
       <td>1</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>4 Seafood Segar yang Populer di Jepang, Ada Ik...</td>
-      <td>Selasa, 03 Des 2024 11:30 WIB</td>
-      <td>Jakarta - Jepang terkenal dengan ragam seafood...</td>
+      <td>Surga Kuliner Jakarta Barat, Ada Makanan Legen...</td>
+      <td>Selasa, 26 Nov 2024 15:30 WIB</td>
+      <td>Jakarta - Belakangan ini eksistensi Jakarta Ba...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Jepang terkenal dengan ragam seafood ...</td>
-      <td>jakarta  jepang terkenal dengan ragam seafood ...</td>
-      <td>['jakarta', 'jepang', 'terkenal', 'dengan', 'r...</td>
-      <td>jakarta jepang terkenal ragam seafood lezat da...</td>
+      <td>Jakarta  Belakangan ini eksistensi Jakarta Bar...</td>
+      <td>jakarta  belakangan ini eksistensi jakarta bar...</td>
+      <td>['jakarta', 'belakangan', 'ini', 'eksistensi',...</td>
+      <td>jakarta eksistensi jakarta barat surga kuliner...</td>
       <td>1</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>10 Resep Olahan Ayam agar Tidak Bosan Makan di...</td>
-      <td>Selasa, 03 Des 2024 11:00 WIB</td>
-      <td>Tentang Bahan Langkah Jakarta - Daging ayam me...</td>
+      <td>5 Cara Atasi Food Coma, Anti Ngantuk Usai Maka...</td>
+      <td>Selasa, 26 Nov 2024 15:00 WIB</td>
+      <td>Jakarta - Usai makan banyak terutama ketika ma...</td>
       <td>Kuliner</td>
-      <td>Tentang Bahan Langkah Jakarta  Daging ayam mer...</td>
-      <td>tentang bahan langkah jakarta  daging ayam mer...</td>
-      <td>['tentang', 'bahan', 'langkah', 'jakarta', 'da...</td>
-      <td>bahan langkah jakarta daging ayam bahan makana...</td>
+      <td>Jakarta  Usai makan banyak terutama ketika mak...</td>
+      <td>jakarta  usai makan banyak terutama ketika mak...</td>
+      <td>['jakarta', 'usai', 'makan', 'banyak', 'teruta...</td>
+      <td>jakarta makan makan siang kantuk kerap muncul ...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>Peneliti China Sebut Rutin Konsumsi Keju Bisa ...</td>
-      <td>Selasa, 03 Des 2024 10:30 WIB</td>
-      <td>Jakarta - Mendengkur disebabkan karena saluran...</td>
+      <td>Ada Beragam Sajian Hong Kong Lezat di Restoran...</td>
+      <td>Selasa, 26 Nov 2024 14:30 WIB</td>
+      <td>Jakarta - Satu lagi restoran seafood ala Hong ...</td>
       <td>Kuliner</td>
-      <td>Jakarta  Mendengkur disebabkan karena saluran ...</td>
-      <td>jakarta  mendengkur disebabkan karena saluran ...</td>
-      <td>['jakarta', 'mendengkur', 'disebabkan', 'karen...</td>
-      <td>jakarta mendengkur disebabkan saluran pernapas...</td>
+      <td>Jakarta  Satu lagi restoran seafood ala Hong K...</td>
+      <td>jakarta  satu lagi restoran seafood ala hong k...</td>
+      <td>['jakarta', 'satu', 'lagi', 'restoran', 'seafo...</td>
+      <td>jakarta restoran seafood ala hong kong hadir j...</td>
       <td>1</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>Resep Salad Makaroni dan Sayuran ala Amwerika ...</td>
-      <td>Selasa, 03 Des 2024 10:00 WIB</td>
-      <td>Tentang Bahan Langkah Jakarta - Tak hanya enak...</td>
+      <td>Pegawai Ini Ungkap Kekacauan Dapur Kafe yang B...</td>
+      <td>Selasa, 26 Nov 2024 14:00 WIB</td>
+      <td>Jakarta - Sebuah restoran sekaligus kafe popul...</td>
       <td>Kuliner</td>
-      <td>Tentang Bahan Langkah Jakarta  Tak hanya enak ...</td>
-      <td>tentang bahan langkah jakarta  tak hanya enak ...</td>
-      <td>['tentang', 'bahan', 'langkah', 'jakarta', 'ta...</td>
-      <td>bahan langkah jakarta enak dipanggang makaroni...</td>
-      <td>0</td>
+      <td>Jakarta  Sebuah restoran sekaligus kafe popule...</td>
+      <td>jakarta  sebuah restoran sekaligus kafe popule...</td>
+      <td>['jakarta', 'sebuah', 'restoran', 'sekaligus',...</td>
+      <td>jakarta restoran kafe populer new york viral m...</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1306,7 +1301,7 @@ Name: count, dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-55a01fa5-d71b-415e-a532-5ed8a93853ee')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8768557f-a5ba-44c8-aa03-b8c43c2e6378')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1358,12 +1353,12 @@ Name: count, dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-55a01fa5-d71b-415e-a532-5ed8a93853ee button.colab-df-convert');
+        document.querySelector('#df-8768557f-a5ba-44c8-aa03-b8c43c2e6378 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-55a01fa5-d71b-415e-a532-5ed8a93853ee');
+        const element = document.querySelector('#df-8768557f-a5ba-44c8-aa03-b8c43c2e6378');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1414,23 +1409,23 @@ Name: count, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    id   kategori  Cluster
-0    0  Kesehatan        1
-1    1  Kesehatan        1
-2    2  Kesehatan        1
-3    3  Kesehatan        1
-4    4  Kesehatan        1
+0    0  Kesehatan        0
+1    1  Kesehatan        0
+2    2  Kesehatan        0
+3    3  Kesehatan        0
+4    4  Kesehatan        0
 ..  ..        ...      ...
 95  95    Kuliner        1
 96  96    Kuliner        1
 97  97    Kuliner        0
 98  98    Kuliner        1
-99  99    Kuliner        0
+99  99    Kuliner        1
 
 [100 rows x 3 columns]
-Anggota Cluster 0: [8, 9, 10, 11, 14, 15, 26, 36, 37, 38, 41, 42, 67, 97, 99]
-Anggota Cluster 1: [0, 1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 39, 40, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 98]
-15
-85
+Anggota Cluster 0: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 58, 59, 60, 61, 85, 97]
+Anggota Cluster 1: [50, 51, 52, 53, 54, 55, 56, 57, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 98, 99]
+56
+44
 </pre></div>
 </div>
 </div>
@@ -1467,10 +1462,10 @@ Anggota Cluster 1: [0, 1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 18, 19, 20, 21, 22, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f1b53bf6e7a3905da327b45c5fbbd1f106b4ecfbe17e43e2195b1d7a74f22e4f.png" src="../_images/f1b53bf6e7a3905da327b45c5fbbd1f106b4ecfbe17e43e2195b1d7a74f22e4f.png" />
+<img alt="../_images/4dba1d2947e7c99ffddaa916b8913740ee0809287cadf2b7085210210690e286.png" src="../_images/4dba1d2947e7c99ffddaa916b8913740ee0809287cadf2b7085210210690e286.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Confusion Matrix (Contingency Matrix):
-[[12 38]
- [ 3 47]]
+[[50  0]
+ [ 6 44]]
 </pre></div>
 </div>
 </div>
@@ -1492,7 +1487,7 @@ Anggota Cluster 1: [0, 1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 18, 19, 20, 21, 22, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score: 0.5600
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score: 0.1117
 </pre></div>
 </div>
 </div>
@@ -1507,7 +1502,7 @@ Anggota Cluster 1: [0, 1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 18, 19, 20, 21, 22, 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Membaca data</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/My Drive/PPW-A/report/tugas-ppw/hasil_preprocesing.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/My Drive/PPW-A/report/tugas-ppw/hasil_preproc.csv&quot;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Filtering/stopword removal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>  <span class="c1"># Pastikan data berupa string</span>
 
 <span class="c1"># Fungsi untuk menerapkan FCM dalam pipeline</span>
@@ -1626,13 +1621,22 @@ Anggota Cluster 1: [0, 1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 18, 19, 20, 21, 22, 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro.html"
+       href="Tugas7.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Selamat Datang di Jupyter Book Saya</p>
+        <p class="prev-next-title">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="link-penugasan-deployment.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Link Penugasan Deployment</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
